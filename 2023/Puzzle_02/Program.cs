@@ -33,6 +33,7 @@ public class Program
 		return File.ReadLines(fileName);
 	}
 
+	#region PART 1
 	private static int CalculateValidGames(IEnumerable<string> input)
 	{
 		var sum = 0;
@@ -72,7 +73,9 @@ public class Program
 
 		return sum;
 	}
+	#endregion
 
+	#region PART 2
 	private static long CalculateSumOfPowerOfEachGame(IEnumerable<string> input)
 	{
 		var sum = 0L;
@@ -101,4 +104,5 @@ public class Program
 
 		return sum;
 	}
+	#endregion
 }

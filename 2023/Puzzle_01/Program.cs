@@ -31,23 +31,13 @@ public class Program
 		return File.ReadLines(fileName);
 	}
 
+	#region PART 1
 	public static int CalculateSumOfCalibrationDigits(IEnumerable<string> input)
 	{
 		var result = 0;
 		foreach (var line in input)
 		{
 			result += ScanForDigits(line);
-		}
-
-		return result;
-	}
-
-	public static int CalculateSumOfCalibrationDigitsAndStrings(IEnumerable<string> input)
-	{
-		var result = 0;
-		foreach (var line in input)
-		{
-			result += ScanForDigitsAndStrings(line);
 		}
 
 		return result;
@@ -80,6 +70,19 @@ public class Program
 		}
 
 		return int.Parse($"{first}{last}");
+	}
+	#endregion
+
+	#region PART 2
+	public static int CalculateSumOfCalibrationDigitsAndStrings(IEnumerable<string> input)
+	{
+		var result = 0;
+		foreach (var line in input)
+		{
+			result += ScanForDigitsAndStrings(line);
+		}
+
+		return result;
 	}
 
 	public static int ScanForDigitsAndStrings(string line)
@@ -163,4 +166,5 @@ public class Program
 		number = -1;
 		return false;
 	}
+	#endregion
 }

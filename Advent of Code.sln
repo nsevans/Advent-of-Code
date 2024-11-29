@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Puzzle_01", "2023\Puzzle_01
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Puzzle_02", "2023\Puzzle_02\Puzzle_02.csproj", "{58A1F15A-5A43-4A30-950B-631E502D554C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Puzzle_03", "2023\Puzzle_03\Puzzle_03.csproj", "{3A5A97A2-8FCC-4316-9507-758B1859B734}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{58A1F15A-5A43-4A30-950B-631E502D554C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58A1F15A-5A43-4A30-950B-631E502D554C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58A1F15A-5A43-4A30-950B-631E502D554C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A5A97A2-8FCC-4316-9507-758B1859B734}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A5A97A2-8FCC-4316-9507-758B1859B734}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A5A97A2-8FCC-4316-9507-758B1859B734}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A5A97A2-8FCC-4316-9507-758B1859B734}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +36,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{BB747541-510A-49F2-8566-3D7C941D8144} = {8ACDF072-5407-49F1-A26B-F5E73AE16148}
 		{58A1F15A-5A43-4A30-950B-631E502D554C} = {8ACDF072-5407-49F1-A26B-F5E73AE16148}
+		{3A5A97A2-8FCC-4316-9507-758B1859B734} = {8ACDF072-5407-49F1-A26B-F5E73AE16148}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0EAE671B-D40E-48C0-B58D-9382630A0294}

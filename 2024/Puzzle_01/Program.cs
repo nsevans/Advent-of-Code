@@ -20,7 +20,7 @@ public class Program
 {
 	public static void Main(string[] args)
 	{
-		Console.WriteLine("### 2023 - Puzzle 01 ###\n");
+		Console.WriteLine("### 2024 - Puzzle 01 ###\n");
 		var input = GetInput("./input.txt");
 
 		var parsedInput = ParseInput(input);

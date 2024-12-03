@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Puzzle_01", "2024\Puzzle_01
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Puzzle_02", "2024\Puzzle_02\Puzzle_02.csproj", "{F0A0AD29-CFCE-436A-9D26-0CB451660EE2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Puzzle_03", "2024\Puzzle_03\Puzzle_03.csproj", "{DD10ADA5-5E6C-484F-BAC5-5B48D20CDA7A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

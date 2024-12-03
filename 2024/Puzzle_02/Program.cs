@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Puzzle_05;
+namespace Puzzle_02;
 
 /// <summary>
 /// Link: https://adventofcode.com/2024/day/2

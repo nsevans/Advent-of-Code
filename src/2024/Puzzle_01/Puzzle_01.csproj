@@ -10,5 +10,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>%(Filename)%(Extension)</TargetPath>
     </ContentWithTargetPath>
-  </ItemGroup>  
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../AdventOfCode/AdventOfCode.csproj" />
+  </ItemGroup>
+
 </Project>

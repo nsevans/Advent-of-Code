@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Puzzle_03;
+namespace AdventOfCode.Year_2024.Puzzle_03;
 
 /// <summary>
 /// Link: https://adventofcode.com/2024/day/3

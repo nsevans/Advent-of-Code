@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Puzzle_02;
+namespace AdventOfCode.Year_2024.Puzzle_02;
 
 /// <summary>
 /// Link: https://adventofcode.com/2024/day/2

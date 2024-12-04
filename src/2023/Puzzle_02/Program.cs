@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace Puzzle_02;
+namespace AdventOfCode.Year_2023.Puzzle_02;
 
 /// <summary>
 /// Link: https://adventofcode.com/2023/day/2

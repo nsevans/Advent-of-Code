@@ -8,7 +8,7 @@ namespace AdventOfCode.Year_2024.Puzzle_11;
 /// <summary>
 /// Link: https://adventofcode.com/2024/day/11
 /// Input Format:
-/// 	2333133121414131402
+/// 	0 1 10 99 999
 /// </summary>
 public class Program
 {

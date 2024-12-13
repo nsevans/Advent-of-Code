@@ -29,20 +29,19 @@ public class PuzzleSolvingService
 		foreach (var group in puzzleSolverGroups)
 		{
 			SolvePuzzleGroup(group);
+			Console.WriteLine("#--------------------------------------------------#");
 		}
 	}
 
 	private void SolvePuzzleGroup(List<BasePuzzleSolver> puzzleSolverGroup)
 	{
+		var firstSolver = puzzleSolverGroup.First();
 		if (puzzleSolverGroup.Count > 1)
-		{
-			Console.WriteLine($"\nSolving {puzzleSolverGroup.First().PuzzleYear}, Day {puzzleSolverGroup.First().PuzzleNumber}" +
-				$": '{puzzleSolverGroup.First().Title}'");
-		}
+			Console.WriteLine($"\n#### Solving {firstSolver.PuzzleYear}, Day {firstSolver.PuzzleNumber}: '{firstSolver.Title}' ####");
 		else
 		{
-			Console.WriteLine($"\nSolving {puzzleSolverGroup.First().PuzzleYear}, Day {puzzleSolverGroup.First().PuzzleNumber}," +
-				$" Part {puzzleSolverGroup.First().GetType().Name[^1]}: '{puzzleSolverGroup.First().Title}'");
+			var part = firstSolver.GetType().Name[^1];
+			Console.WriteLine($"\n### Solving {firstSolver.PuzzleYear}, Day {firstSolver.PuzzleNumber}, Part {part}: '{firstSolver.Title}' ####");
 		}
 
 		Console.WriteLine($"Link: {puzzleSolverGroup.First().PuzzleLink}\n");
@@ -50,7 +49,7 @@ public class PuzzleSolvingService
 		foreach (var puzzleSolver in puzzleSolverGroup)
 		{
 			if (puzzleSolverGroup.Count > 1)
-				Console.WriteLine($"Part {puzzleSolver.GetType().Name[^1]}");
+				Console.WriteLine($"## Part {puzzleSolver.GetType().Name[^1]} ##");
 
 			SolvePuzzle(puzzleSolver);
 

@@ -8,11 +8,11 @@ namespace AdventOfCode;
 /// This project is for all of my attempts at the Advent of Code puzzles found here: https://adventofcode.com.
 /// 
 /// Usage:
-/// 	dotnet run -- --year <int> --puzzle <int> --part <int> --verbose
-/// All parameters are optional. The ones used will filter down the number of puzzles performed.
+/// 	dotnet run -- --year <int> --day <int> --part <int> --verbose
+/// All parameters are optional and help filter out which ones are run
 /// Ex:
-/// 	`dotnet run -- --year 2024` will execute all puzzles for the year 2024
-/// 	`dotnet run -- --day 1` will execute puzzles for day #1 for all years
+/// 	`dotnet run -- --year 2024` will execute all days and parts for the year 2024
+/// 	`dotnet run -- --day 1` will execute all parts for day #1 for all years
 /// 	`dotnet run -- --part 1` will execute the first part of all days for all years
 /// </summary>
 public class Program
@@ -32,7 +32,7 @@ public class Program
 
 		var verbose = args.HasArgument("--verbose");
 
-		var orchestrator = new PuzzleSolvingService(year, day, part, verbose);
-		orchestrator.SolvePuzzles();
+		var orchestrator = new SolvingService(year, day, part, verbose);
+		orchestrator.Solve();
 	}
 }

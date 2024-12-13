@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace AdventOfCode.Puzzles.Year_2023.Puzzle_02;
+namespace AdventOfCode.Puzzles.Year_2023.Day_02;
 
-public class Part_01 : Puzzle_02
+public class Part_01 : Day_02
 {
 	
 	private const int _redLimit = 12;

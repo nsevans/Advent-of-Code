@@ -2,23 +2,23 @@ using System.Collections.Generic;
 
 namespace AdventOfCode;
 
-public interface IPuzzleSolver
+public interface ISolver
 {
 	public void PrepareData(List<string> input);
 	public void Solve();
 }
 
-public abstract class BasePuzzleSolver : IPuzzleSolver
+public abstract class BaseSolver : ISolver
 {
-	public string PuzzleLink => $"{Program.BaseUrl}/{PuzzleYear}/day/{PuzzleNumber}";
+	public string DayLink => $"{Program.BaseUrl}/{Year}/day/{Day}";
 	
-	public string DownloadLink => $"{PuzzleLink}/input";
+	public string DownloadLink => $"{DayLink}/input";
 
 	public abstract string Title { get; }
 
-	public abstract int PuzzleNumber { get; }
+	public abstract int Day { get; }
 
-	public abstract int PuzzleYear { get; }
+	public abstract int Year { get; }
 
 	public abstract void PrepareData(List<string> input);
 	public abstract void Solve();

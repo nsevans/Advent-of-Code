@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AdventOfCode.Puzzles.Year_2023.Puzzle_04;
+namespace AdventOfCode.Puzzles.Year_2023.Day_04;
 
-public class Part_01 : Puzzle_04
+public class Part_01 : Day_04
 {
 	private List<string> _preparedInput;
     public override void PrepareData(List<string> input)

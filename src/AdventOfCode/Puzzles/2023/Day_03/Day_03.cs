@@ -1,22 +1,22 @@
 using System.Collections.Generic;
 
-namespace AdventOfCode.Puzzles.Year_2023.Puzzle_03;
+namespace AdventOfCode.Puzzles.Year_2023.Day_03;
 
 /// <summary>
-/// This base class is to store shared logic between Parts 1 and 2 of this puzzle
+/// This base class is to store shared logic between Parts 1 and 2 of this day
 /// 
-/// Link to Puzzle: https://adventofcode.com/2023/day/3
+/// Link to Day https://adventofcode.com/2023/day/3
 /// 
 /// Input Format: 
 ///		..172..............................454..46.......507..........809
 ///		............*.........712........=.......*................515.*..
 ///		.........823.835........%.........710.....749........134..%......
 /// </summary>
-public abstract class Puzzle_03 : BasePuzzleSolver
+public abstract class Day_03 : BaseSolver
 {
 	public override string Title => "Gear Ratios";
-    public override int PuzzleNumber => 3;
-    public override int PuzzleYear => 2023;
+    public override int Day => 3;
+    public override int Year => 2023;
 
 	protected static string ValidSymbols => "*=/%#&$-@+";
 

@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AdventOfCode.Puzzles.Year_2023.Puzzle_05;
+namespace AdventOfCode.Puzzles.Year_2023.Day_05;
 
-public class Part_02 : Puzzle_05
+public class Part_02 : Day_05
 {
 	private Dictionary<int, List<Mapping>> _mappingsDictionary;
 	private List<ValueRange> _seedRanges;

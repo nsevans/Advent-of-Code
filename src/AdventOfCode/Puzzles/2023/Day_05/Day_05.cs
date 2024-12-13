@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AdventOfCode.Puzzles.Year_2023.Puzzle_05;
+namespace AdventOfCode.Puzzles.Year_2023.Day_05;
 
 /// <summary>
-/// This base class is to store shared logic between Parts 1 and 2 of this puzzle
+/// This base class is to store shared logic between Parts 1 and 2 of this day
 /// 
-/// Link to Puzzle: https://adventofcode.com/2023/day/5
+/// Link to Day https://adventofcode.com/2023/day/5
 /// 
 /// Input Format: 
 ///		seeds: 3136945476 509728956 1904897211
@@ -20,11 +20,11 @@ namespace AdventOfCode.Puzzles.Year_2023.Puzzle_05;
 ///
 /// 	...
 /// </summary>
-public abstract class Puzzle_05 : BasePuzzleSolver
+public abstract class Day_05 : BaseSolver
 {
 	public override string Title => "If You Give A Seed A Fertilizer";
-    public override int PuzzleNumber => 5;
-    public override int PuzzleYear => 2023;
+    public override int Day => 5;
+    public override int Year => 2023;
 
 	protected record Mapping(long RangeStart, long RangeEnd, long Offset)
 	{

@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace AdventOfCode.Puzzles.Year_2023.Puzzle_01;
+namespace AdventOfCode.Puzzles.Year_2023.Day_01;
 
-public class Part_01 : Puzzle_01
+public class Part_01 : Day_01
 {
     private List<string> _preparedInput;
 

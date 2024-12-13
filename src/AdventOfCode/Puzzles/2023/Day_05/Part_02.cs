@@ -6,9 +6,12 @@ namespace AdventOfCode.Puzzles.Year_2023.Day_05;
 
 public class Part_02 : Day_05
 {
+	public override int Part => 2;
+
 	private Dictionary<int, List<Mapping>> _mappingsDictionary;
 	private List<ValueRange> _seedRanges;
-    public override void PrepareData(List<string> input)
+    
+	public override void PrepareData(List<string> input)
     {
 		_mappingsDictionary = ParseMappings(input);
 		_seedRanges = ParseSeedRanges(input);

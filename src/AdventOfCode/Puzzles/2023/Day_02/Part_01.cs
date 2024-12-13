@@ -5,6 +5,7 @@ namespace AdventOfCode.Puzzles.Year_2023.Day_02;
 
 public class Part_01 : Day_02
 {
+	public override int Part => 1;
 	
 	private const int _redLimit = 12;
 	private const int _greenLimit = 13;

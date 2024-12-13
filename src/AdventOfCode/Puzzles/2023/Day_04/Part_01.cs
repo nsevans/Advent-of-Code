@@ -6,8 +6,11 @@ namespace AdventOfCode.Puzzles.Year_2023.Day_04;
 
 public class Part_01 : Day_04
 {
+	public override int Part => 1;
+
 	private List<string> _preparedInput;
-    public override void PrepareData(List<string> input)
+    
+	public override void PrepareData(List<string> input)
     {
 		_preparedInput = input;
     }

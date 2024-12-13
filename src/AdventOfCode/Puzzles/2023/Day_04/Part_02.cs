@@ -6,6 +6,8 @@ namespace AdventOfCode.Puzzles.Year_2023.Day_04;
 
 public class Part_02 : Day_04
 {
+	public override int Part => 2;
+	
 	private Dictionary<int, Card> _cardDictionary;
 	private List<int> _cardsToScratch;
 	private int _lastCardId;

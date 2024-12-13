@@ -39,20 +39,16 @@ public class SolvingService
 		if (solverGroup.Count > 1)
 			Console.WriteLine($"\n#### Solving {firstSolver.Year}, Day {firstSolver.Day}: '{firstSolver.Title}' ####");
 		else
-		{
-			var part = firstSolver.GetType().Name[^1];
-			Console.WriteLine($"\n### Solving {firstSolver.Year}, Day {firstSolver.Day}, Part {part}: '{firstSolver.Title}' ####");
-		}
+			Console.WriteLine($"\n### Solving {firstSolver.Year}, Day {firstSolver.Day}, Part {firstSolver.Part}: '{firstSolver.Title}' ####");
 
 		Console.WriteLine($"Link: {solverGroup.First().DayLink}\n");
 
 		foreach (var solver in solverGroup)
 		{
 			if (solverGroup.Count > 1)
-				Console.WriteLine($"## Part {solver.GetType().Name[^1]} ##");
+				Console.WriteLine($"## Part {solver.Part} ##");
 
 			Solve(solver);
-
 			Console.WriteLine();
 		}
 	}

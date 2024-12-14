@@ -4,5 +4,9 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../AdventOfCode.Common/AdventOfCode.Common.csproj" />
+  </ItemGroup>
   
 </Project>

@@ -1,13 +1,6 @@
 using System.Collections.Generic;
 
-namespace AdventOfCode;
-
-public interface ISolver
-{
-	public void PrepareData(List<string> input);
-
-	public void Solve();
-}
+namespace AdventOfCode.Puzzles;
 
 public abstract class BaseSolver : ISolver
 {

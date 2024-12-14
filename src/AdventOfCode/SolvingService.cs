@@ -67,7 +67,7 @@ public class SolvingService
 
 		var totalTime = loadTime + solveTime;
 
-		Console.WriteLine($"Data Prep Time: {loadTime.TotalMilliseconds} ms");
+		Console.WriteLine($"Prep  Time: 	{loadTime.TotalMilliseconds} ms");
 		Console.WriteLine($"Solve Time:     {solveTime.TotalMilliseconds} ms");
 		Console.WriteLine($"Total Time:     {totalTime.TotalMilliseconds} ms");
 	}

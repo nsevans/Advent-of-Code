@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Numerics;
+using AdventOfCode.Common.Utility;
 
 namespace AdventOfCode.Puzzles.Year_2024.Day_14;
 
@@ -66,19 +67,12 @@ public abstract class Day_14 : BaseSolver
 		{
 			var totalDistince = robotData[i].Velocity * second;
 			
-			var newX = Mod(robotData[i].Position.X + totalDistince.X, MapWidth);
-			var newY = Mod(robotData[i].Position.Y + totalDistince.Y, MapHeight);
+			var newX = MathHelper.Mod(robotData[i].Position.X + totalDistince.X, MapWidth);
+			var newY = MathHelper.Mod(robotData[i].Position.Y + totalDistince.Y, MapHeight);
 
 			newData.Add((newX, newY));
 		}
 
         return newData;
     }
-
-    protected double Mod(double value, int maxSize)
-	{
-		while (value < 0)
-			value += maxSize;
-		return value % maxSize;
-	}
 }

@@ -33,4 +33,27 @@ public static class PrintHelper
 			Console.WriteLine();
 		}
 	}
+
+	public static void PrintMaskedMap<T>(List<List<T>> map, List<List<bool>> mask, char maskValue = 'O', List<T> ignore = null)
+	{
+		if (map.Count != mask.Count || map[0].Count != mask[0].Count)
+			throw new ArgumentException($"The size of {nameof(mask)} must be the same size as {nameof(map)}");
+
+		foreach (var (row, yIndex) in map.Select((r, y) => (r, y)))
+		{
+			foreach (var (item, xIndex) in row.Select((i, x) => (i, x)))
+			{
+				var doMaskIndex = mask[yIndex][xIndex];
+				if (doMaskIndex && !ignore.Contains(item))
+				{
+					Console.Write($" {maskValue} ");
+				}
+				else
+				{
+					Console.Write($" {item} ");
+				}
+			}
+			Console.WriteLine();
+		}
+	}
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 
 namespace AdventOfCode.Common.Extensions;
 
@@ -16,6 +17,15 @@ public static class ListExtensions
 	/// <summary>
 	/// Check if the given coordinates are within the bounds of the given 2 dimensional list.
 	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="map"></param>
+	/// <param name="index"></param>
+	/// <returns></returns>
+	public static bool IsInBounds<T>(this List<List<T>> map, (int x, int y) index) => map.IsInBounds(index.x, index.y);
+
+	/// <summary>
+	/// Check if the given coordinates are within the bounds of the given 2 dimensional list.
+	/// </summary>
 	/// <param name="map"></param>
 	/// <param name="x"></param>
 	/// <param name="y"></param>
@@ -26,6 +36,36 @@ public static class ListExtensions
 			return false;
 
 		if (y >= map.Count || x >= map[y].Count)
+			return false;
+
+		return true;
+	}
+
+	/// <summary>
+	/// Check if the given coordinates are safe (i.e.: in bounds of the 2D list and not an unsafe value)
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="map"></param>
+	/// <param name="index"></param>
+	/// <param name="unsafes"></param>
+	/// <returns></returns>
+	public static bool IsSafe<T>(this List<List<T>> map, (int x, int y) index, List<T> unsafes = null) => map.IsSafe(index.x, index.y, unsafes);
+
+	/// <summary>
+	/// Check if the given coordinates are safe (i.e.: in bounds of the 2D list and not an unsafe value)
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="map"></param>
+	/// <param name="x"></param>
+	/// <param name="y"></param>
+	/// <param name="unsafes"></param>
+	/// <returns></returns>
+	public static bool IsSafe<T>(this List<List<T>> map, int x, int y, List<T> unsafes = null)
+	{
+		if (!map.IsInBounds(x, y))
+			return false;
+
+		if (unsafes.Contains(map[y][x]))
 			return false;
 
 		return true;

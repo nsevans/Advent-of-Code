@@ -1,101 +1,29 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 
-namespace AdventOfCode.Year_2024.Puzzle_09;
+namespace AdventOfCode.Puzzles.Year_2024.Day_09;
 
-/// <summary>
-/// Link: https://adventofcode.com/2024/day/9
-/// Input Format:
-/// 	2333133121414131402
-/// </summary>
-public class Program
+public class Part_02 : Day_09
 {
-	public static void Main(string[] args)
-	{
-		Console.WriteLine("### 2024 - Puzzle 09 ###\n");
-		var input = GetInput("./input.txt");
+	public override int Part => 2;
 
-		var resultPart1 = CalculateChecksumOfRoughlyDefragmentedDiskMap(input);
-		Console.WriteLine($"[PART 1] Checksum of rough defragmentation: {resultPart1}");
+	private List<string> _expandedDiskMap;
 
-		var resultPart2 = CalculateChecksumOfDefragmentedDiskMap(input);
-		Console.WriteLine($"[PART 2] Checksum of defragmentation: {resultPart2}");
-	}
-
-	public static List<string> GetInput(string fileName)
-	{
-		return File.ReadLines(fileName).ToList();
-	}
-
-	private static List<int> ParseDiskMap(IEnumerable<string> input)
-	{
-		return input.First().Select(x => int.Parse(x.ToString())).ToList();
-	}
-
-	private static List<string> ParseExpandedDiskMap(List<int> diskMap)
-	{
-		var expandedDiskMap = new List<string>();
-		var currentId = 0;
-		for (var i = 0; i < diskMap.Count; i++)
-		{
-			// File
-			if (i % 2 == 0)
-			{
-				var file = Enumerable.Repeat(currentId.ToString(), diskMap[i]).ToList();
-				expandedDiskMap.AddRange(file);
-				currentId++;
-			}
-			// Free Space
-			else
-			{
-				var freeSpace = Enumerable.Repeat(".", diskMap[i]).ToList();
-				expandedDiskMap.AddRange(freeSpace);
-			}
-		}
-
-		return expandedDiskMap;
-	}
-
-	#region PART 1
-	private static long CalculateChecksumOfRoughlyDefragmentedDiskMap(IEnumerable<string> input)
+	public override void PrepareData(List<string> input)
 	{
 		var diskMap = ParseDiskMap(input);
-		var expandedDiskMap = ParseExpandedDiskMap(diskMap);
-
-		for (var i = expandedDiskMap.Count - 1; i >= 0; i--)
-		{
-			if (expandedDiskMap[i] != ".")
-			{
-				for (var j = 0; j < i; j++)
-				{
-					if (expandedDiskMap[j] == ".")
-					{
-						(expandedDiskMap[i], expandedDiskMap[j]) = (expandedDiskMap[j], expandedDiskMap[i]);
-						break;
-					}
-				}
-			}
-		}
-
-		var checksum = 0L;
-		// Ignore empty spaces for check sum because all will be at the end of the list
-		foreach (var (file, index) in expandedDiskMap.Where(x => x != ".").Select((f, i) => (f, i)))
-		{
-			checksum += index * int.Parse(file);
-		}
-
-		return checksum;
+		_expandedDiskMap = ParseExpandedDiskMap(diskMap);
 	}
-	#endregion
 
-	#region PART 2
-	private static long CalculateChecksumOfDefragmentedDiskMap(IEnumerable<string> input)
+	public override void Solve()
 	{
-		var diskMap = ParseDiskMap(input);
-		var expandedDiskMap = ParseExpandedDiskMap(diskMap);
+		var result = CalculateChecksumOfDefragmentedDiskMap(_expandedDiskMap);
+		Console.WriteLine($"Checksum of defragmentation: {result}");
+	}
 
+	private static long CalculateChecksumOfDefragmentedDiskMap(List<string> expandedDiskMap)
+	{
 		// Keep track of the earliest empty location to make future free space scans quicker
 		var earliestFreeSpaceIndex = -1;
 		// Keep track of the last file location to make future file scans quicker
@@ -197,5 +125,4 @@ public class Program
 
 		return new List<int>();
 	}
-	#endregion
 }

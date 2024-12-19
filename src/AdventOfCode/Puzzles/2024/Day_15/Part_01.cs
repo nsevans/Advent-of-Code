@@ -18,7 +18,7 @@ public class Part_01 : Day_15
 		_movements = ParseMovements(input);
 	}
 
-		protected List<List<char>> ParseWarehouseMap(List<string> input)
+	protected List<List<char>> ParseWarehouseMap(List<string> input)
 	{
 		var map = new List<List<char>>();
 
@@ -48,7 +48,7 @@ public class Part_01 : Day_15
 			var direction = _cardinalDirections[movement];
 			var nextPosition = (x: currentPosition.x + direction.x, y: currentPosition.y + direction.y);
 
-			var itemAtNextPosition = warehouseMap.GetFromIndex(nextPosition);
+			var itemAtNextPosition = warehouseMap.GetValueAtIndex(nextPosition);
 
 			// Wall, can't move
 			if (itemAtNextPosition == '#')
@@ -82,10 +82,10 @@ public class Part_01 : Day_15
 		if (!warehouseMap.IsInBounds(currentPosition.x, currentPosition.y))
 			return false;
 
-		var itemAtCurrentPosition = warehouseMap.GetFromIndex(currentPosition);
+		var itemAtCurrentPosition = warehouseMap.GetValueAtIndex(currentPosition);
 
 		var nextPosition = (x: currentPosition.x + direction.x, y: currentPosition.y + direction.y);
-		var itemAtNextPosition = warehouseMap.GetFromIndex(nextPosition);
+		var itemAtNextPosition = warehouseMap.GetValueAtIndex(nextPosition);
 
 		if (itemAtNextPosition == 'O')
 		{
@@ -93,8 +93,8 @@ public class Part_01 : Day_15
 			
 			if (isValidMove)
 			{
-				warehouseMap.SetFromIndex(currentPosition, '.');
-				warehouseMap.SetFromIndex(nextPosition, itemAtCurrentPosition);
+				warehouseMap.SetValueAtIndex(currentPosition, '.');
+				warehouseMap.SetValueAtIndex(nextPosition, itemAtCurrentPosition);
 				return true;
 			}
 
@@ -103,8 +103,8 @@ public class Part_01 : Day_15
 
 		if (itemAtNextPosition == '.')
 		{
-			warehouseMap.SetFromIndex(nextPosition, itemAtCurrentPosition);
-			warehouseMap.SetFromIndex(currentPosition, '.');
+			warehouseMap.SetValueAtIndex(nextPosition, itemAtCurrentPosition);
+			warehouseMap.SetValueAtIndex(currentPosition, '.');
 			return true;
 		}
 

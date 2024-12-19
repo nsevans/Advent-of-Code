@@ -132,7 +132,7 @@ public static class ListExtensions
 	/// <param name="list"></param>
 	/// <param name="position"></param>
 	/// <returns>The value at the given index, default if the index is invalid</returns>
-	public static T GetFromIndex<T>(this List<List<T>> list, (int x, int y) position) => list.GetFromIndex(position.x, position.y);
+	public static T GetValueAtIndex<T>(this List<List<T>> list, (int x, int y) position) => list.GetValueAtIndex(position.x, position.y);
 
 	/// <summary>
 	/// Get a value from a specified index of a 2D list at a given position, as long as the position is valid
@@ -142,7 +142,7 @@ public static class ListExtensions
 	/// <param name="x"></param>
 	/// <param name="y"></param>
 	/// <returns>The value at the given index, default if the index is invalid</returns>
-	public static T GetFromIndex<T>(this List<List<T>> list, int x, int y)
+	public static T GetValueAtIndex<T>(this List<List<T>> list, int x, int y)
 	{
 		if (!list.IsInBounds(x, y))
 			return default;
@@ -158,7 +158,7 @@ public static class ListExtensions
 	/// <param name="position"></param>
 	/// <param name="value"></param>
 	/// <returns>True if set successfully, false otherwise</returns>
-	public static bool SetFromIndex<T>(this List<List<T>> list, (int x, int y) position, T value) => list.SetFromIndex(position.x, position.y, value);
+	public static bool SetValueAtIndex<T>(this List<List<T>> list, (int x, int y) position, T value) => list.SetValueAtIndex(position.x, position.y, value);
 
 	/// <summary>
 	/// Set a given value in a 2D list at a given position, as long as the position is valid 
@@ -169,7 +169,7 @@ public static class ListExtensions
 	/// <param name="y"></param>
 	/// <param name="value"></param>
 	/// <returns>True if set successfully, false otherwise</returns>
-	public static bool SetFromIndex<T>(this List<List<T>> list, int x, int y, T value)
+	public static bool SetValueAtIndex<T>(this List<List<T>> list, int x, int y, T value)
 	{
 		if (!list.IsInBounds(x, y))
 			return false;

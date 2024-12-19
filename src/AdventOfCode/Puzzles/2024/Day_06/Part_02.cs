@@ -1,100 +1,29 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
+using AdventOfCode.Common.Extensions;
 
-namespace AdventOfCode.Year_2024.Puzzle_06;
+namespace AdventOfCode.Puzzles.Year_2024.Day_06;
 
-/// <summary>
-/// Link: https://adventofcode.com/2024/day/6
-/// Input Format:
-/// 	....#.....
-///		.........#
-///		..........
-///		..#.......
-///		.......#..
-///		..........
-///		.#..^.....
-///		........#.
-///		#.........
-///		......#...
-/// </summary>
-public class Program
+public class Part_02 : Day_06
 {
-	private static readonly List<(int x, int y)> _directions = [
-		(0,  -1),	// NORTH
-		( 1,  0),	// EAST
-		( 0,  1),	// SOUTH
-		(-1,  0)	// WEST
-	];
+	public override int Part => 2;
 
-	public static void Main(string[] args)
+	private List<List<char>> _map;
+
+	public override void PrepareData(List<string> input)
 	{
-		Console.WriteLine("### 2024 - Puzzle 06 ###\n");
-		var input = GetInput("./input.txt");
-
-		var resultPart1 = CalculateDistinctPositionsInPath(input);
-		Console.WriteLine($"[PART 1] Number of distinct guard positions: {resultPart1}");
-
-		var resultPart2 = CalcualtePositionsToCauseInfiniteLoops(input);
-		Console.WriteLine($"[PART 2] Number of positions causing guard loop: {resultPart2}");
+		_map = input.To2DCharList();
 	}
 
-	public static List<string> GetInput(string fileName)
+	public override void Solve()
 	{
-		return File.ReadLines(fileName).ToList();
+		var result = CalcualtePositionsToCauseInfiniteLoops(_map);
+		Console.WriteLine($"Number of positions causing guard infinite loop: {result}");
 	}
 
-	#region PART 1
-	private static int CalculateDistinctPositionsInPath(IEnumerable<string> input)
+	private static int CalcualtePositionsToCauseInfiniteLoops(List<List<char>> map)
 	{
-		var map = input.Select(x => x.ToCharArray().ToList()).ToList();
-
-		var startingY = map.IndexOf(map.First(x => x.Contains('^')));
-		var startingX = map[startingY].IndexOf('^');
-		var startingDirection = _directions[0];
-		
-		var currentY = startingY;
-		var currentX = startingX;
-		var currentDirection = startingDirection;
-
-		var distinctPositions = 0;
-		do
-		{
-			// If on a valid position mark it and update count
-			if (map[currentY][currentX] == '.' || map[currentY][currentX] == '^')
-			{
-				distinctPositions++;
-				map[currentY][currentX] = 'X';
-			}
-
-			var nextX = currentX + currentDirection.x;
-			var nextY = currentY + currentDirection.y;
-
-			if (nextY < 0 || nextX < 0 || nextY >= map.Count || nextX >= map[nextY].Count)
-				break;
-			
-			if (map[nextY][nextX] == '#')
-				// Update to try new direction (90 degree right turn)
-				currentDirection = _directions[(_directions.IndexOf(currentDirection) + 1) % _directions.Count];
-			else
-			{
-				currentX = nextX;
-				currentY = nextY;
-			}
-		}
-		// Account for if the current position returns to the starting position in the same direction to avoid an infinite loop
-		while (!(currentX == startingX && currentY == startingY && currentDirection == startingDirection));
-
-		return distinctPositions;
-	}
-	#endregion
-
-	#region PART 2
-	private static int CalcualtePositionsToCauseInfiniteLoops(IEnumerable<string> input)
-	{
-		var map = input.Select(x => x.ToCharArray().ToList()).ToList();
-
 		var possibleGuardPositions = GetAllPossibleGuardPositions(map);
 		var existingObstaclePositions = GetObstaclesPositions(map);
 
@@ -123,7 +52,7 @@ public class Program
 
 		var startingY = map.IndexOf(map.First(x => x.Contains('^')));
 		var startingX = map[startingY].IndexOf('^');
-		var startingDirection = _directions[0];
+		var startingDirection = Directions[0];
 		
 		var currentY = startingY;
 		var currentX = startingX;
@@ -144,7 +73,7 @@ public class Program
 			
 			if (map[nextY][nextX] == '#')
 				// Update to try new direction (90 degree right turn)
-				currentDirection = _directions[(_directions.IndexOf(currentDirection) + 1) % _directions.Count];
+				currentDirection = Directions[(Directions.IndexOf(currentDirection) + 1) % Directions.Count];
 			else
 			{
 				currentX = nextX;
@@ -181,11 +110,11 @@ public class Program
 
 		var startingY = map.IndexOf(map.First(x => x.Contains('^')));
 		var startingX = map[startingY].IndexOf('^');
-		var startingDirection = _directions[0];
+		var startingDirection = Directions[0];
 
 		var currentY = startingY;
 		var currentX = startingX;
-		var currentDirection = _directions[0];
+		var currentDirection = Directions[0];
 
 		do
 		{
@@ -198,7 +127,7 @@ public class Program
 			if (map[nextY][nextX] == '#')
 			{
 				// Update to try new direction (90 degree right turn)
-				currentDirection = _directions[(_directions.IndexOf(currentDirection) + 1) % _directions.Count];
+				currentDirection = Directions[(Directions.IndexOf(currentDirection) + 1) % Directions.Count];
 
 				if (obstacleCollisions.ContainsKey((nextX, nextY)))
 					obstacleCollisions[(nextX, nextY)]++;
@@ -221,5 +150,4 @@ public class Program
 		}
 		while (true);
 	}
-	#endregion
 }

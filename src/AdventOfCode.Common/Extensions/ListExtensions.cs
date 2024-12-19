@@ -7,12 +7,20 @@ namespace AdventOfCode.Common.Extensions;
 public static class ListExtensions
 {
 	/// <summary>
-	/// Convert a list of values to a 2D list of chars using the ToString() method
+	/// Convert a list of strings to a 2D list of chars
 	/// </summary>
 	/// <param name="list"></param>
 	/// <returns></returns>
-	public static List<List<char>> To2DCharList<T>(this IList<T> list)
-		=> list.Select(x => x.ToString().ToCharArray().ToList()).ToList();
+	public static List<List<char>> To2DCharList(this List<string> list)
+		=> list.Select(x => x.ToCharArray().ToList()).ToList();
+
+	/// <summary>
+	/// Convert a list of strings to a 2D list of ints
+	/// </summary>
+	/// <param name="list"></param>
+	/// <returns></returns>
+	public static List<List<int>> To2DIntList(this List<string> list)
+		=> list.Select(l => l.ToCharArray().Select(x => int.Parse(x.ToString())).ToList()).ToList();
 
 	/// <summary>
 	/// Check if the given coordinates are within the bounds of the given 2 dimensional list.

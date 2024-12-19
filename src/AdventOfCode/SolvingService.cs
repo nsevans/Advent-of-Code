@@ -25,7 +25,7 @@ public class SolvingService
 	public void Solve()
 	{
 		var solverGroups = GetSolvers();
-		Console.WriteLine($"Found {solverGroups.SelectMany(x => x).Count()} puzzles");
+		Console.Write($"Found {solverGroups.SelectMany(x => x).Count()} puzzles after applying the given filters.");
 
 		foreach (var group in solverGroups)
 		{

@@ -1,14 +1,16 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Numerics;
 
-namespace AdventOfCode.Year_2024.Puzzle_13;
+namespace AdventOfCode.Puzzles.Year_2024.Day_13;
 
 /// <summary>
-/// Link: https://adventofcode.com/2024/day/13
-/// Input Format:
+/// This base class is to store shared logic between Parts 1 and 2 of this day
+/// 
+/// Link to Day https://adventofcode.com/2024/day/13
+/// 
+/// Example/Test Input: 
 /// 	Button A: X+94, Y+34
 ///		Button B: X+22, Y+67
 ///		Prize: X=8400, Y=5400
@@ -16,33 +18,33 @@ namespace AdventOfCode.Year_2024.Puzzle_13;
 ///		Button A: X+26, Y+66
 ///		Button B: X+67, Y+21
 ///		Prize: X=12748, Y=12176
+///		
+///		Button A: X+17, Y+86
+///		Button B: X+84, Y+37
+///		Prize: X=7870, Y=6450
+///		
+///		Button A: X+69, Y+23
+///		Button B: X+27, Y+71
+///		Prize: X=18641, Y=10279
 /// </summary>
-public class Program
+public abstract class Day_13 : BaseSolver
 {
+	public override string Title => "Claw Contraption";
+	public override int Day => 13;
+	public override int Year => 2024;
 
-	public static void Main(string[] args)
-	{
-		Console.WriteLine("### 2024 - Puzzle 13 ###\n");
-		var input = GetInput("./input.txt");
+	
+	protected record Game(Vector2 ButtonA, Vector2 ButtonB, Vector2 Prize);
 
-		Console.WriteLine(CalculateSumOfTokensUsedForClawMachines(input));
-		Console.WriteLine(CalculateSumOfTokensUsedForValidClawMachinesWithOffset(input));
-	}
-
-	public static List<string> GetInput(string fileName)
-	{
-		return File.ReadLines(fileName).ToList();
-	}
-
-	private static List<Game> ParseInput(List<string> input)
+	protected static List<Game> ParseGames(List<string> input)
 	{
 		var games = new List<Game>();
 
 		for (var i = 0; i < input.Count(); i += 4)
 		{
-			var buttonA = ParseLine(input[i]);
-			var buttonB = ParseLine(input[i+1]);
-			var prize = ParseLine(input[i+2]);
+			var buttonA = ParseGameData(input[i]);
+			var buttonB = ParseGameData(input[i+1]);
+			var prize = ParseGameData(input[i+2]);
 			
 			games.Add(new Game(buttonA, buttonB, prize));
 		}
@@ -50,7 +52,7 @@ public class Program
 		return games;
 	}
 
-	private static Vector2 ParseLine(string line)
+	protected static Vector2 ParseGameData(string line)
 	{
 		// Select indeces with integers present (last two) and strip out any non digit characters
 		var parsedLine = line
@@ -61,14 +63,12 @@ public class Program
 		return new Vector2(parsedLine[0], parsedLine[1]);
 	}
 
-	private record Game(Vector2 ButtonA, Vector2 ButtonB, Vector2 Prize);
-
-	private static double CalculateButtonPresses(Game game)
+	protected static double CalculateButtonPresses(Game game)
 	{
 		return CalculateButtonPressesWithOffset(game, 0);
 	}
 
-	private static double CalculateButtonPressesWithOffset(Game game, double offset)
+	protected static double CalculateButtonPressesWithOffset(Game game, double offset)
 	{
 		// Use Cramer's Rule to determine number of presses per button
 		var prizeX = game.Prize.X + offset;
@@ -89,33 +89,4 @@ public class Program
 			return 0;
 	}
 
-	#region PART 1
-	private static double CalculateSumOfTokensUsedForClawMachines(List<string> input)
-	{
-		var games = ParseInput(input);
-		var sum = 0d;
-
-		foreach (var game in games)
-		{
-			sum += CalculateButtonPresses(game);
-		}
-
-		return sum;
-	}
-	#endregion
-
-	#region PART 2
-	private static double CalculateSumOfTokensUsedForValidClawMachinesWithOffset(List<string> input)
-	{
-		var games = ParseInput(input);
-		var sum = 0d;
-
-		foreach (var game in games)
-		{
-			sum += CalculateButtonPressesWithOffset(game, 10_000_000_000_000ul);
-		}
-
-		return sum;
-	}
-	#endregion
 }

@@ -44,7 +44,7 @@ public static class PrintHelper
 			foreach (var (item, xIndex) in row.Select((i, x) => (i, x)))
 			{
 				var doMaskIndex = mask[yIndex][xIndex];
-				if (doMaskIndex && !ignore.Contains(item))
+				if (doMaskIndex && ignore?.Contains(item) != true)
 				{
 					Console.Write($" {maskValue} ");
 				}

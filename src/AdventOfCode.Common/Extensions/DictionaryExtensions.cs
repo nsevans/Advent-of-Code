@@ -13,7 +13,7 @@ public static class DictionaryExtensions
 	/// <param name="dict"></param>
 	/// <param name="key"></param>
 	/// <param name="value"></param>
-	public static void AddOrUpdate<TKey, TValue>(this Dictionary<TKey, IList<TValue>> dict, TKey key, TValue value)
+	public static void AddOrUpdate<TKey, TValue>(this Dictionary<TKey, List<TValue>> dict, TKey key, TValue value)
 	{
 		if (dict.ContainsKey(key))
 			dict[key].Add(value);

@@ -17,7 +17,7 @@ public class Part_01 : Day_05
 		_seeds = ParseSeeds(input);
     }
 
-	private static List<long> ParseSeeds(List<string> input)
+	private List<long> ParseSeeds(List<string> input)
 	{
 		return input[0].Split(' ', StringSplitOptions.RemoveEmptyEntries)[1..]
 			.Select(x => long.Parse(x))
@@ -30,7 +30,7 @@ public class Part_01 : Day_05
 		Console.WriteLine($"Lowest location value with seed range: {result}");
 	}
 
-	private static long CalculateLowestLocation(Dictionary<int, List<Mapping>> mappingsDictionary, List<long> seeds)
+	private long CalculateLowestLocation(Dictionary<int, List<Mapping>> mappingsDictionary, List<long> seeds)
 	{
 		var minLocation = long.MaxValue;
 
@@ -45,7 +45,7 @@ public class Part_01 : Day_05
 		return minLocation;
 	}
 
-	private static long CalculateLocationRecursive(long sourceValue, Dictionary<int, List<Mapping>> mappingsDictionary, int level)
+	private long CalculateLocationRecursive(long sourceValue, Dictionary<int, List<Mapping>> mappingsDictionary, int level)
 	{
 		var currentMappings = mappingsDictionary[level];
 		// Set so if no range is found it defaults to source value

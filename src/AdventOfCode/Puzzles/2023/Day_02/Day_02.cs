@@ -5,7 +5,7 @@ namespace AdventOfCode.Puzzles.Year_2023.Day_02;
 /// 
 /// Link to Day https://adventofcode.com/2023/day/2
 /// 
-/// Input Format: 
+/// Example/Test Input: 
 ///		Game 1: 2 green, 6 blue, 7 red; 12 green, 6 blue, 3 red; 5 red, 18 green, 4 blue
 /// </summary>
 public abstract class Day_02 : BaseSolver

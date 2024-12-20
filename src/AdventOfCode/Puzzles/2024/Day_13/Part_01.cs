@@ -20,7 +20,7 @@ public class Part_01 : Day_13
 		Console.WriteLine($"Sum of fewest tokens used to win all possible games: {result}");
 	}
 
-	private static double CalculateSumOfTokensUsedForClawMachines(List<Game> games)
+	private double CalculateSumOfTokensUsedForClawMachines(List<Game> games)
 	{
 		var sum = 0d;
 

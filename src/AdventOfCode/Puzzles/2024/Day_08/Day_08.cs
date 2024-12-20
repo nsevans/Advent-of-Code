@@ -29,7 +29,7 @@ public abstract class Day_08 : BaseSolver
 	public override int Day => 8;
 	public override int Year => 2024;
 
-	protected static Dictionary<char, List<Vector2>> ParseFrequenceyDictionary(IEnumerable<string> input)
+	protected Dictionary<char, List<Vector2>> ParseFrequenceyDictionary(IEnumerable<string> input)
 	{
 		// Convert input to dictionary of Lists of Vectors to more easily identify matching antenna frequencies
 		var dictionary = new Dictionary<char, List<Vector2>>();

@@ -22,7 +22,7 @@ public class Part_02 : Day_09
 		Console.WriteLine($"Checksum of defragmentation: {result}");
 	}
 
-	private static long CalculateChecksumOfDefragmentedDiskMap(List<string> expandedDiskMap)
+	private long CalculateChecksumOfDefragmentedDiskMap(List<string> expandedDiskMap)
 	{
 		// Keep track of the earliest empty location to make future free space scans quicker
 		var earliestFreeSpaceIndex = -1;
@@ -65,7 +65,7 @@ public class Part_02 : Day_09
 		return checksum;
 	}
 
-	private static List<int> GetFileIndexes(List<string> expandedDiskMap, string fileId, int startIndex, out int latestFileChunkIndex)
+	private List<int> GetFileIndexes(List<string> expandedDiskMap, string fileId, int startIndex, out int latestFileChunkIndex)
 	{
 		var fileIndexes = new List<int> { };
 		var latestFileChunkIndexValue = -1;
@@ -93,7 +93,7 @@ public class Part_02 : Day_09
 		return fileIndexes.OrderBy(x => x).ToList();
 	}
 
-	private static List<int> GetFreeSpaceIndexes(List<string> expandedDiskMap, int startIndex, int fileSize, int firstFileIndex, out int earliestFreeSpaceIndex)
+	private List<int> GetFreeSpaceIndexes(List<string> expandedDiskMap, int startIndex, int fileSize, int firstFileIndex, out int earliestFreeSpaceIndex)
 	{
 
 		var freeSpaceIndexes = new List<int>();

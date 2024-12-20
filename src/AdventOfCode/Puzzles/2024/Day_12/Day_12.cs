@@ -9,10 +9,10 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_12;
 /// Link to Day https://adventofcode.com/2024/day/12
 /// 
 /// Example/Test Input: 
-/// 	0123
-///		1234
-///		8765
-///		9876
+/// 	AAAA
+///		BBCD
+///		BBCC
+///		EEEC
 /// </summary>
 public abstract class Day_12 : BaseSolver
 {
@@ -45,7 +45,7 @@ public abstract class Day_12 : BaseSolver
 		(-1,  1)	// SOUTH WEST
 	];
 
-	protected static List<List<char>> ParsePaddedGardenMap(IEnumerable<string> input)
+	protected List<List<char>> ParsePaddedGardenMap(IEnumerable<string> input)
 	{
 		// Pad top and bottom with padding character
 		var horizontalPad = Enumerable.Repeat('_', input.Count() + 2).ToList();

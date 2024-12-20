@@ -21,7 +21,7 @@ public class Part_02 : Day_04
 		Console.WriteLine($"Number of times an X of MAS appears in word search: {result}");
 	}
 
-	private static int CountNumberOfTimesWordShapeAppears(List<List<char>> wordSearch)
+	private int CountNumberOfTimesWordShapeAppears(List<List<char>> wordSearch)
 	{
 		var shapeCount = 0;
 

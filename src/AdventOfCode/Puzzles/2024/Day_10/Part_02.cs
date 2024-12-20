@@ -26,7 +26,7 @@ public class Part_02 : Day_10
 		Console.WriteLine($"Sum of all trail heads to trail ends: {result}");
 	}
 
-	private static long CalculateSumOfTrailHeadScores(List<List<int>> trailMap, List<(int x, int y)> startLocations, List<(int x, int y)> endLocations)
+	private long CalculateSumOfTrailHeadScores(List<List<int>> trailMap, List<(int x, int y)> startLocations, List<(int x, int y)> endLocations)
 	{
 		var endsFound = new List<(int x, int y)>();
 

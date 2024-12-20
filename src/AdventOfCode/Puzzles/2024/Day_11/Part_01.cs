@@ -20,7 +20,7 @@ public class Part_01 : Day_11
 		Console.WriteLine($"Number of stones after 25 blinks: {result}");
 	}
 
-	private static long CalculateNumberOfStonesAfter25Blinks(List<long> stones)
+	private long CalculateNumberOfStonesAfter25Blinks(List<long> stones)
 	{
 		// Cache of stone values and what new stone values they convert to
 		var cache = new Dictionary<long, List<long>>();

@@ -7,7 +7,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_06;
 /// 
 /// Link to Day https://adventofcode.com/2024/day/6
 /// 
-/// Input Format: 
+/// Example/Test Input: 
 /// 	....#.....
 ///		.........#
 ///		..........
@@ -25,7 +25,7 @@ public abstract class Day_06 : BaseSolver
 	public override int Day => 6;
 	public override int Year => 2024;
 
-	protected static readonly List<(int x, int y)> Directions = [
+	protected readonly List<(int x, int y)> Directions = [
 		(0,  -1),	// NORTH
 		( 1,  0),	// EAST
 		( 0,  1),	// SOUTH

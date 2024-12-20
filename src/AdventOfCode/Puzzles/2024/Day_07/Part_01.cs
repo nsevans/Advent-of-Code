@@ -20,7 +20,7 @@ public class Part_01 : Day_07
 		Console.WriteLine($"Sum of valid equations using + and *: {result}");
 	}
 
-	private static long CalculateSumOfValidEquationResultsWithTwoOperators(Dictionary<long, List<List<long>>> equationDictionary)
+	private long CalculateSumOfValidEquationResultsWithTwoOperators(Dictionary<long, List<List<long>>> equationDictionary)
 	{
 		var sum = 0L;
 		foreach (var equation in equationDictionary)
@@ -36,7 +36,7 @@ public class Part_01 : Day_07
 		return sum;
 	}
 
-	private static bool CanFindValidOperatorCombination(long expectedResult, List<long> numbers)
+	private bool CanFindValidOperatorCombination(long expectedResult, List<long> numbers)
 	{
 		var result1 = TryNextOperatorRecursive(expectedResult, numbers[0], numbers[1..], Operator.Add);
 		var result2 = TryNextOperatorRecursive(expectedResult, numbers[0], numbers[1..], Operator.Multiply);
@@ -47,7 +47,7 @@ public class Part_01 : Day_07
 		return false;
 	}
 
-	private static long TryNextOperatorRecursive(long expectedResult, long currentResult, List<long> currentNumbers, Operator op)
+	private long TryNextOperatorRecursive(long expectedResult, long currentResult, List<long> currentNumbers, Operator op)
 	{
 		// If no more numbers or the current result is already greater than the expected result, quit early
 		if (currentNumbers.Count == 0 || currentResult > expectedResult)

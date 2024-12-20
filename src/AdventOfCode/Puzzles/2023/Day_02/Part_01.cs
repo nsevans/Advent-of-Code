@@ -25,7 +25,7 @@ public class Part_01 : Day_02
 		Console.WriteLine($"Sum of Game IDs that match criteria: {result}");
     }
 
-	private static int CalculateValidGames(IEnumerable<string> input)
+	private int CalculateValidGames(IEnumerable<string> input)
 	{
 		var sum = 0;
 		foreach (var line in input)

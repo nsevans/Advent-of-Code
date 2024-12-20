@@ -21,7 +21,7 @@ public class Part_01 : Day_04
 		Console.WriteLine($"Sum of points for matching number: {result}");
     }
 
-	private static int CalculatePointsForMatchingNumbers(List<string> input)
+	private int CalculatePointsForMatchingNumbers(List<string> input)
 	{
 		var sum = 0;
 

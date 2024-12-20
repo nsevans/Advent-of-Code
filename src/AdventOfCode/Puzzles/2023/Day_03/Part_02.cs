@@ -8,7 +8,7 @@ public class Part_02 : Day_03
 {
 	public override int Part => 2;
 	
-	private static char _specialSymbol => '*';
+	private char _specialSymbol => '*';
 
 	private List<List<char>> _preparedInput;
 
@@ -23,7 +23,7 @@ public class Part_02 : Day_03
 		Console.WriteLine($"Sum of product of numbers adjacent to '*' when only 2 numbers are adjacent: {result}");
     }
 
-	private static int SumProductOfNumbersLinkedToSpecialSymbol(List<List<char>> inputMap)
+	private int SumProductOfNumbersLinkedToSpecialSymbol(List<List<char>> inputMap)
 	{
 		var sum = 0;
 		for (int i = 0; i < inputMap.Count; i++)
@@ -46,7 +46,7 @@ public class Part_02 : Day_03
 		return sum;
 	}
 
-	private static List<int> GetListOfAdjacents(List<List<char>> inputMap, int i, int j)
+	private List<int> GetListOfAdjacents(List<List<char>> inputMap, int i, int j)
 	{
 		var adjacents = new List<int>();
 		var lineLength = inputMap[i].Count;

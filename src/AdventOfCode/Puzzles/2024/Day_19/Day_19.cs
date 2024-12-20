@@ -5,7 +5,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_19;
 /// 
 /// Link to Day https://adventofcode.com/2024/day/19
 /// 
-/// Input Format: 
+/// Example/Test Input: 
 ///		r, wr, b, g, bwu, rb, gb, br
 ///		
 ///		brwrr

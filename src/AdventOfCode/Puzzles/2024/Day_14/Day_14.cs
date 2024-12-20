@@ -10,7 +10,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_14;
 /// 
 /// Link to Day https://adventofcode.com/2024/day/14
 /// 
-/// Input Format: 
+/// Example/Test Input: 
 ///		p=0,4 v=3,-3
 ///     p=6,3 v=-1,-3
 ///     p=10,3 v=-1,2

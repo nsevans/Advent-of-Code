@@ -22,7 +22,7 @@ public class Part_01 : Day_09
 		Console.WriteLine($"Checksum of rough defragmentation: {result}");
 	}
 
-	private static long CalculateChecksumOfRoughlyDefragmentedDiskMap(List<string> expandedDiskMap)
+	private long CalculateChecksumOfRoughlyDefragmentedDiskMap(List<string> expandedDiskMap)
 	{
 		for (var i = expandedDiskMap.Count - 1; i >= 0; i--)
 		{

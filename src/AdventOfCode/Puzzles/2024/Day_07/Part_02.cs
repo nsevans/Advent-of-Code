@@ -20,7 +20,7 @@ public class Part_02 : Day_07
 		Console.WriteLine($"SUM of valid equations using +, *, and || (concatenate): {result}");
 	}
 
-	private static long CalculateSumOfValidEquationResultsWithThreeOperators(Dictionary<long, List<List<long>>> equationDictionary)
+	private long CalculateSumOfValidEquationResultsWithThreeOperators(Dictionary<long, List<List<long>>> equationDictionary)
 	{
 		var sum = 0L;
 
@@ -37,7 +37,7 @@ public class Part_02 : Day_07
 		return sum;
 	}
 
-	private static bool CanFindValidOperatorCombinations(long expectedResult, List<long> numbers)
+	private bool CanFindValidOperatorCombinations(long expectedResult, List<long> numbers)
 	{
 		var addResult = TryNextOperatorRecursive(expectedResult, numbers[0], numbers[1..], Operator.Add);
 		var multResult = TryNextOperatorRecursive(expectedResult, numbers[0], numbers[1..], Operator.Multiply);
@@ -46,7 +46,7 @@ public class Part_02 : Day_07
 		return addResult == expectedResult || multResult == expectedResult || concatResult == expectedResult;
 	}
 
-	private static long TryNextOperatorRecursive(long expectedResult, long currentResult, List<long> currentNumbers, Operator op)
+	private long TryNextOperatorRecursive(long expectedResult, long currentResult, List<long> currentNumbers, Operator op)
 	{
 		// If no more numbers or the current result is already greater than the expected result, quit early
 		if (currentNumbers.Count == 0 || currentResult > expectedResult)

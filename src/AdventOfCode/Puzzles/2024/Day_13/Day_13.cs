@@ -36,7 +36,7 @@ public abstract class Day_13 : BaseSolver
 	
 	protected record Game(Vector2 ButtonA, Vector2 ButtonB, Vector2 Prize);
 
-	protected static List<Game> ParseGames(List<string> input)
+	protected List<Game> ParseGames(List<string> input)
 	{
 		var games = new List<Game>();
 
@@ -52,7 +52,7 @@ public abstract class Day_13 : BaseSolver
 		return games;
 	}
 
-	protected static Vector2 ParseGameData(string line)
+	protected Vector2 ParseGameData(string line)
 	{
 		// Select indeces with integers present (last two) and strip out any non digit characters
 		var parsedLine = line
@@ -63,12 +63,12 @@ public abstract class Day_13 : BaseSolver
 		return new Vector2(parsedLine[0], parsedLine[1]);
 	}
 
-	protected static double CalculateButtonPresses(Game game)
+	protected double CalculateButtonPresses(Game game)
 	{
 		return CalculateButtonPressesWithOffset(game, 0);
 	}
 
-	protected static double CalculateButtonPressesWithOffset(Game game, double offset)
+	protected double CalculateButtonPressesWithOffset(Game game, double offset)
 	{
 		// Use Cramer's Rule to determine number of presses per button
 		var prizeX = game.Prize.X + offset;

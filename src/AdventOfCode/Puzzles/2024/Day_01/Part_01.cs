@@ -21,7 +21,7 @@ public class Part_01 : Day_01
 		Console.WriteLine($"Sum of differences of ordered distances: {result}");
 	}
 
-	private static long CalculateSumOfDifferencesOfValues(List<long> left, List<long> right)
+	private long CalculateSumOfDifferencesOfValues(List<long> left, List<long> right)
     {
 		var sum = 0L;
 		left.Sort();

@@ -24,7 +24,7 @@ public class Part_02 : Day_04
 		_lastCardId = _cardsToScratch.OrderBy(x => x).Last();
     }
 	
-	private static Dictionary<int, Card> ConstructCardDictionary(IEnumerable<string> input)
+	private Dictionary<int, Card> ConstructCardDictionary(IEnumerable<string> input)
 	{
 		var dictionary = new Dictionary<int, Card>();
 		foreach(var line in input)
@@ -53,7 +53,7 @@ public class Part_02 : Day_04
 		Console.WriteLine($"Sum of points for matching number: {result}");
     }
 
-	private static int CalculateNumberOfInstancesOfWinningCards(Dictionary<int, Card> cardDictionary, List<int> cardsToScratch, int lastCardId)
+	private int CalculateNumberOfInstancesOfWinningCards(Dictionary<int, Card> cardDictionary, List<int> cardsToScratch, int lastCardId)
 	{	
 		var numberOfCardsScratched = 0;
 

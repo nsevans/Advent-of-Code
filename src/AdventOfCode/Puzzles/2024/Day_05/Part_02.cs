@@ -23,7 +23,7 @@ public class Part_02 : Day_05
 		Console.WriteLine($"Sum of middle pages of re ordered updates: {result}");
 	}	
 
-	private static int CalculateSumOfInvalidMiddlePageNumbers(Dictionary<int, List<int>> pageOrderingRules, List<List<int>> pagesToProduce)
+	private int CalculateSumOfInvalidMiddlePageNumbers(Dictionary<int, List<int>> pageOrderingRules, List<List<int>> pagesToProduce)
 	{
 		var sum = 0;
 

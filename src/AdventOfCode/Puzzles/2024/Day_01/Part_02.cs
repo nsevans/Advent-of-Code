@@ -21,7 +21,7 @@ public class Part_02 : Day_01
 		Console.WriteLine($"Sum of product of duplicate values: {result}");
 	}
 
-	private static long CalculateSumOfProductOfDuplicateValues(List<long> left, List<long> right)
+	private long CalculateSumOfProductOfDuplicateValues(List<long> left, List<long> right)
 	{
 		var sum = 0L;
 

@@ -22,7 +22,7 @@ public class Part_02 : Day_06
 		Console.WriteLine($"Number of positions causing guard infinite loop: {result}");
 	}
 
-	private static int CalcualtePositionsToCauseInfiniteLoops(List<List<char>> map)
+	private int CalcualtePositionsToCauseInfiniteLoops(List<List<char>> map)
 	{
 		var possibleGuardPositions = GetAllPossibleGuardPositions(map);
 		var existingObstaclePositions = GetObstaclesPositions(map);
@@ -46,7 +46,7 @@ public class Part_02 : Day_06
 		return possibleObstacles;
 	}
 
-	private static List<(int x, int y)> GetAllPossibleGuardPositions(List<List<char>> map)
+	private List<(int x, int y)> GetAllPossibleGuardPositions(List<List<char>> map)
 	{
 		var guardPositions = new List<(int x, int y)>();
 
@@ -86,7 +86,7 @@ public class Part_02 : Day_06
 		return guardPositions.Distinct().ToList();
 	}
 	
-	private static List<(int x, int y)> GetObstaclesPositions(List<List<char>> map)
+	private List<(int x, int y)> GetObstaclesPositions(List<List<char>> map)
 	{
 		var positions = new List<(int x, int y)>();
 
@@ -102,7 +102,7 @@ public class Part_02 : Day_06
 		return positions;
 	}
 
-	private static void SimulateGuardPath(List<List<char>> map, out bool isLooping)
+	private void SimulateGuardPath(List<List<char>> map, out bool isLooping)
 	{
 		isLooping = false;
 

@@ -31,7 +31,7 @@ public abstract class Day_07 : BaseSolver
 		Add, Multiply, Concatenate
 	}
 
-	protected static Dictionary<long, List<List<long>>> ParseEquationDictionary(IEnumerable<string> input)
+	protected Dictionary<long, List<List<long>>> ParseEquationDictionary(IEnumerable<string> input)
 	{
 		var dictionary = new Dictionary<long, List<List<long>>>();
 

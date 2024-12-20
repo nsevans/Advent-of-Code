@@ -21,7 +21,7 @@ public class Part_01 : Day_03
 		Console.WriteLine($"Sum of symbol adjacent numbers: {result}");
     }
 
-	private static int SumNumbersLinkedToSymbols(List<List<char>> inputMap)
+	private int SumNumbersLinkedToSymbols(List<List<char>> inputMap)
 	{
 		var sum = 0;
 

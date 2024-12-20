@@ -8,7 +8,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_01;
 /// 
 /// Link to Day https://adventofcode.com/2024/day/1
 /// 
-/// Input Format: 
+/// Example/Test Input: 
 /// 	3   4
 /// 	4   3
 /// 	2   5

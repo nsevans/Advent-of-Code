@@ -20,7 +20,7 @@ public class Part_02 : Day_02
 		Console.WriteLine($"Sum of the powers of the fewest cubes of each color per game: {result}");
     }
 
-	private static long CalculateSumOfPowerOfEachGame(IEnumerable<string> input)
+	private long CalculateSumOfPowerOfEachGame(IEnumerable<string> input)
 	{
 		var sum = 0L;
 		foreach (var line in input)

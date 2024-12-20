@@ -9,7 +9,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_05;
 /// 
 /// Link to Day https://adventofcode.com/2024/day/5
 /// 
-/// Input Format: 
+/// Example/Test Input: 
 /// 	47|53
 ///		97|13
 ///		97|61
@@ -45,7 +45,7 @@ public abstract class Day_05 : BaseSolver
 	public override int Day => 5;
 	public override int Year => 2024;
 
-	protected static Dictionary<int, List<int>> ParsePageOrderingRules(IEnumerable<string> input)
+	protected Dictionary<int, List<int>> ParsePageOrderingRules(IEnumerable<string> input)
 	{
 		var result = new Dictionary<int, List<int>>();
 
@@ -67,7 +67,7 @@ public abstract class Day_05 : BaseSolver
 		return result;
 	}
 
-	protected static List<List<int>> ParsePagesToProduce(IEnumerable<string> input)
+	protected List<List<int>> ParsePagesToProduce(IEnumerable<string> input)
 	{
 		var result = new List<List<int>>();
 

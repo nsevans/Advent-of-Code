@@ -22,7 +22,7 @@ public class Part_01 : Day_06
 		Console.WriteLine($"Number of distinct guard positions: {result}");
 	}
 
-	private static int CalculateDistinctPositionsInPath(List<List<char>> map)
+	private int CalculateDistinctPositionsInPath(List<List<char>> map)
 	{
 		var startingY = map.IndexOf(map.First(x => x.Contains('^')));
 		var startingX = map[startingY].IndexOf('^');

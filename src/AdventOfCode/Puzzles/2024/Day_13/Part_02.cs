@@ -20,7 +20,7 @@ public class Part_02 : Day_13
 		Console.WriteLine($"Sum of fewest tokens used to win all possible games with a coordinate offset of 10,000,000,000,000: {result}");
 	}
 
-	private static double CalculateSumOfTokensUsedForValidClawMachinesWithOffset(List<Game> games)
+	private double CalculateSumOfTokensUsedForValidClawMachinesWithOffset(List<Game> games)
 	{
 		var sum = 0d;
 

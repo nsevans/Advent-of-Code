@@ -7,7 +7,7 @@ namespace AdventOfCode.Puzzles.Year_2023.Day_01;
 /// 
 /// Link to Day https://adventofcode.com/2023/day/1
 /// 
-/// Input Format: 
+/// Example/Test Input: 
 ///		mrjstg5onetwoeightgcczx8vgrgl
 /// </summary>
 public abstract class Day_01 : BaseSolver
@@ -16,5 +16,5 @@ public abstract class Day_01 : BaseSolver
     public override int Day => 1;
     public override int Year => 2023;
 
-	protected static List<string> NumberStrings => ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+	protected List<string> NumberStrings => ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
 }

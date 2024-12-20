@@ -21,7 +21,7 @@ public class Part_01 : Day_04
 		Console.WriteLine($"Number of times XMAS appears in word search: {result}");
 	}
 
-	private static int CountNumberOfTimesWordAppears(List<List<char>> wordSearch)
+	private int CountNumberOfTimesWordAppears(List<List<char>> wordSearch)
 	{
 		var wordCount = 0;
 
@@ -40,7 +40,7 @@ public class Part_01 : Day_04
 		return wordCount;
 	}
 
-	private static int SearchForWord(List<List<char>> wordSearch, string word, int x, int y)
+	private int SearchForWord(List<List<char>> wordSearch, string word, int x, int y)
 	{
 		var wordCount = 0;
 		for (var direction = 0; direction < 8; direction++)
@@ -51,7 +51,7 @@ public class Part_01 : Day_04
 		return wordCount;
 	}
 
-	private static bool SearchForWordRecursive(List<List<char>> wordSearch, string word, int x, int y, int direction)
+	private bool SearchForWordRecursive(List<List<char>> wordSearch, string word, int x, int y, int direction)
 	{
 		if (word.Length == 0)
 			return true;

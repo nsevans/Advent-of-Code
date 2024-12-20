@@ -20,12 +20,12 @@ public abstract class Day_10 : BaseSolver
 	public override int Day => 10;
 	public override int Year => 2024;
 
-	protected static List<List<int>> ParseTrailMap(IEnumerable<string> input)
+	protected List<List<int>> ParseTrailMap(IEnumerable<string> input)
 	{
 		return input.Select(x => x.Select(x => int.Parse(x.ToString())).ToList()).ToList();
 	}
 
-	protected static List<(int x, int y)> ParseLocations(List<List<int>> input, int locationId)
+	protected List<(int x, int y)> ParseLocations(List<List<int>> input, int locationId)
 	{
 		var locations = new List<(int x, int y)>();
 
@@ -41,7 +41,7 @@ public abstract class Day_10 : BaseSolver
 		return locations;
 	}
 
-	protected static List<(int x, int y)> TryFindEndOfTrailRecursiveDFS(List<List<int>> trailMap, (int x, int y) position)
+	protected List<(int x, int y)> TryFindEndOfTrailRecursiveDFS(List<List<int>> trailMap, (int x, int y) position)
     {
 		var topsFound = new List<(int x, int y)>();
 

@@ -25,7 +25,7 @@ public class Part_02 : Day_08
 		Console.WriteLine($"Sum of unique antinode positions for matching frequencies at any distance: {result}");
 	}
 
-	private static int CalculateSumOfAntinodesForMatchingFrequenciesAtAnyDistance(Dictionary<char, List<Vector2>> frequencyDictionary, List<List<char>> map)
+	private int CalculateSumOfAntinodesForMatchingFrequenciesAtAnyDistance(Dictionary<char, List<Vector2>> frequencyDictionary, List<List<char>> map)
 	{
 		var antinodeLocations = new List<Vector2>();
 

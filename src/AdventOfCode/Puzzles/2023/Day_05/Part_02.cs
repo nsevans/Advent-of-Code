@@ -17,7 +17,7 @@ public class Part_02 : Day_05
 		_seedRanges = ParseSeedRanges(input);
     }
 
-	private static List<ValueRange> ParseSeedRanges(List<string> input)
+	private List<ValueRange> ParseSeedRanges(List<string> input)
 	{
 		var seeds = input[0].Split(' ', StringSplitOptions.RemoveEmptyEntries)[1..]
 			.Select(x => long.Parse(x))
@@ -38,7 +38,7 @@ public class Part_02 : Day_05
 		Console.WriteLine($"Lowest location value with seed: {result}");
     }
 
-	private static long CalculateLowestLocationFromRanges(Dictionary<int, List<Mapping>> mappingsDictionary, List<ValueRange> seedRanges)
+	private long CalculateLowestLocationFromRanges(Dictionary<int, List<Mapping>> mappingsDictionary, List<ValueRange> seedRanges)
 	{
 		var sourceRanges = new List<ValueRange>(seedRanges);
 

@@ -5,7 +5,7 @@ using AdventOfCode.Common.Extensions;
 
 namespace AdventOfCode.Puzzles.Year_2024.Day_10;
 
-public class Part_1 : Day_10
+public class Part_01 : Day_10
 {
 	public override int Part => 1;
 

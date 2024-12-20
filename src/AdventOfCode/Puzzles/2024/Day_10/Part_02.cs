@@ -5,9 +5,9 @@ using AdventOfCode.Common.Extensions;
 
 namespace AdventOfCode.Puzzles.Year_2024.Day_10;
 
-public class Part_2 : Day_10
+public class Part_02 : Day_10
 {
-	public override int Part => 1;
+	public override int Part => 2;
 
 	private List<List<int>> _trailMap;
 	private List<(int x, int y)> _startLocations;

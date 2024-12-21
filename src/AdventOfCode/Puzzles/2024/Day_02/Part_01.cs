@@ -15,10 +15,11 @@ public class Part_01 : Day_02
 		_preparedInput = input;
     }
 
-    public override void Solve()
+    public override string ResultMessage => "Sum of all safe files (lines with gradual increases or decreases)";
+
+	public override string GetResult()
     {
-		var result = CalculateSumOfSafelyIncreasingOrDecreasingLines(_preparedInput);
-		Console.WriteLine($"Sum of all safe files (lines with gradual increases or decreases): {result}");
+		return CalculateSumOfSafelyIncreasingOrDecreasingLines(_preparedInput).ToString();
     }
 
 	private int CalculateSumOfSafelyIncreasingOrDecreasingLines(IEnumerable<string> input)

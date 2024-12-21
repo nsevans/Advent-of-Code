@@ -47,10 +47,11 @@ public class Part_02 : Day_04
 		return dictionary;
 	}
 
-    public override void Solve()
+	public override string ResultMessage => "Sum of total cards scratched";
+
+    public override string GetResult()
     {
-		var result = CalculateNumberOfInstancesOfWinningCards(_cardDictionary, _cardsToScratch, _lastCardId);
-		Console.WriteLine($"Sum of points for matching number: {result}");
+		return CalculateNumberOfInstancesOfWinningCards(_cardDictionary, _cardsToScratch, _lastCardId).ToString();
     }
 
 	private int CalculateNumberOfInstancesOfWinningCards(Dictionary<int, Card> cardDictionary, List<int> cardsToScratch, int lastCardId)

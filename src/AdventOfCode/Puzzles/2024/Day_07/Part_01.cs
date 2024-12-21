@@ -14,10 +14,11 @@ public class Part_01 : Day_07
 		_equationDictionary = ParseEquationDictionary(input);
 	}
 
-	public override void Solve()
+	public override string ResultMessage => "Sum of valid equations using + and *";
+
+	public override string GetResult()
 	{
-		var result = CalculateSumOfValidEquationResultsWithTwoOperators(_equationDictionary);
-		Console.WriteLine($"Sum of valid equations using + and *: {result}");
+		return CalculateSumOfValidEquationResultsWithTwoOperators(_equationDictionary).ToString();
 	}
 
 	private long CalculateSumOfValidEquationResultsWithTwoOperators(Dictionary<long, List<List<long>>> equationDictionary)

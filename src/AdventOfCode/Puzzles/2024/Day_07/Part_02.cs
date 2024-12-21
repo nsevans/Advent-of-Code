@@ -14,10 +14,11 @@ public class Part_02 : Day_07
 		_equationDictionary = ParseEquationDictionary(input);
 	}
 
-	public override void Solve()
+	public override string ResultMessage => "Sum of valid equations using +, *, and || (concatenate)";
+
+	public override string GetResult()
 	{
-		var result = CalculateSumOfValidEquationResultsWithThreeOperators(_equationDictionary);
-		Console.WriteLine($"SUM of valid equations using +, *, and || (concatenate): {result}");
+		return CalculateSumOfValidEquationResultsWithThreeOperators(_equationDictionary).ToString();
 	}
 
 	private long CalculateSumOfValidEquationResultsWithThreeOperators(Dictionary<long, List<List<long>>> equationDictionary)

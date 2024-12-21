@@ -15,10 +15,11 @@ public class Part_02 : Day_01
 		_inputPairs = ParsePairs(input);
 	}
 
-	public override void Solve()
+	public override string ResultMessage => "Sum of product of duplicate values";
+
+	public override string GetResult()
 	{
-		var result = CalculateSumOfProductOfDuplicateValues(_inputPairs.leftItems, _inputPairs.rightItems);
-		Console.WriteLine($"Sum of product of duplicate values: {result}");
+		return CalculateSumOfProductOfDuplicateValues(_inputPairs.leftItems, _inputPairs.rightItems).ToString();
 	}
 
 	private long CalculateSumOfProductOfDuplicateValues(List<long> left, List<long> right)

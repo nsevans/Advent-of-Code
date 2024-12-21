@@ -17,9 +17,10 @@ public class Part_01 : Day_21
 		_padInput = input.To2DCharList();
 	}
 
-	public override void Solve()
+	public override string ResultMessage => "Sum of shortest lengths of 4 deep robot control times numpad value";
+
+	public override string GetResult()
 	{
-		var result = CalculateSumOfKeyPresses(_padInput);
-		Console.WriteLine($"Sum of shortest lengths of 4 deep robot control times numpad value: {result}");
+		return CalculateSumOfKeyPresses(_padInput).ToString();
 	}
 }

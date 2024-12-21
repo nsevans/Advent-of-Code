@@ -15,10 +15,11 @@ public class Part_01 : Day_01
 		_inputPairs = ParsePairs(input);
 	}
 
-	public override void Solve()
+	public override string ResultMessage => "Sum of differences of ordered distances";
+
+	public override string GetResult()
 	{
-		var result = CalculateSumOfDifferencesOfValues(_inputPairs.leftItems, _inputPairs.rightItems);
-		Console.WriteLine($"Sum of differences of ordered distances: {result}");
+		return CalculateSumOfDifferencesOfValues(_inputPairs.leftItems, _inputPairs.rightItems).ToString();
 	}
 
 	private long CalculateSumOfDifferencesOfValues(List<long> left, List<long> right)

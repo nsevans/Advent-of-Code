@@ -14,10 +14,11 @@ public class Part_01 : Day_12
 		_gardenMap = ParsePaddedGardenMap(input);
 	}
 
-	public override void Solve()
+	public override string ResultMessage => "Sum of fence prices using area and perimeter";
+
+	public override string GetResult()
 	{
-		var result = CalculateSumOfFencePrices(_gardenMap);
-		Console.WriteLine($"Sum of fence prices using area and perimeter: {result}");
+		return CalculateSumOfFencePrices(_gardenMap).ToString();
 	}
 
 	private int CalculateSumOfFencePrices(List<List<char>> gardenMap)

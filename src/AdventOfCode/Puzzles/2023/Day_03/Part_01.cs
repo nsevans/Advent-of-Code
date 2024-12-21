@@ -15,10 +15,11 @@ public class Part_01 : Day_03
         _preparedInput = input.Select(x => x.ToCharArray().ToList()).ToList();
     }
 
-    public override void Solve()
+	public override string ResultMessage => "Sum of symbol adjacent numbers";
+
+    public override string GetResult()
     {
-		var result = SumNumbersLinkedToSymbols(_preparedInput);
-		Console.WriteLine($"Sum of symbol adjacent numbers: {result}");
+		return SumNumbersLinkedToSymbols(_preparedInput).ToString();
     }
 
 	private int SumNumbersLinkedToSymbols(List<List<char>> inputMap)

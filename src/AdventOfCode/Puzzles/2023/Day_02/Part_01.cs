@@ -19,11 +19,12 @@ public class Part_01 : Day_02
 		_preparedInput = input;
     }
 
-    public override void Solve()
+	public override string ResultMessage => "Sum of Game IDs that match criteria";
+
+    public override string GetResult()
     {
-		var result = CalculateValidGames(_preparedInput);
-		Console.WriteLine($"Sum of Game IDs that match criteria: {result}");
-    }
+		return CalculateValidGames(_preparedInput).ToString();
+	}
 
 	private int CalculateValidGames(IEnumerable<string> input)
 	{

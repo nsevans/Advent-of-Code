@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using AdventOfCode.Common.Extensions;
 using AdventOfCode.Common.Models;
 using AdventOfCode.Puzzles;
 
@@ -32,26 +34,40 @@ public class SolvingService(SolverContext context)
 	{
 		var input = InputService.GetInput(solver);
 
-		var loadStartTime = DateTime.Now;
-		solver.PrepareData(input);
-		var loadTime = DateTime.Now - loadStartTime;
-
-		var solveStartTime = DateTime.Now;
-		solver.Solve();
-		var solveTime = DateTime.Now - solveStartTime;
+		var loadTime = PrepareSolverData(solver, input);
+		var solveTime = GetSolverResult(solver, out var result);
 
 		var totalTime = loadTime + solveTime;
 
 		if (_context.Verbose)
 		{
-			Console.WriteLine($"## {solver.ResultMessage}: {solver.Result}");
-			Console.WriteLine($"Prep  Time: 	{loadTime.TotalMilliseconds} ms");
-			Console.WriteLine($"Solve Time:     {solveTime.TotalMilliseconds} ms");
-			Console.WriteLine($"Total Time:     {totalTime.TotalMilliseconds} ms\n");
+			Console.WriteLine($"-- {solver.ResultMessage} --");
+			Console.WriteLine($"-- Result:  {result,20} --");
+			Console.WriteLine($"Prep  Time: {loadTime.ToFormattedMilliseconds(20)} ms");
+			Console.WriteLine($"Solve Time: {solveTime.ToFormattedMilliseconds(20)} ms");
+			Console.WriteLine($"Total Time: {totalTime.ToFormattedMilliseconds(20)} ms\n");
 		}
 		else
 		{
-			Console.WriteLine($" - {totalTime.TotalMilliseconds} ms");
+			Console.WriteLine($"{totalTime.ToFormattedMilliseconds(20)} ms");
 		}
+	}
+
+	private TimeSpan PrepareSolverData(BaseSolver solver, List<string> input)
+	{
+		var loadStartTime = DateTime.Now;
+		solver.PrepareData(input);
+		var loadTime = DateTime.Now - loadStartTime;
+
+		return loadTime;
+	}
+
+	private TimeSpan GetSolverResult(BaseSolver solver, out string result)
+	{
+		var solveStartTime = DateTime.Now;
+		result = solver.GetResult();
+		var solveTime = DateTime.Now - solveStartTime;
+
+		return solveTime;
 	}
 }

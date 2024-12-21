@@ -15,11 +15,12 @@ public class Part_01 : Day_04
 		_preparedInput = input;
     }
 
-    public override void Solve()
+	public override string ResultMessage => "Sum of points for matching number";
+
+    public override string GetResult()
     {
-		var result = CalculatePointsForMatchingNumbers(_preparedInput);
-		Console.WriteLine($"Sum of points for matching number: {result}");
-    }
+		return CalculatePointsForMatchingNumbers(_preparedInput).ToString();
+	}
 
 	private int CalculatePointsForMatchingNumbers(List<string> input)
 	{

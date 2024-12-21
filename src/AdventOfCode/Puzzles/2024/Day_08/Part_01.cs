@@ -19,10 +19,11 @@ public class Part_01 : Day_08
 		_map = input.To2DCharList();
 	}
 
-	public override void Solve()
+	public override string ResultMessage => "Sum of unique antinode positions for matching frequencies at specific distance";
+
+	public override string GetResult()
 	{
-		var result = CalculateSumOfAntinodesForMatchingFrequenciesAtSpecificDistance(_frequencyDictionary, _map);
-		Console.WriteLine($"Sum of unique antinode positions for matching frequencies at specific distance: {result}");
+		return CalculateSumOfAntinodesForMatchingFrequenciesAtSpecificDistance(_frequencyDictionary, _map).ToString();
 	}
 
 	private int CalculateSumOfAntinodesForMatchingFrequenciesAtSpecificDistance(Dictionary<char, List<Vector2>> frequencyDictionary, List<List<char>> map)

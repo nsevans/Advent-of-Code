@@ -15,10 +15,11 @@ public class Part_01 : Day_04
 		_wordSearch = input.To2DCharList();
 	}
 
-	public override void Solve()
+	public override string ResultMessage => "Number of times XMAS appears in word search";
+
+	public override string GetResult()
 	{
-		var result = CountNumberOfTimesWordAppears(_wordSearch);
-		Console.WriteLine($"Number of times XMAS appears in word search: {result}");
+		return CountNumberOfTimesWordAppears(_wordSearch).ToString();
 	}
 
 	private int CountNumberOfTimesWordAppears(List<List<char>> wordSearch)

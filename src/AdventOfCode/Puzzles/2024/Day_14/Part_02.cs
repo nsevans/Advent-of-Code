@@ -16,10 +16,11 @@ public class Part_02 : Day_14
 		_robotData = ParseRobotData(input);
 	}
 
-	public override void Solve()
+	public override string ResultMessage => "Lowest second where robots form christman tree";
+
+	public override string GetResult()
 	{
-		var result = CalculateLowestSecondWhereRobotsFormChristmasTree(_robotData);
-		Console.WriteLine($"Lowest second where robots form christman tree: {result}");
+		return CalculateLowestSecondWhereRobotsFormChristmasTree(_robotData).ToString();
 	}
 
 	private int CalculateLowestSecondWhereRobotsFormChristmasTree(List<RobotData> robotData)

@@ -14,10 +14,11 @@ public class Part_02 : Day_13
 		_games = ParseGames(input);
 	}
 
-	public override void Solve()
+	public override string ResultMessage => "Sum of fewest tokens used to win all possible games with a coordinate offset of 10,000,000,000,000";
+
+	public override string GetResult()
 	{
-		var result = CalculateSumOfTokensUsedForValidClawMachinesWithOffset(_games);
-		Console.WriteLine($"Sum of fewest tokens used to win all possible games with a coordinate offset of 10,000,000,000,000: {result}");
+		return CalculateSumOfTokensUsedForValidClawMachinesWithOffset(_games).ToString();
 	}
 
 	private double CalculateSumOfTokensUsedForValidClawMachinesWithOffset(List<Game> games)

@@ -18,7 +18,7 @@ public class Part_01 : Day_15
 		_movements = ParseMovements(input);
 	}
 
-	protected List<List<char>> ParseWarehouseMap(List<string> input)
+	private List<List<char>> ParseWarehouseMap(List<string> input)
 	{
 		var map = new List<List<char>>();
 
@@ -33,10 +33,11 @@ public class Part_01 : Day_15
 		return map;
 	}
 
-	public override void Solve()
+	public override string ResultMessage => "Sum of boxes' GPS coordinats";
+
+	public override string GetResult()
 	{
-		var result = CalculateSumOfBoxGpsCoordinates(_warehouseMap, _movements);
-		Console.WriteLine($"Sum of boxes' GPS coordinats: {result}");
+		return CalculateSumOfBoxGpsCoordinates(_warehouseMap, _movements).ToString();
 	}
 
 	private long CalculateSumOfBoxGpsCoordinates(List<List<char>> warehouseMap, List<char> movements)

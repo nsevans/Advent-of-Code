@@ -17,10 +17,11 @@ public class Part_01 : Day_05
 		_pagesToProduce = ParsePagesToProduce(input);
 	}
 
-	public override void Solve()
+	public override string ResultMessage => "Sum of middle pages of valid ordered updates";
+
+	public override string GetResult()
 	{
-		var result = CalculateSumOfValidMiddlePageNumbers(_pageOrderingRules, _pagesToProduce);
-		Console.WriteLine($"Sum of middle pages of valid ordered updates: {result}");
+		return CalculateSumOfValidMiddlePageNumbers(_pageOrderingRules, _pagesToProduce).ToString();
 	}
 
 	private int CalculateSumOfValidMiddlePageNumbers(Dictionary<int, List<int>> pageOrderingRules, List<List<int>> pagesToProduce)

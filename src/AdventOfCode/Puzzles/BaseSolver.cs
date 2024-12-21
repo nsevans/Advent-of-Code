@@ -18,13 +18,13 @@ public abstract class BaseSolver : ISolver
 
 	public abstract int Part { get; }
 
-	public string ResultMessage { get; set; }
+	public abstract string ResultMessage { get; }
 
-	public string Result { get; set; }
+	// public abstract string Result { get; set; }
 
 	public abstract void PrepareData(List<string> input);
 	
-	public abstract void Solve();
+	public abstract string GetResult();
 
 	private string GetHeading(bool verbose)
 	{

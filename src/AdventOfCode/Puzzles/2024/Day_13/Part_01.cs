@@ -14,10 +14,11 @@ public class Part_01 : Day_13
 		_games = ParseGames(input);
 	}
 
-	public override void Solve()
+	public override string ResultMessage => "Sum of fewest tokens used to win all possible games";
+
+	public override string GetResult()
 	{
-		var result = CalculateSumOfTokensUsedForClawMachines(_games);
-		Console.WriteLine($"Sum of fewest tokens used to win all possible games: {result}");
+		return CalculateSumOfTokensUsedForClawMachines(_games).ToString();
 	}
 
 	private double CalculateSumOfTokensUsedForClawMachines(List<Game> games)

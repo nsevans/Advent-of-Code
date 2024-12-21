@@ -14,10 +14,11 @@ public class Part_02 : Day_11
 		_stones = ParseStones(input);
 	}
 
-	public override void Solve()
+	public override string ResultMessage => "Number of stones after 75 blinks";
+
+	public override string GetResult()
 	{
-		var result = CalculateNumberOfStonesAfter75Blinks(_stones);
-		Console.WriteLine($"Number of stones after 75 blinks: {result}");
+		return CalculateNumberOfStonesAfter75Blinks(_stones).ToString();
 	}
 
 	private long CalculateNumberOfStonesAfter75Blinks(List<long> stones)

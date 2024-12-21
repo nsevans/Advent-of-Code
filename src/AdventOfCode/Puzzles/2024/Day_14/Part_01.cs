@@ -14,10 +14,11 @@ public class Part_01 : Day_14
 		_robotData = ParseRobotData(input);
 	}
 
-	public override void Solve()
+	public override string ResultMessage => "Robot safety factor after 100 seconds simulated";
+
+	public override string GetResult()
 	{
-		var result = CalculateSafetyFactorAfter100Seconds(_robotData);
-		Console.WriteLine($"Robot safety factor after 100 seconds simulated: {result}");
+		return CalculateSafetyFactorAfter100Seconds(_robotData).ToString();
 	}
 
 	private int CalculateSafetyFactorAfter100Seconds(List<RobotData> robotData)

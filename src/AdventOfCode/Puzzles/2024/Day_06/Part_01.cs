@@ -16,10 +16,11 @@ public class Part_01 : Day_06
 		_map = input.To2DCharList();
 	}
 
-	public override void Solve()
+	public override string ResultMessage => "Number of distinct guard positions";
+
+	public override string GetResult()
 	{
-		var result = CalculateDistinctPositionsInPath(_map);
-		Console.WriteLine($"Number of distinct guard positions: {result}");
+		return CalculateDistinctPositionsInPath(_map).ToString();
 	}
 
 	private int CalculateDistinctPositionsInPath(List<List<char>> map)

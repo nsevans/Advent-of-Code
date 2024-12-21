@@ -14,10 +14,11 @@ public class Part_02 : Day_02
 		_preparedInput = input;
     }
 
-    public override void Solve()
+	public override string ResultMessage => "Sum of the powers of the fewest cubes of each color per game";
+
+    public override string GetResult()
     {
-		var result = CalculateSumOfPowerOfEachGame(_preparedInput);
-		Console.WriteLine($"Sum of the powers of the fewest cubes of each color per game: {result}");
+		return CalculateSumOfPowerOfEachGame(_preparedInput).ToString();
     }
 
 	private long CalculateSumOfPowerOfEachGame(IEnumerable<string> input)

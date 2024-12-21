@@ -16,10 +16,11 @@ public class Part_01 : Day_03
 		_preparedInput = input;
     }
 
-    public override void Solve()
+    public override string ResultMessage => "Sum of products of mul commands";
+
+	public override string GetResult()
     {
-        var result = CalculateSumOfProducts(_preparedInput);
-		Console.WriteLine($"Sum of products of mul commands: {result}");
+		return CalculateSumOfProducts(_preparedInput).ToString();
     }
 
 	private long CalculateSumOfProducts(IEnumerable<string> input)

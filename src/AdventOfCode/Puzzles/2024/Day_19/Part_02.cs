@@ -30,10 +30,11 @@ public class Part_02 : Day_19
 		return input[2..];
 	}
 
-	public override void Solve()
+	public override string ResultMessage => "Sum of all possible pattern combinations for each design";
+
+	public override string GetResult()
 	{
-		var result = CalculateNumberOfPossibleDesigns(_patterns, _designs);
-		Console.WriteLine($"Sum of all possible pattern combinations for each design: {result}");
+		return CalculateNumberOfPossibleDesigns(_patterns, _designs).ToString();
 	}
 
 	private long CalculateNumberOfPossibleDesigns(List<string> patterns, List<string> designs)

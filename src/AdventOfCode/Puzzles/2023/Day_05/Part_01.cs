@@ -24,10 +24,11 @@ public class Part_01 : Day_05
 			.ToList();
 	}
 
-    public override void Solve()
+	public override string ResultMessage => "Lowest location value with seed";
+
+    public override string GetResult()
     {
-		var result = CalculateLowestLocation(_mappingDictionary, _seeds);
-		Console.WriteLine($"Lowest location value with seed range: {result}");
+		return CalculateLowestLocation(_mappingDictionary, _seeds).ToString();
 	}
 
 	private long CalculateLowestLocation(Dictionary<int, List<Mapping>> mappingsDictionary, List<long> seeds)

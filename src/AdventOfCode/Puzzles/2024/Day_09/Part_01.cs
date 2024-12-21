@@ -16,10 +16,11 @@ public class Part_01 : Day_09
 		_expandedDiskMap = ParseExpandedDiskMap(diskMap);
 	}
 
-	public override void Solve()
+	public override string ResultMessage => "Checksum of rough defragmentation";
+
+	public override string GetResult()
 	{
-		var result = CalculateChecksumOfRoughlyDefragmentedDiskMap(_expandedDiskMap);
-		Console.WriteLine($"Checksum of rough defragmentation: {result}");
+		return CalculateChecksumOfRoughlyDefragmentedDiskMap(_expandedDiskMap).ToString();
 	}
 
 	private long CalculateChecksumOfRoughlyDefragmentedDiskMap(List<string> expandedDiskMap)

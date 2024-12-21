@@ -20,10 +20,11 @@ public class Part_02 : Day_10
 		_endLocations = ParseLocations(_trailMap, 9);
 	}
 
-	public override void Solve()
+	public override string ResultMessage => "Sum of all trail heads to trail ends";
+
+	public override string GetResult()
 	{
-		var result = CalculateSumOfTrailHeadScores(_trailMap, _startLocations, _endLocations);
-		Console.WriteLine($"Sum of all trail heads to trail ends: {result}");
+		return CalculateSumOfTrailHeadScores(_trailMap, _startLocations, _endLocations).ToString();
 	}
 
 	private long CalculateSumOfTrailHeadScores(List<List<int>> trailMap, List<(int x, int y)> startLocations, List<(int x, int y)> endLocations)

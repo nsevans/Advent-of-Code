@@ -16,10 +16,11 @@ public class Part_02 : Day_06
 		_map = input.To2DCharList();
 	}
 
-	public override void Solve()
+	public override string ResultMessage => "Number of positions causing guard infinite loop";
+
+	public override string GetResult()
 	{
-		var result = CalcualtePositionsToCauseInfiniteLoops(_map);
-		Console.WriteLine($"Number of positions causing guard infinite loop: {result}");
+		return CalcualtePositionsToCauseInfiniteLoops(_map).ToString();
 	}
 
 	private int CalcualtePositionsToCauseInfiniteLoops(List<List<char>> map)

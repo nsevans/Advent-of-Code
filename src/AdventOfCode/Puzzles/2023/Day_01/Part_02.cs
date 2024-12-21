@@ -15,10 +15,11 @@ public class Part_02 : Day_01
         _preparedInput = input;
     }
 
-    public override void Solve()
+	public override string ResultMessage => "Sum of combined first and last digit or string number of each line";
+
+    public override string GetResult()
     {
-		var result = CalculateSumOfCalibrationDigitsAndStrings(_preparedInput);
-		Console.WriteLine($"Sum of combined first and last digit or string number of each line: {result}");
+		return CalculateSumOfCalibrationDigitsAndStrings(_preparedInput).ToString();
     }
 
 	private int CalculateSumOfCalibrationDigitsAndStrings(IEnumerable<string> input)

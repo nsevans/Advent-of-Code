@@ -26,10 +26,11 @@ public class Part_01 : Day_20
 		_positionTimeDictionary = new() { { _startPosition, 0} };
 	}
 
-	public override void Solve()
+	public override string ResultMessage => "Number of cheats that would save at least 100 picoseconds";
+
+	public override string GetResult()
 	{
-		var result = CalculateSumOfSecondsSavedFrom2SkipsOver100Picoseconds(_raceMap, _visited, _startPosition, _endPosition, _positionTimeDictionary);
-		Console.WriteLine(result);
+		return CalculateSumOfSecondsSavedFrom2SkipsOver100Picoseconds(_raceMap, _visited, _startPosition, _endPosition, _positionTimeDictionary).ToString();
 	}
 
 	private long CalculateSumOfSecondsSavedFrom2SkipsOver100Picoseconds(List<List<char>> raceMap, List<List<bool>> visited, (int x, int y) startPosition, (int x, int y) endPosition, Dictionary<(int x, int y), int> positionTimeDictionary)

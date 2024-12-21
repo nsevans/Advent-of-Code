@@ -17,11 +17,12 @@ public class Part_02 : Day_03
         _preparedInput = input.Select(x => x.ToCharArray().ToList()).ToList();
     }
 
-    public override void Solve()
+	public override string ResultMessage => "Sum of product of numbers adjacent to '*' when only 2 numbers are adjacent";
+
+    public override string GetResult()
     {
-		var result = SumProductOfNumbersLinkedToSpecialSymbol(_preparedInput);
-		Console.WriteLine($"Sum of product of numbers adjacent to '*' when only 2 numbers are adjacent: {result}");
-    }
+		return SumProductOfNumbersLinkedToSpecialSymbol(_preparedInput).ToString();
+	}
 
 	private int SumProductOfNumbersLinkedToSpecialSymbol(List<List<char>> inputMap)
 	{

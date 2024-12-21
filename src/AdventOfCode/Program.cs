@@ -1,19 +1,13 @@
+using AdventOfCode.Common.Models;
 using AdventOfCode.Extensions;
+using AdventOfCode.Services;
 
 namespace AdventOfCode;
 
 /// <summary>
-/// Author: Nicholas Evans
-/// 
 /// This project is for all of my attempts at the Advent of Code puzzles found here: https://adventofcode.com.
 /// 
-/// Usage:
-/// 	dotnet run -- --year <int> --day <int> --part <int> --verbose
-/// All parameters are optional and help filter out which ones are run
-/// Ex:
-/// 	`dotnet run -- --year 2024` will execute all days and parts for the year 2024
-/// 	`dotnet run -- --day 1` will execute all parts for day #1 for all years
-/// 	`dotnet run -- --part 1` will execute the first part of all days for all years
+/// Author: Nicholas Evans
 /// </summary>
 public class Program
 {
@@ -31,8 +25,10 @@ public class Program
 		var part = string.IsNullOrEmpty(partValue) ? (int?)null : int.Parse(partValue);
 
 		var verbose = args.HasArgument("--verbose");
+		var useTestInput = args.HasArgument("--test");
 
-		var orchestrator = new SolvingService(year, day, part, verbose);
-		orchestrator.Solve();
+		var context = new SolverContext(year, day, part, verbose, useTestInput);
+		var orchestrator = new SolvingOrchestrator(context);
+		orchestrator.Run();
 	}
 }

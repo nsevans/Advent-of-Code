@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using AdventOfCode.Common.Extensions;
 using AdventOfCode.Common.Models;
 using AdventOfCode.Factories;
 
@@ -25,13 +26,18 @@ public class SolvingOrchestrator(SolverContext context)
 		
 		if (_context.Verbose)
 			Console.WriteLine($"Found {solverGroups.SelectMany(x => x).Count()} puzzle solvers after applying the given filters\n");
-		
+
 		#endregion
 
 		#region Run Solvers
 
+		var startTotalTime = DateTime.Now;
+
 		var solvingService = new SolvingService(_context);
 		solvingService.Run(solverGroups);
+
+		var totalTime = DateTime.Now - startTotalTime;
+		Console.WriteLine($"Total Time: {totalTime.ToRoundedMilliseconds(4)} ms");
 
 		#endregion
 	}

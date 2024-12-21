@@ -49,7 +49,7 @@ public class SolvingService(SolverContext context)
 		}
 		else
 		{
-			Console.WriteLine($"{totalTime.ToFormattedMilliseconds(20)} ms");
+			Console.WriteLine($" | {result,25} | {totalTime.ToFormattedMilliseconds(20)} ms");
 		}
 	}
 

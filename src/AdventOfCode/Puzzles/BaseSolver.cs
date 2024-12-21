@@ -38,7 +38,7 @@ public abstract class BaseSolver : ISolver
 		}
 		else
 		{
-			heading.Append($"y{Year}-d{Day}-p{Part}");
+			heading.Append($"y{Year}-d{Day.ToString().PadLeft(2, '0')}-p{Part.ToString().PadLeft(2, '0')}");
 		}
 		return heading.ToString();
 	}
@@ -49,6 +49,6 @@ public abstract class BaseSolver : ISolver
 		if (verbose)
 			Console.WriteLine($"{heading}");
 		else
-			Console.Write(heading);
+			Console.Write(heading.PadRight(15));
 	}	
 }

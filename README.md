@@ -13,10 +13,7 @@ dotnet run -- [--year <int>] [--day <int>] [--part <int>] [--verbose] [--test]
 | `--year` | `--year 2024` | `int` | Execute all puzzle solvers for the given year. |
 | `--day` | `--day 1` | `int`, 1 to 25 | Execute all puzzle solvers for the given day. |
 | `--part` | `--part 1` | `int`, 1 or 2 | Execute all puzzle solvers for the given part. |
-| `--verbose`** | `--verbose` | N/A | Display more detailed information about each puzzle's results. |
-| `--test`** | `--test` | N/A | Execute the puzzle solvers against the test examples given in the puzzle descriptions on the [AoC website](https://adventofcode.com) |
-
-\*\* Not yet implemented
+| `--verbose` | `--verbose` | N/A | Display more detailed information about each puzzle's results. |
 
 The above flags can be combined to execute a more refined subset of puzzle solvers:
 

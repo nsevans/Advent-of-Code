@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+
+namespace AdventOfCode.Puzzles.Year_<year>.Day_<day>;
+
+public class Part_0<part> : Day_<day>
+{
+    public override int Part => <part>;
+
+	public override void PrepareData(List<string> input)
+	{
+
+	}
+
+	public override string ResultMessage => "";
+
+	public override string GetResult()
+	{
+		return "";
+	}
+}

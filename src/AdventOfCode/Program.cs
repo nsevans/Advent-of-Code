@@ -1,6 +1,7 @@
-using AdventOfCode.Common.Extensions;
-using AdventOfCode.Common.Models;
-using AdventOfCode.Services;
+using System;
+using System.Linq;
+using AdventOfCode.Services.Generating;
+using AdventOfCode.Services.Solving;
 
 namespace AdventOfCode;
 
@@ -15,20 +16,27 @@ public class Program
 
 	public static void Main(string[] args)
 	{
-		var yearValue = args.GetValueForArgument("--year");
-		var year = string.IsNullOrEmpty(yearValue) ? (int?) null : int.Parse(yearValue);
+		var firstArgument = args.FirstOrDefault();
 
-		var dayValue = args.GetValueForArgument("--day");
-		var day = string.IsNullOrEmpty(dayValue) ? (int?) null : int.Parse(dayValue);
-
-		var partValue = args.GetValueForArgument("--part");
-		var part = string.IsNullOrEmpty(partValue) ? (int?)null : int.Parse(partValue);
-
-		var verbose = args.HasArgument("--verbose");
-		var useTestInput = args.HasArgument("--test");
-
-		var context = new SolverContext(year, day, part, verbose, useTestInput);
-		var orchestrator = new SolvingOrchestrator(context);
-		orchestrator.Run();
+		if (firstArgument == "--generate")
+		{
+			var context = GenerationArgumentHandler.HandleInput(args[1..]);
+			var generator = new GeneratingService(context);
+			generator.Generate();
+		}
+		else if (firstArgument == "--solve")
+		{
+			var context = SolvingArgumentHandler.HandleInput(args[1..]);
+			var orchestrator = new SolvingOrchestrator(context);
+			orchestrator.Run();
+		}
+		else
+		{
+			if (firstArgument == null)
+				Console.Write("No service specified.");
+			else
+				Console.Write($"Invalid service '{firstArgument}'.");
+			Console.WriteLine(" Either use '--solve' to run the solving service or '--generate' to run the generation service.");
+		}
 	}
 }

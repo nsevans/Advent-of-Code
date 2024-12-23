@@ -14,9 +14,7 @@ public class GenerationArgumentHandler : IInputHandler<GeneratorContext>
 		var dayValue = args.GetValueForArgument("--day", true);
 		var day = int.Parse(dayValue);
 
-		var verbose = args.HasArgument("--verbose");
-
-		var context = new GeneratorContext(year, day, verbose);
+		var context = new GeneratorContext(year, day);
 
 		return context;
 	}

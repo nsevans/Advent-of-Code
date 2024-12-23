@@ -13,16 +13,14 @@ public static class DictionaryExtensions
 	/// <param name="dict"></param>
 	/// <param name="key"></param>
 	/// <param name="value"></param>
-	public static void AddOrUpdate<TKey, TValue>(this Dictionary<TKey, List<TValue>> dict, TKey key, TValue value)
+	public static void CreateOrAdd<TKey, TValue>(this Dictionary<TKey, List<TValue>> dict, TKey key, TValue value)
 	{
-		if (dict.ContainsKey(key))
+		if (!dict.TryAdd(key, [value]))
 			dict[key].Add(value);
-		else
-			dict.Add(key, [ value ]);
 	}
 
 	/// <summary>
-	/// if the key exists set the value for that key, otherwise create the entry for the key and
+	/// If the key exists set the value for that key, otherwise create the entry for the key and
 	/// set the value.
 	/// </summary>
 	/// <typeparam name="TKey"></typeparam>
@@ -30,11 +28,9 @@ public static class DictionaryExtensions
 	/// <param name="dict"></param>
 	/// <param name="key"></param>
 	/// <param name="value"></param>
-	public static void SetOrUpdate<TKey, TValue>(this Dictionary<TKey, TValue> dict, TKey key, TValue value)
+	public static void CreateOrUpdate<TKey, TValue>(this Dictionary<TKey, TValue> dict, TKey key, TValue value)
 	{
-		if (dict.ContainsKey(key))
+		if (dict.TryAdd(key, value))
 			dict[key] = value;
-		else
-			dict.Add(key, value);
 	}
 }

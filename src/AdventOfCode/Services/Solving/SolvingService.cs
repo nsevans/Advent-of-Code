@@ -12,11 +12,22 @@ public class SolvingService(SolverContext context)
 
     public void Run(List<List<BaseSolver>> solverGroups)
     {
+        if (!_context.Verbose)
+        {
+            Console.WriteLine($"| {new string("Puzzle"),-15} | {new string("Total Time"),18} | {new string("Result"),-50} |");
+            Console.WriteLine($"|{new string('-', 17)}+{new string('-',20)}+{new string('-',52)}|");
+        }
+
         foreach (var group in solverGroups)
         {
             RunGroup(group);
             if (_context.Verbose)
-                Console.WriteLine("#--------------------------------------------------#");
+                Console.WriteLine("\n#--------------------------------------------------#\n");
+        }
+
+        if (!_context.Verbose)
+        {
+            Console.WriteLine($"|{new string('-', 17)}-{new string('-',20)}-{new string('-',52)}|");
         }
     }
 
@@ -25,14 +36,20 @@ public class SolvingService(SolverContext context)
         foreach (var solver in solverGroup)
         {
             solver.DisplayHeading(_context.Verbose);
-            RunSolver(solver);
+
+            if (!SolvingInputService.TryGetInput(solver, out var input))
+            {
+                Console.WriteLine($"Unable to read contents of file: '{solver.InputFilePath}'. The puzzle input can be found here: {solver.DownloadLink}");
+                // Return from method instead of breaking as all solvers in the group would use the same input file
+                return;
+            }
+
+            RunSolver(solver, input);
         }
     }
 
-    private void RunSolver(BaseSolver solver)
+    private void RunSolver(BaseSolver solver, List<string> input)
     {
-        var input = SolvingInputService.GetInput(solver);
-
         var loadTime = PrepareSolverData(solver, input);
         var solveTime = GetSolverResult(solver, out var result);
 
@@ -41,14 +58,14 @@ public class SolvingService(SolverContext context)
         if (_context.Verbose)
         {
             Console.WriteLine($"-- {solver.ResultMessage} --");
-            Console.WriteLine($"-- Result:  {result,20} --");
-            Console.WriteLine($"Prep  Time: {loadTime.ToFormattedMilliseconds(20)} ms");
-            Console.WriteLine($"Solve Time: {solveTime.ToFormattedMilliseconds(20)} ms");
-            Console.WriteLine($"Total Time: {totalTime.ToFormattedMilliseconds(20)} ms\n");
+            Console.WriteLine($"-- Result: {result} --");
+            Console.WriteLine($"Prep  Time: {loadTime.ToFormattedMilliseconds(15)} ms");
+            Console.WriteLine($"Solve Time: {solveTime.ToFormattedMilliseconds(15)} ms");
+            Console.WriteLine($"Total Time: {totalTime.ToFormattedMilliseconds(15)} ms");
         }
         else
         {
-            Console.WriteLine($" | {result,25} | {totalTime.ToFormattedMilliseconds(20)} ms");
+            Console.WriteLine($"{totalTime.ToFormattedMilliseconds(15)} ms | {result,-50} |");
         }
     }
 

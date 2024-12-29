@@ -10,6 +10,8 @@ public abstract class BaseSolver : ISolver
 	
 	public string DownloadLink => $"{DayLink}/input";
 
+	public string InputFilePath => $"./Inputs/input_{Year}_{Day.ToString().PadLeft(2, '0')}.in";
+
 	public abstract string Title { get; }
 
 	public abstract int Year { get; }
@@ -19,8 +21,6 @@ public abstract class BaseSolver : ISolver
 	public abstract int Part { get; }
 
 	public abstract string ResultMessage { get; }
-
-	// public abstract string Result { get; set; }
 
 	public abstract void PrepareData(List<string> input);
 	
@@ -49,6 +49,6 @@ public abstract class BaseSolver : ISolver
 		if (verbose)
 			Console.WriteLine($"{heading}");
 		else
-			Console.Write(heading.PadRight(15));
+			Console.Write($"| {heading.PadRight(15)} | ");
 	}	
 }

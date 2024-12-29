@@ -8,22 +8,22 @@ namespace AdventOfCode.Services.Solving;
 
 public static class SolvingInputService
 {
-    public static List<string> GetInput(BaseSolver solver)
+    public static bool TryGetInput(BaseSolver solver, out List<string> fileContents)
     {
-        var paddedDay = solver.Day.ToString().Length == 1 ? $"0{solver.Day}" : solver.Day.ToString();
-        var fileName = $"./Inputs/input_{solver.Year}_{paddedDay}.in";
+        fileContents = new List<string>();
 
-        if (!File.Exists(fileName))
+        if (!File.Exists(solver.InputFilePath))
         {
-            File.Create(fileName);  // Create file for easier setup if one isn't created
-            throw new InvalidOperationException($"Ensure input exists for this day under '{Path.GetFullPath(fileName)}'.\nInput can be downloaded from {solver.DownloadLink}.");
+            // Create file for easier setup if one hasn't already been created
+            File.Create(solver.InputFilePath);
+            return false;
         }
 
-        var input = File.ReadLines(fileName).ToList();
+        fileContents = File.ReadLines(solver.InputFilePath).ToList();
 
-        if (input.Count == 0 || string.IsNullOrWhiteSpace(string.Join("", input)))
-            throw new InvalidOperationException($"Ensure the input file '{Path.GetFullPath(fileName)}' is not empty.\nInput can be downloaded from {solver.DownloadLink}.");
+        if (fileContents.Count == 0 || string.IsNullOrWhiteSpace(string.Join("", fileContents)))
+            return false;
 
-        return input;
+        return true;
     }
 }

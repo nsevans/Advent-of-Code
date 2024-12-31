@@ -46,7 +46,7 @@ public class Part_01 : Day_15
 
 		foreach (var movement in movements)
 		{
-			var direction = _cardinalDirections[movement];
+			var direction = CardinalDirections[movement];
 			var nextPosition = (x: currentPosition.x + direction.x, y: currentPosition.y + direction.y);
 
 			var itemAtNextPosition = warehouseMap.GetValueAtIndex(nextPosition);
@@ -110,5 +110,12 @@ public class Part_01 : Day_15
 		}
 
 		return false;
+	}
+
+	private (int x, int y) MoveToFreeSpace(List<List<char>> warehouseMap, (int x, int y) currentPosition, (int x, int y) nextPosition)
+	{
+		warehouseMap[currentPosition.y][currentPosition.x] = '.';
+		warehouseMap[nextPosition.y][nextPosition.x] = '@';
+		return nextPosition;
 	}
 }

@@ -26,7 +26,7 @@ public abstract class Day_15 : BaseSolver
 	public override int Day => 15;
 	public override int Year => 2024;
 
-	protected Dictionary<char, (int x, int y)> _cardinalDirections = new() {
+	protected Dictionary<char, (int x, int y)> CardinalDirections = new() {
 		{ '<', (x: -1, y:  0) }, // WEST
 		{ '^', (x:  0, y: -1) }, // NORTH
 		{ '>', (x:  1, y:  0) }, // EAST
@@ -51,12 +51,5 @@ public abstract class Day_15 : BaseSolver
 		}
 
 		return movements;
-	}
-
-	protected (int x, int y) MoveToFreeSpace(List<List<char>> warehouseMap, (int x, int y) currentPosition, (int x, int y) nextPosition)
-	{
-		warehouseMap[currentPosition.y][currentPosition.x] = '.';
-		warehouseMap[nextPosition.y][nextPosition.x] = '@';
-		return nextPosition;
 	}
 }

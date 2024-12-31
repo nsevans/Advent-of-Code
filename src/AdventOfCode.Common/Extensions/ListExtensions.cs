@@ -185,4 +185,23 @@ public static class ListExtensions
 		list[y][x] = value;
 		return true;
 	}
+
+	/// <summary>
+	/// Create a copy of a 2D list
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="list"></param>
+	/// <returns></returns>
+	public static List<List<T>> Copy<T>(this List<List<T>> list)
+	{
+		var copy = new List<List<T>>();
+
+		foreach (var row in list)
+		{
+			var rowCopy = new List<T>(row);
+			copy.Add(rowCopy);
+		}
+
+		return copy;
+	}
 }

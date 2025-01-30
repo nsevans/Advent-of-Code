@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Numerics;
 
 namespace AdventOfCode.Puzzles.Year_2024.Day_16;
 
@@ -31,10 +30,12 @@ public abstract class Day_16 : BaseSolver
 	public override int Day => 16;
 	public override int Year => 2024;
 
-	protected List<Complex> CardinalDirections = [
-		new( 1,  0),	// EAST
-		new( 0,  1),	// SOUTH
-		new(-1,  0),	// WEST
-		new( 0, -1),	// NORTH
+	protected List<(int dx, int dy)> CardinalDirections = [
+		( 1,  0),	// EAST
+		( 0,  1),	// SOUTH
+		(-1,  0),	// WEST
+		( 0, -1),	// NORTH
 	];
+
+	protected record MazeState(int X, int Y, int Dx, int Dy);
 }

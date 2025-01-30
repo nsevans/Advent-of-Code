@@ -33,4 +33,21 @@ public static class DictionaryExtensions
 		if (dict.TryAdd(key, value))
 			dict[key] = value;
 	}
+
+	/// <summary>
+	/// Try to get the value of the given key from the dictionary, otherwise return the defined default value
+	/// </summary>
+	/// <typeparam name="TKey"></typeparam>
+	/// <typeparam name="TValue"></typeparam>
+	/// <param name="dict"></param>
+	/// <param name="key"></param>
+	/// <param name="definedDefault"></param>
+	/// <returns></returns>
+	public static TValue GetValueOrDefinedDefault<TKey, TValue>(this Dictionary<TKey, TValue> dict, TKey key, TValue definedDefault)
+	{
+		if (dict.TryGetValue(key, out var value))
+			return value;
+		
+		return definedDefault;
+	}
 }

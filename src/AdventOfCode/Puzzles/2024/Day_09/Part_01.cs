@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace AdventOfCode.Puzzles.Year_2024.Day_09;
@@ -20,20 +21,22 @@ public class Part_01 : Day_09
 
 	public override string GetResult()
 	{
-		return CalculateChecksumOfRoughlyDefragmentedDiskMap(_expandedDiskMap).ToString();
+		return CalculateChecksumOfRoughlyDefragmentedDiskMap(_expandedDiskMap.ToArray()).ToString();
 	}
 
-	private long CalculateChecksumOfRoughlyDefragmentedDiskMap(List<string> expandedDiskMap)
+	private long CalculateChecksumOfRoughlyDefragmentedDiskMap(string[] expandedDiskMap)
 	{
-		for (var i = expandedDiskMap.Count - 1; i >= 0; i--)
+		var lastCheckedSpace = 0;
+		for (var i = expandedDiskMap.Length - 1; i >= 0; i--)
 		{
 			if (expandedDiskMap[i] != ".")
 			{
-				for (var j = 0; j < i; j++)
+				for (var j = lastCheckedSpace; j < i; j++)
 				{
 					if (expandedDiskMap[j] == ".")
 					{
 						(expandedDiskMap[i], expandedDiskMap[j]) = (expandedDiskMap[j], expandedDiskMap[i]);
+						lastCheckedSpace = j + 1;
 						break;
 					}
 				}

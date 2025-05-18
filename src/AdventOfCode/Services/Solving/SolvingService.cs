@@ -57,7 +57,7 @@ public class SolvingService(SolverContext context)
 
         if (_context.Verbose)
         {
-            Console.WriteLine($"-- {solver.ResultMessage} --");
+            Console.WriteLine($"-- {solver.ResultMessage.Trim()} --");
             Console.WriteLine($"-- Result: {result} --");
             Console.WriteLine($"Prep  Time: {loadTime.ToFormattedMilliseconds(15)} ms");
             Console.WriteLine($"Solve Time: {solveTime.ToFormattedMilliseconds(15)} ms");

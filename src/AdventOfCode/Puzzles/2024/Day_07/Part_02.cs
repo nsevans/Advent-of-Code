@@ -1,5 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode.Puzzles.Year_2024.Day_07;
 
@@ -21,33 +25,52 @@ public class Part_02 : Day_07
 		return CalculateSumOfValidEquationResultsWithThreeOperators(_equationDictionary).ToString();
 	}
 
-	private long CalculateSumOfValidEquationResultsWithThreeOperators(Dictionary<long, List<List<long>>> equationDictionary)
+	private static long CalculateSumOfValidEquationResultsWithThreeOperators(Dictionary<long, List<List<long>>> equationDictionary)
 	{
 		var sum = 0L;
 
-		foreach (var equation in equationDictionary)
+		var results = new List<long>();
+		var currentTasks = new List<Task<long>>();
+
+		var currentIndex = 0;
+		var keys = equationDictionary.Keys.ToImmutableArray();
+
+		while (currentIndex < keys.Length)
 		{
-			var expectedResult = equation.Key;
-			foreach (var equationNumbers in equation.Value)
+			var expectedResult = keys[currentIndex];
+			var equations = equationDictionary[keys[currentIndex]];
+
+			foreach (var equationNumbers in equations)
 			{
-				if (CanFindValidOperatorCombinations(expectedResult, equationNumbers))
-					sum += expectedResult;
+				currentTasks.Add(Task.Run(() => CanFindValidOperatorCombinations(expectedResult, equationNumbers)));
 			}
+
+			currentIndex++;
 		}
+
+		Task.WhenAll(currentTasks);
+		sum += currentTasks.Select(t => t.Result).Sum();
 
 		return sum;
 	}
 
-	private bool CanFindValidOperatorCombinations(long expectedResult, List<long> numbers)
+	private static long CanFindValidOperatorCombinations(long expectedResult, List<long> numbers)
 	{
-		var addResult = TryNextOperatorRecursive(expectedResult, numbers[0], numbers[1..], Operator.Add);
-		var multResult = TryNextOperatorRecursive(expectedResult, numbers[0], numbers[1..], Operator.Multiply);
-		var concatResult = TryNextOperatorRecursive(expectedResult, numbers[0], numbers[1..], Operator.Concatenate);
+		var currentResult = numbers[0];
+		var currentNumbers = numbers[1..];
 
-		return addResult == expectedResult || multResult == expectedResult || concatResult == expectedResult;
+		var tasks = new Task<long>[3]
+		{
+			Task.Run(() => TryNextOperatorRecursiveAsync(expectedResult, currentResult, currentNumbers, Operator.Add)),
+			Task.Run(() => TryNextOperatorRecursiveAsync(expectedResult, currentResult, currentNumbers, Operator.Multiply)),
+			Task.Run(() => TryNextOperatorRecursiveAsync(expectedResult, currentResult, currentNumbers, Operator.Concatenate)),
+		};
+
+		var result = tasks.Select(t => t.Result).Any(r => r == expectedResult);
+		return result ? expectedResult : 0L;
 	}
 
-	private long TryNextOperatorRecursive(long expectedResult, long currentResult, List<long> currentNumbers, Operator op)
+	private static long TryNextOperatorRecursiveAsync(long expectedResult, long currentResult, List<long> currentNumbers, Operator op)
 	{
 		// If no more numbers or the current result is already greater than the expected result, quit early
 		if (currentNumbers.Count == 0 || currentResult > expectedResult)
@@ -60,17 +83,17 @@ public class Part_02 : Day_07
 		else
 			currentResult = long.Parse(currentResult.ToString() + "" + currentNumbers[0]);
 
-		var addResult = TryNextOperatorRecursive(expectedResult, currentResult, currentNumbers[1..], Operator.Add);
+		var addResult = TryNextOperatorRecursiveAsync(expectedResult, currentResult, currentNumbers[1..], Operator.Add);
 
 		if (addResult == expectedResult)
 			return addResult;
 
-		var multResult = TryNextOperatorRecursive(expectedResult, currentResult, currentNumbers[1..], Operator.Multiply);
-		
+		var multResult = TryNextOperatorRecursiveAsync(expectedResult, currentResult, currentNumbers[1..], Operator.Multiply);
+
 		if (multResult == expectedResult)
 			return multResult;
 
-		var concatResult = TryNextOperatorRecursive(expectedResult, currentResult, currentNumbers[1..], Operator.Concatenate);
+		var concatResult = TryNextOperatorRecursiveAsync(expectedResult, currentResult, currentNumbers[1..], Operator.Concatenate);
 
 		return concatResult;
 	}

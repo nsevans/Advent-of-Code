@@ -17,7 +17,7 @@ public class SolvingArgumentHandler : IInputHandler<SolverContext>
 			var dayValue = args.GetValueForArgument(["-d", "--day"]);
 			var day = string.IsNullOrEmpty(dayValue) ? (int?)null : int.Parse(dayValue);
 
-			var partValue = args.GetValueForArgument(["-d", "--part"]);
+			var partValue = args.GetValueForArgument(["-p", "--part"]);
 			var part = string.IsNullOrEmpty(partValue) ? (int?)null : int.Parse(partValue);
 
 			var verbose = args.HasArgument(["-v", "--verbose"]);

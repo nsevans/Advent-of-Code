@@ -18,13 +18,13 @@ public class Program
 	{
 		var firstArgument = args.FirstOrDefault();
 
-		if (firstArgument == "--generate")
+		if (firstArgument == "--generate" || firstArgument == "-g")
 		{
 			var context = GenerationArgumentHandler.HandleInput(args[1..]);
 			var generator = new GeneratingService(context);
 			generator.Generate();
 		}
-		else if (firstArgument == "--solve")
+		else if (firstArgument == "--solve" || firstArgument == "-s")
 		{
 			var context = SolvingArgumentHandler.HandleInput(args[1..]);
 			var orchestrator = new SolvingOrchestrator(context);

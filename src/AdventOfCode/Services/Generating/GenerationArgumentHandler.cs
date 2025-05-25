@@ -1,3 +1,4 @@
+using System;
 using AdventOfCode.Common.Extensions;
 using AdventOfCode.Common.Models;
 using AdventOfCode.Common.Services;
@@ -8,14 +9,23 @@ public class GenerationArgumentHandler : IInputHandler<GeneratorContext>
 {
 	public static GeneratorContext HandleInput(string[] args)
 	{
-		var yearValue = args.GetValueForArgument("--year", true);
-		var year = int.Parse(yearValue);
+		try
+		{
+			var yearValue = args.GetValueForArgument(["-y", "--year"], true);
+			var year = int.Parse(yearValue);
 
-		var dayValue = args.GetValueForArgument("--day", true);
-		var day = int.Parse(dayValue);
+			var dayValue = args.GetValueForArgument(["-d", "--day"], true);
+			var day = int.Parse(dayValue);
 
-		var context = new GeneratorContext(year, day);
+			var context = new GeneratorContext(year, day);
+			return context;
+		}
+		catch (ArgumentException ae)
+		{
+			Console.WriteLine(ae.Message);
+			Environment.Exit(0);
+		}
 
-		return context;
+		return null;
 	}
 }

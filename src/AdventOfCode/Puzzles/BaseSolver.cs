@@ -6,7 +6,7 @@ namespace AdventOfCode.Puzzles;
 
 public abstract class BaseSolver : ISolver
 {
-	public string DayLink => $"{Program.BaseUrl}/{Year}/day/{Day}";
+	public string DayLink => $"{Program.AdventOfCodeUrl}/{Year}/day/{Day}";
 	
 	public string DownloadLink => $"{DayLink}/input";
 

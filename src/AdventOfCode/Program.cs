@@ -12,7 +12,7 @@ namespace AdventOfCode;
 /// </summary>
 public class Program
 {
-	public static string BaseUrl => "https://adventofcode.com";
+	public static string AdventOfCodeUrl => "https://adventofcode.com";
 
 	public static void Main(string[] args)
 	{

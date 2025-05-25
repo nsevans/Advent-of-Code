@@ -18,6 +18,12 @@ public class SolvingService(SolverContext context)
             Console.WriteLine($"|{new string('-', 17)}+{new string('-',20)}+{new string('-',52)}|");
         }
 
+        if (_context.GenerateMarkdownTable)
+        {
+            _context.MarkdownTableOutput.AppendLine($"| Year | Day | Part | Title | Total Time |");
+            _context.MarkdownTableOutput.AppendLine($"|:-----|:----|:-----|:------|-----------:|");
+        }
+
         foreach (var group in solverGroups)
         {
             RunGroup(group);
@@ -35,7 +41,10 @@ public class SolvingService(SolverContext context)
     {
         foreach (var solver in solverGroup)
         {
-            solver.DisplayHeading(_context.Verbose);
+            if (_context.Verbose)
+                Console.WriteLine(solver.DetailedHeading);
+            else
+                Console.Write($"| {solver.MinimalHeading,-15} | ");
 
             if (!SolvingInputService.TryGetInput(solver, out var input))
             {
@@ -67,9 +76,12 @@ public class SolvingService(SolverContext context)
         {
             Console.WriteLine($"{totalTime.ToFormattedMilliseconds(15)} ms | {result,-50} |");
         }
+
+        if (_context.GenerateMarkdownTable)
+            _context.MarkdownTableOutput.AppendLine($"| {solver.TableHeading} | {totalTime.ToRoundedMilliseconds(4)} ms |");
     }
 
-    private TimeSpan PrepareSolverData(BaseSolver solver, List<string> input)
+    private static TimeSpan PrepareSolverData(BaseSolver solver, List<string> input)
     {
         var loadStartTime = DateTime.Now;
         solver.PrepareData(input);
@@ -78,7 +90,7 @@ public class SolvingService(SolverContext context)
         return loadTime;
     }
 
-    private TimeSpan GetSolverResult(BaseSolver solver, out string result)
+    private static TimeSpan GetSolverResult(BaseSolver solver, out string result)
     {
         var solveStartTime = DateTime.Now;
         result = solver.GetResult();

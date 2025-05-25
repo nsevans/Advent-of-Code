@@ -1,13 +1,11 @@
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace AdventOfCode.Puzzles;
 
 public abstract class BaseSolver : ISolver
 {
 	public string DayLink => $"{Program.AdventOfCodeUrl}/{Year}/day/{Day}";
-	
+
 	public string DownloadLink => $"{DayLink}/input";
 
 	public string InputFilePath => $"./Inputs/input_{Year}_{Day.ToString().PadLeft(2, '0')}.in";
@@ -22,33 +20,11 @@ public abstract class BaseSolver : ISolver
 
 	public abstract string ResultMessage { get; }
 
+	public string DetailedHeading => $"#### Solving {Year}, Day {Day}, Part {Part}: {Title} ####\nLink {DayLink}{(Part == 2 ? "#part2" : "")}";
+	public string MinimalHeading => $"y{Year}-d{Day.ToString().PadLeft(2, '0')}-p{Part.ToString().PadLeft(2, '0')}";
+	public string TableHeading => $"{Year} | {Day}  | {Part}   | {Title}";
+
 	public abstract void PrepareData(List<string> input);
-	
+
 	public abstract string GetResult();
-
-	private string GetHeading(bool verbose)
-	{
-		var heading = new StringBuilder();
-		if (verbose)
-		{
-			heading.Append($"#### Solving {Year}, Day {Day}, Part {Part}: {Title} ####");
-			heading.Append($"\nLink: {DayLink}");
-			if (Part == 2)
-				heading.Append($"#part2");
-		}
-		else
-		{
-			heading.Append($"y{Year}-d{Day.ToString().PadLeft(2, '0')}-p{Part.ToString().PadLeft(2, '0')}");
-		}
-		return heading.ToString();
-	}
-
-	public void DisplayHeading(bool verbose)
-	{
-		var heading = GetHeading(verbose);
-		if (verbose)
-			Console.WriteLine($"{heading}");
-		else
-			Console.Write($"| {heading.PadRight(15)} | ");
-	}	
 }

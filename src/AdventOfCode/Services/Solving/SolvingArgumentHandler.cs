@@ -22,7 +22,9 @@ public class SolvingArgumentHandler : IInputHandler<SolverContext>
 
 			var verbose = args.HasArgument(["-v", "--verbose"]);
 
-			var context = new SolverContext(year, day, part, verbose);
+			var markdownOutputPath = args.GetValueForArgument(["-o", "--markdown-output"]);
+
+			var context = new SolverContext(year, day, part, verbose, markdownOutputPath);
 			return context;
 		}
 		catch (ArgumentException ae)

@@ -1,11 +1,16 @@
+using System.Text;
+
 namespace AdventOfCode.Common.Models;
 
-public class SolverContext(int? year, int? day, int? part, bool verbose)
+public class SolverContext(int? year, int? day, int? part, bool verbose, string markdownOutputPath)
 {
 	public readonly int? Year = year;
 	public readonly int? Day = day;
 	public readonly int? Part = part;
 	public readonly bool Verbose = verbose;
+	public readonly bool GenerateMarkdownTable = !string.IsNullOrEmpty(markdownOutputPath);
+	public readonly string MarkdownTablePath = markdownOutputPath;
+	public StringBuilder MarkdownTableOutput = new();
 
 	public bool NoFiltersSpecified() => Year == null && Day == null && Part == null;
 	public string YearText => Year != null ? $"year {Year}" : "all years";

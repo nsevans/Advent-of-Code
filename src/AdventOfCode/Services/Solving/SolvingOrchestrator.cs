@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Linq;
 using AdventOfCode.Common.Extensions;
 using AdventOfCode.Common.Models;
@@ -37,7 +38,15 @@ public class SolvingOrchestrator(SolverContext context)
         solvingService.Run(solverGroups);
 
         var totalTime = DateTime.Now - startTotalTime;
-        Console.WriteLine($"Total Time: {totalTime.ToRoundedMilliseconds(4)} ms");
+
+        var totalTimeOutput = $"Total Time for {solverGroups.SelectMany(x => x).Count()} puzzles: {totalTime.ToRoundedMilliseconds(4)} ms";
+        Console.WriteLine(totalTimeOutput);
+        if (_context.GenerateMarkdownTable)
+        {
+            using var tableOutputFile = new StreamWriter(_context.MarkdownTablePath);
+            tableOutputFile.WriteLine(totalTimeOutput+"\n");
+            tableOutputFile.Write(_context.MarkdownTableOutput);
+        }
 
         #endregion
     }

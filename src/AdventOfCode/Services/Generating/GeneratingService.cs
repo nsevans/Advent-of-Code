@@ -31,7 +31,8 @@ public class GeneratingService(GeneratorContext context)
 
 		var dayClass = dayTemplate
 			.Replace("<year>", _context.Year.ToString())
-			.Replace("<day>", _context.Day.ToString());
+			.Replace("<day>", _context.Day.ToString())
+			.Replace("<title>", _context.Title);
 
 		var partClasses = new List<string>();
 		for (var i = 1; i <= 2; i++)

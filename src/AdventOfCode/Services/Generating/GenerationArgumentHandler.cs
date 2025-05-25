@@ -17,7 +17,9 @@ public class GenerationArgumentHandler : IInputHandler<GeneratorContext>
 			var dayValue = args.GetValueForArgument(["-d", "--day"], true);
 			var day = int.Parse(dayValue);
 
-			var context = new GeneratorContext(year, day);
+			var title = args.GetValueForArgument(["-t", "--title"]) ?? "";
+
+			var context = new GeneratorContext(year, day, title);
 			return context;
 		}
 		catch (ArgumentException ae)

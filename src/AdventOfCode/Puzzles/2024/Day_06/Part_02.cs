@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using AdventOfCode.Common.Extensions;
@@ -87,7 +86,7 @@ public class Part_02 : Day_06
 		return guardPositions.Distinct().ToList();
 	}
 	
-	private List<(int x, int y)> GetObstaclesPositions(List<List<char>> map)
+	private static List<(int x, int y)> GetObstaclesPositions(List<List<char>> map)
 	{
 		var positions = new List<(int x, int y)>();
 

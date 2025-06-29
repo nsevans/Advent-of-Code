@@ -22,7 +22,7 @@ public abstract class Day_01 : BaseSolver
     public override int Day => 1;
     public override int Year => 2024;
 
-	protected (List<long>, List<long>) ParsePairs(IEnumerable<string> input)
+	protected static (List<long>, List<long>) ParsePairs(IEnumerable<string> input)
 	{
 		var left = new List<long>();
 		var right = new List<long>();

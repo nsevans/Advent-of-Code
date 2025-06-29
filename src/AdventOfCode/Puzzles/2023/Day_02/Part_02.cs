@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 namespace AdventOfCode.Puzzles.Year_2023.Day_02;
@@ -8,7 +7,7 @@ public class Part_02 : Day_02
 	public override int Part => 2;
 
 	private List<string> _preparedInput;
-    
+
 	public override void PrepareData(List<string> input)
     {
 		_preparedInput = input;
@@ -21,7 +20,7 @@ public class Part_02 : Day_02
 		return CalculateSumOfPowerOfEachGame(_preparedInput).ToString();
     }
 
-	private long CalculateSumOfPowerOfEachGame(IEnumerable<string> input)
+	private static long CalculateSumOfPowerOfEachGame(IEnumerable<string> input)
 	{
 		var sum = 0L;
 		foreach (var line in input)

@@ -9,7 +9,7 @@ public class Part_02 : Day_01
 	public override int Part => 2;
 
 	private List<string> _preparedInput;
-    
+
 	public override void PrepareData(List<string> input)
     {
         _preparedInput = input;
@@ -22,7 +22,7 @@ public class Part_02 : Day_01
 		return CalculateSumOfCalibrationDigitsAndStrings(_preparedInput).ToString();
     }
 
-	private int CalculateSumOfCalibrationDigitsAndStrings(IEnumerable<string> input)
+	private static int CalculateSumOfCalibrationDigitsAndStrings(IEnumerable<string> input)
 	{
 		var result = 0;
 		foreach (var line in input)
@@ -33,7 +33,7 @@ public class Part_02 : Day_01
 		return result;
 	}
 
-	public int ScanForDigitsAndStrings(string line)
+	public static int ScanForDigitsAndStrings(string line)
 	{
 		// First character of each number from 1 to 9
 		var startNumberChars = NumberStrings.Select(x => x.First()).Distinct();
@@ -83,7 +83,7 @@ public class Part_02 : Day_01
 		return int.Parse($"{first}{last}");
 	}
 
-	private bool TryGetNumberFromString(string line, int startIndex, out int number)
+	private static bool TryGetNumberFromString(string line, int startIndex, out int number)
 	{
 		// Potential candidates this number string could be, based on the letter it starts with
 		// This will reduce the amount of numbers that need to be checked for each iteration

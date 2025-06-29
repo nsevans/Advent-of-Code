@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 namespace AdventOfCode.Puzzles.Year_2024.Day_12;
@@ -21,7 +20,7 @@ public class Part_01 : Day_12
 		return CalculateSumOfFencePrices(_gardenMap).ToString();
 	}
 
-	private int CalculateSumOfFencePrices(List<List<char>> gardenMap)
+	private static int CalculateSumOfFencePrices(List<List<char>> gardenMap)
 	{
 		var sum = 0;
 
@@ -45,7 +44,7 @@ public class Part_01 : Day_12
 		return sum;
 	}
 
-	private (int area, int perimeter) CalculateFencePriceRecursive(List<List<char>> map, char plant, char evaluatedToken, int x, int y)
+	private static (int area, int perimeter) CalculateFencePriceRecursive(List<List<char>> map, char plant, char evaluatedToken, int x, int y)
 	{
 		// Mark the current spot as evaluated
 		map[y][x] = evaluatedToken;

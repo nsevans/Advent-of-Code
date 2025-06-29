@@ -17,12 +17,12 @@ public abstract class Day_09 : BaseSolver
 	public override int Day => 9;
 	public override int Year => 2024;
 
-	protected List<int> ParseDiskMap(IEnumerable<string> input)
+	protected static List<int> ParseDiskMap(IEnumerable<string> input)
 	{
 		return input.First().Select(x => int.Parse(x.ToString())).ToList();
 	}
 
-	protected List<string> ParseExpandedDiskMap(List<int> diskMap)
+	protected static List<string> ParseExpandedDiskMap(List<int> diskMap)
 	{
 		var expandedDiskMap = new List<string>();
 		var currentId = 0;

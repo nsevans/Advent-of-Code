@@ -20,7 +20,7 @@ public abstract class Day_22 : BaseSolver
 	public override int Day => 22;
 	public override int Year => 2024;
 
-	protected List<long> ParseSecretNumbers(List<string> input)
+	protected static List<long> ParseSecretNumbers(List<string> input)
 	{
 		return input.Select(x => long.Parse(x)).ToList();
 	}

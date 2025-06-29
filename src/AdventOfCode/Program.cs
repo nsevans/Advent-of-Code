@@ -7,7 +7,6 @@ namespace AdventOfCode;
 
 /// <summary>
 /// This project is for all of my attempts at the Advent of Code puzzles found here: https://adventofcode.com.
-/// 
 /// Author: Nicholas Evans
 /// </summary>
 public class Program

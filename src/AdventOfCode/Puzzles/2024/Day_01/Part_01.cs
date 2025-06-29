@@ -22,7 +22,7 @@ public class Part_01 : Day_01
 		return CalculateSumOfDifferencesOfValues(_inputPairs.leftItems, _inputPairs.rightItems).ToString();
 	}
 
-	private long CalculateSumOfDifferencesOfValues(List<long> left, List<long> right)
+	private static long CalculateSumOfDifferencesOfValues(List<long> left, List<long> right)
     {
 		var sum = 0L;
 		left.Sort();

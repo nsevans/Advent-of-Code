@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 namespace AdventOfCode.Puzzles.Year_2024.Day_13;
@@ -21,7 +20,7 @@ public class Part_01 : Day_13
 		return CalculateSumOfTokensUsedForClawMachines(_games).ToString();
 	}
 
-	private double CalculateSumOfTokensUsedForClawMachines(List<Game> games)
+	private static double CalculateSumOfTokensUsedForClawMachines(List<Game> games)
 	{
 		var sum = 0d;
 

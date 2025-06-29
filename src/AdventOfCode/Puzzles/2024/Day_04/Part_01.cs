@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using AdventOfCode.Common.Extensions;
 
@@ -22,7 +21,7 @@ public class Part_01 : Day_04
 		return CountNumberOfTimesWordAppears(_wordSearch).ToString();
 	}
 
-	private int CountNumberOfTimesWordAppears(List<List<char>> wordSearch)
+	private static int CountNumberOfTimesWordAppears(List<List<char>> wordSearch)
 	{
 		var wordCount = 0;
 
@@ -41,7 +40,7 @@ public class Part_01 : Day_04
 		return wordCount;
 	}
 
-	private int SearchForWord(List<List<char>> wordSearch, string word, int x, int y)
+	private static int SearchForWord(List<List<char>> wordSearch, string word, int x, int y)
 	{
 		var wordCount = 0;
 		for (var direction = 0; direction < 8; direction++)
@@ -52,7 +51,7 @@ public class Part_01 : Day_04
 		return wordCount;
 	}
 
-	private bool SearchForWordRecursive(List<List<char>> wordSearch, string word, int x, int y, int direction)
+	private static bool SearchForWordRecursive(List<List<char>> wordSearch, string word, int x, int y, int direction)
 	{
 		if (word.Length == 0)
 			return true;

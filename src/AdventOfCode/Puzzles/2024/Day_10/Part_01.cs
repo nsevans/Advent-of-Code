@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using AdventOfCode.Common.Extensions;
@@ -27,7 +26,7 @@ public class Part_01 : Day_10
 		return CalculateSumOfDistinctTrailHeadScores(_trailMap, _startLocations, _endLocations).ToString();
 	}
 
-	private long CalculateSumOfDistinctTrailHeadScores(List<List<int>> trailMap, List<(int x, int y)> startLocations, List<(int x, int y)> endLocations)
+	private static long CalculateSumOfDistinctTrailHeadScores(List<List<int>> trailMap, List<(int x, int y)> startLocations, List<(int x, int y)> endLocations)
 	{
 		var endsFound = new List<(int x, int y)>();
 

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -24,7 +23,7 @@ public class Part_01 : Day_05
 		return CalculateSumOfValidMiddlePageNumbers(_pageOrderingRules, _pagesToProduce).ToString();
 	}
 
-	private int CalculateSumOfValidMiddlePageNumbers(Dictionary<int, List<int>> pageOrderingRules, List<List<int>> pagesToProduce)
+	private static int CalculateSumOfValidMiddlePageNumbers(Dictionary<int, List<int>> pageOrderingRules, List<List<int>> pagesToProduce)
 	{
 		var sum = 0;
 

@@ -40,7 +40,7 @@ public abstract class Day_14 : BaseSolver
         public Vector2 Velocity = velocity;
     };
 
-    protected List<RobotData> ParseRobotData(List<string> input)
+    protected static List<RobotData> ParseRobotData(List<string> input)
 	{
 		var data = new List<RobotData>();
 

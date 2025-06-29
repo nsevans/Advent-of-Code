@@ -28,7 +28,7 @@ public abstract class Day_24 : BaseSolver
 	public override int Day => 24;
 	public override int Year => 2024;
 
-	protected Dictionary<string, bool?> ParseWireValues(List<string> input)
+	protected static Dictionary<string, bool?> ParseWireValues(List<string> input)
 	{
 		var dictionary = new Dictionary<string, bool?>();
 
@@ -45,7 +45,7 @@ public abstract class Day_24 : BaseSolver
 	}
 
 	// Pass in the wire value dictionary, as wires are also defined in the output of gates
-	protected List<KeyValuePair<(string wire1, string gate, string wire2), string>> ParseWireGateOutputs(List<string> input, Dictionary<string, bool?> wireValueDictionary)
+	protected static List<KeyValuePair<(string wire1, string gate, string wire2), string>> ParseWireGateOutputs(List<string> input, Dictionary<string, bool?> wireValueDictionary)
 	{
 		var dictionary = new List<KeyValuePair<(string wire1, string gate, string wire2), string>>();
 
@@ -74,7 +74,7 @@ public abstract class Day_24 : BaseSolver
 		return dictionary;
 	}
 
-	protected bool PerformOperation(bool wireValue1, string gate, bool wireValue2)
+	protected static bool PerformOperation(bool wireValue1, string gate, bool wireValue2)
 	{
 		if (gate == "AND")
 			return wireValue1 && wireValue2;
@@ -89,7 +89,7 @@ public abstract class Day_24 : BaseSolver
 		throw new InvalidOperationException($"Invalid logic gate '{gate}'");
 	}
 
-	protected double GetRegistryValue(Dictionary<string, bool?> registry, char registryIdentifier)
+	protected static double GetRegistryValue(Dictionary<string, bool?> registry, char registryIdentifier)
 	{
 		var registryValues = registry
 			.Where(x => x.Key.StartsWith(registryIdentifier))

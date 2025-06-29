@@ -18,7 +18,7 @@ public class Part_02 : Day_15
 		_movements = ParseMovements(input);
 	}
 
-	private List<List<char>> ParseWarehouseMap(List<string> input)
+	private static List<List<char>> ParseWarehouseMap(List<string> input)
 	{
 		var map = new List<List<char>>();
 

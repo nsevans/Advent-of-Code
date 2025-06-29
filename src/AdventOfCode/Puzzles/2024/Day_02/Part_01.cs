@@ -22,7 +22,7 @@ public class Part_01 : Day_02
 		return CalculateSumOfSafelyIncreasingOrDecreasingLines(_preparedInput).ToString();
     }
 
-	private int CalculateSumOfSafelyIncreasingOrDecreasingLines(IEnumerable<string> input)
+	private static int CalculateSumOfSafelyIncreasingOrDecreasingLines(IEnumerable<string> input)
 	{
 		var sum = 0;
 		foreach(var line in input)

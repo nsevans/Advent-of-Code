@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 namespace AdventOfCode.Puzzles.Year_2023.Day_01;
@@ -21,7 +20,7 @@ public class Part_01 : Day_01
 		return CalculateSumOfCalibrationDigits(_preparedInput).ToString();
     }
 
-	private int CalculateSumOfCalibrationDigits(IEnumerable<string> input)
+	private static int CalculateSumOfCalibrationDigits(IEnumerable<string> input)
 	{
 		var result = 0;
 		foreach (var line in input)
@@ -32,7 +31,7 @@ public class Part_01 : Day_01
 		return result;
 	}
 
-	private int ScanForDigits(string line)
+	private static int ScanForDigits(string line)
 	{
 		var first = 0;
 		// Iterate forward through the string until a number is found

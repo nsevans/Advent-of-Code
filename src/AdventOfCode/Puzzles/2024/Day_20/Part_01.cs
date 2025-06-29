@@ -35,8 +35,8 @@ public class Part_01 : Day_20
 
 	private long CalculateSumOfSecondsSavedFrom2SkipsOver100Picoseconds(List<List<char>> raceMap, List<List<bool>> visited, (int x, int y) startPosition, (int x, int y) endPosition, Dictionary<(int x, int y), int> positionTimeDictionary)
 	{
-		// Calculate time at each valid position on the track
-		TraverseRaceMap(raceMap, visited, startPosition, endPosition, positionTimeDictionary);
+        // Calculate time at each valid position on the track
+        TraverseRaceMap(raceMap, visited, startPosition, endPosition, positionTimeDictionary);
 		
 		var skipsSavingMoreThan100Picoseconds = 0L;
 		foreach (var positionTime in positionTimeDictionary)
@@ -64,7 +64,7 @@ public class Part_01 : Day_20
 		return timeSaved;
     }
 
-	private long GetTimeAtNextPosition(List<List<char>> raceMap, Dictionary<(int x, int y), int> positionTimeDictionary, (int x, int y) currentPosition, (int x, int y) direction)
+	private static long GetTimeAtNextPosition(List<List<char>> raceMap, Dictionary<(int x, int y), int> positionTimeDictionary, (int x, int y) currentPosition, (int x, int y) direction)
 	{
 		var skipPosition = (x: currentPosition.x + direction.x, y: currentPosition.y + direction.y);
 		

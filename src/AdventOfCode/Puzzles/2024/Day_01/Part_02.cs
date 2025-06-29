@@ -22,7 +22,7 @@ public class Part_02 : Day_01
 		return CalculateSumOfProductOfDuplicateValues(_inputPairs.leftItems, _inputPairs.rightItems).ToString();
 	}
 
-	private long CalculateSumOfProductOfDuplicateValues(List<long> left, List<long> right)
+	private static long CalculateSumOfProductOfDuplicateValues(List<long> left, List<long> right)
 	{
 		var sum = 0L;
 

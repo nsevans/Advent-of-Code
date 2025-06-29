@@ -50,7 +50,7 @@ public abstract class Day_23 : BaseSolver
 	public override int Year => 2024;
 
 	
-	protected Dictionary<string, List<string>> ParseConnectedComputers(List<string> input)
+	protected static Dictionary<string, List<string>> ParseConnectedComputers(List<string> input)
 	{
 		var connectedComputers = new Dictionary<string, List<string>>();
 

@@ -71,7 +71,7 @@ public abstract class Day_21 : BaseSolver
 		{ '>', new (2, 1) }
 	};
 
-	protected bool IsInBoundsNumpad(Point2D position)
+	protected static bool IsInBoundsNumpad(Point2D position)
 	{
 		if (position.X == 0 && position.Y == 3)
 			return false;
@@ -79,7 +79,7 @@ public abstract class Day_21 : BaseSolver
 		return position.X >= 0 && position.Y >= 0 && position.X < 3 && position.Y < 4; 
 	}
 
-	protected bool IsInBoundsDirectionPad(Point2D position)
+	protected static bool IsInBoundsDirectionPad(Point2D position)
 	{
 		if (position.X == 0 && position.Y == 0)
 			return false;
@@ -146,7 +146,7 @@ public abstract class Day_21 : BaseSolver
 		return shortestLength;
     }
 
-	protected List<string> GetPaths(Point2D start, Point2D end, Func<Point2D, bool> isInBounds)
+	protected static List<string> GetPaths(Point2D start, Point2D end, Func<Point2D, bool> isInBounds)
 	{
 		var paths = GetPathsReversed(start, end, isInBounds);
 
@@ -158,7 +158,7 @@ public abstract class Day_21 : BaseSolver
 		return paths;
 	}
 
-	protected List<string> GetPathsReversed(Point2D start, Point2D end, Func<Point2D, bool> isInBounds)
+	protected static List<string> GetPathsReversed(Point2D start, Point2D end, Func<Point2D, bool> isInBounds)
 	{
 		if (!isInBounds(start))
 			return [];

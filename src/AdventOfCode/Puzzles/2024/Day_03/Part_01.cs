@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -23,7 +22,7 @@ public class Part_01 : Day_03
 		return CalculateSumOfProducts(_preparedInput).ToString();
     }
 
-	private long CalculateSumOfProducts(IEnumerable<string> input)
+	private static long CalculateSumOfProducts(IEnumerable<string> input)
 	{
 		var sum = 0L;
 		// Pattern to find occurences of "mul(xxx,xxx)"

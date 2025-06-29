@@ -18,7 +18,7 @@ public abstract class Day_11 : BaseSolver
 	public override int Day => 11;
 	public override int Year => 2024;
 
-	protected List<long> ParseStones(IEnumerable<string> input)
+	protected static List<long> ParseStones(IEnumerable<string> input)
 	{
 		return input
 			.SelectMany(x => x

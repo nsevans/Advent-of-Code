@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
 namespace AdventOfCode.Puzzles.Year_2024.Day_09;
@@ -24,7 +22,7 @@ public class Part_01 : Day_09
 		return CalculateChecksumOfRoughlyDefragmentedDiskMap(_expandedDiskMap.ToArray()).ToString();
 	}
 
-	private long CalculateChecksumOfRoughlyDefragmentedDiskMap(string[] expandedDiskMap)
+	private static long CalculateChecksumOfRoughlyDefragmentedDiskMap(string[] expandedDiskMap)
 	{
 		var lastCheckedSpace = 0;
 		for (var i = expandedDiskMap.Length - 1; i >= 0; i--)

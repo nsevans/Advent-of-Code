@@ -24,7 +24,7 @@ public class Part_02 : Day_05
 		return CalculateSumOfInvalidMiddlePageNumbers(_pageOrderingRules, _pagesToProduce).ToString();
 	}	
 
-	private int CalculateSumOfInvalidMiddlePageNumbers(Dictionary<int, List<int>> pageOrderingRules, List<List<int>> pagesToProduce)
+	private static int CalculateSumOfInvalidMiddlePageNumbers(Dictionary<int, List<int>> pageOrderingRules, List<List<int>> pagesToProduce)
 	{
 		var sum = 0;
 

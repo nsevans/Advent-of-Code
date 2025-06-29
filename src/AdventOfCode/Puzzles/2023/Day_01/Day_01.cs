@@ -16,5 +16,5 @@ public abstract class Day_01 : BaseSolver
     public override int Day => 1;
     public override int Year => 2023;
 
-	protected List<string> NumberStrings => ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+	protected static List<string> NumberStrings => ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
 }

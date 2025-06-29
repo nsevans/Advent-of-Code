@@ -21,7 +21,7 @@ public class Part_02 : Day_11
 		return CalculateNumberOfStonesAfter75Blinks(_stones).ToString();
 	}
 
-	private long CalculateNumberOfStonesAfter75Blinks(List<long> stones)
+	private static long CalculateNumberOfStonesAfter75Blinks(List<long> stones)
 	{
 		// Cache of stone value and blink number and what stone value they convert to
 		var cache = new Dictionary<(long, int), long>();
@@ -35,7 +35,7 @@ public class Part_02 : Day_11
 		return count;
 	}
 
-	private long CountStonesRecursive(long stone, Dictionary<(long, int), long> cache, int iterationsRemaining)
+	private static long CountStonesRecursive(long stone, Dictionary<(long, int), long> cache, int iterationsRemaining)
 	{
 		if (cache.TryGetValue((stone, iterationsRemaining), out var cachedCount))
 			return cachedCount;

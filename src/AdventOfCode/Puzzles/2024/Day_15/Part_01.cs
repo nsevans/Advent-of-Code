@@ -18,7 +18,7 @@ public class Part_01 : Day_15
 		_movements = ParseMovements(input);
 	}
 
-	private List<List<char>> ParseWarehouseMap(List<string> input)
+	private static List<List<char>> ParseWarehouseMap(List<string> input)
 	{
 		var map = new List<List<char>>();
 
@@ -78,7 +78,7 @@ public class Part_01 : Day_15
 		return sum;
 	}
 
-	private bool MoveBoxes(List<List<char>> warehouseMap, (int x, int y) direction, (int x, int y) currentPosition)
+	private static bool MoveBoxes(List<List<char>> warehouseMap, (int x, int y) direction, (int x, int y) currentPosition)
 	{
 		if (!warehouseMap.IsInBounds(currentPosition.x, currentPosition.y))
 			return false;
@@ -112,7 +112,7 @@ public class Part_01 : Day_15
 		return false;
 	}
 
-	private (int x, int y) MoveToFreeSpace(List<List<char>> warehouseMap, (int x, int y) currentPosition, (int x, int y) nextPosition)
+	private static (int x, int y) MoveToFreeSpace(List<List<char>> warehouseMap, (int x, int y) currentPosition, (int x, int y) nextPosition)
 	{
 		warehouseMap[currentPosition.y][currentPosition.x] = '.';
 		warehouseMap[nextPosition.y][nextPosition.x] = '@';

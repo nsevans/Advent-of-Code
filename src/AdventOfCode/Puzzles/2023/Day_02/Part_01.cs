@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 namespace AdventOfCode.Puzzles.Year_2023.Day_02;
@@ -6,7 +5,7 @@ namespace AdventOfCode.Puzzles.Year_2023.Day_02;
 public class Part_01 : Day_02
 {
 	public override int Part => 1;
-	
+
 	private const int _redLimit = 12;
 	private const int _greenLimit = 13;
 	private const int _blueLimit = 14;
@@ -26,7 +25,7 @@ public class Part_01 : Day_02
 		return CalculateValidGames(_preparedInput).ToString();
 	}
 
-	private int CalculateValidGames(IEnumerable<string> input)
+	private static int CalculateValidGames(IEnumerable<string> input)
 	{
 		var sum = 0;
 		foreach (var line in input)

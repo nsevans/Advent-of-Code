@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
@@ -22,7 +21,7 @@ public class Part_02 : Day_03
 		return CalculateSumOfProductsWithCondition(_preparedInput).ToString();
     }
 
-	private long CalculateSumOfProductsWithCondition(IEnumerable<string> input)
+	private static long CalculateSumOfProductsWithCondition(IEnumerable<string> input)
 	{
 		var sum = 0L;
 

@@ -96,7 +96,7 @@ public abstract class Day_05 : BaseSolver
 		}
 	}
 
-	protected Dictionary<int, List<Mapping>> ParseMappings(List<string> input)
+	protected static Dictionary<int, List<Mapping>> ParseMappings(List<string> input)
 	{
 		var mappingDictionary = new Dictionary<int, List<Mapping>>();
 

@@ -45,7 +45,7 @@ public abstract class Day_12 : BaseSolver
 		(-1,  1)	// SOUTH WEST
 	];
 
-	protected List<List<char>> ParsePaddedGardenMap(IEnumerable<string> input)
+	protected static List<List<char>> ParsePaddedGardenMap(IEnumerable<string> input)
 	{
 		// Pad top and bottom with padding character
 		var horizontalPad = Enumerable.Repeat('_', input.Count() + 2).ToList();

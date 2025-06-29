@@ -38,7 +38,7 @@ public abstract class Day_20 : BaseSolver
 		(-1,  0)	// WEST
 	];
 
-	protected List<List<bool>> InitializeVisitedMap(List<List<char>> map)
+	protected static List<List<bool>> InitializeVisitedMap(List<List<char>> map)
 	{
 		var visited = new List<List<bool>>();
 		for (var i = 0; i < map.Count; i++)
@@ -54,7 +54,7 @@ public abstract class Day_20 : BaseSolver
 		return visited;
 	}
 
-	protected void TraverseRaceMap(List<List<char>> raceMap, List<List<bool>> visited, (int x, int y) startPosition, (int x, int y) endPosition, Dictionary<(int x, int y), int> positionTimeDictionary)
+	protected static void TraverseRaceMap(List<List<char>> raceMap, List<List<bool>> visited, (int x, int y) startPosition, (int x, int y) endPosition, Dictionary<(int x, int y), int> positionTimeDictionary)
 	{
 		var currentTime = 0;
 		var currentPosition = startPosition;

@@ -22,7 +22,7 @@ public class Part_02 : Day_02
 		return CalculateSumOfSafelyIncreasingOrDecreasingLinesWithDampener(_preparedInput).ToString();
     }
 
-	private int CalculateSumOfSafelyIncreasingOrDecreasingLinesWithDampener(IEnumerable<string> input)
+	private static int CalculateSumOfSafelyIncreasingOrDecreasingLinesWithDampener(IEnumerable<string> input)
 	{
 		var sum = 0;
 		foreach(var line in input)
@@ -36,7 +36,7 @@ public class Part_02 : Day_02
 		return sum;
 	}
 
-	private bool ValidateLineWithTolerance(List<int> lineNumbers)
+	private static bool ValidateLineWithTolerance(List<int> lineNumbers)
 	{
 		// Try each combination of the line removing a different index each time
 		for (var i = 0; i < lineNumbers.Count; i ++)

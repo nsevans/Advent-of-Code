@@ -9,7 +9,7 @@ public class Part_01 : Day_04
 	public override int Part => 1;
 
 	private List<string> _preparedInput;
-    
+
 	public override void PrepareData(List<string> input)
     {
 		_preparedInput = input;
@@ -22,7 +22,7 @@ public class Part_01 : Day_04
 		return CalculatePointsForMatchingNumbers(_preparedInput).ToString();
 	}
 
-	private int CalculatePointsForMatchingNumbers(List<string> input)
+	private static int CalculatePointsForMatchingNumbers(List<string> input)
 	{
 		var sum = 0;
 

@@ -33,7 +33,7 @@ public abstract class Day_15 : BaseSolver
 		{ 'v', (x:  0, y:  1) }, // SOUTH
 	};
 
-	protected List<char> ParseMovements(List<string> input)
+	protected static List<char> ParseMovements(List<string> input)
 	{
 		var movements = new List<char>();
 

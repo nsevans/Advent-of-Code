@@ -22,7 +22,7 @@ public abstract class BaseSolver : ISolver
 
 	public string DetailedHeading => $"#### Solving {Year}, Day {Day}, Part {Part}: {Title} ####\nLink {DayLink}{(Part == 2 ? "#part2" : "")}";
 	public string MinimalHeading => $"y{Year}-d{Day.ToString().PadLeft(2, '0')}-p{Part.ToString().PadLeft(2, '0')}";
-	public string TableHeading => $"{Year} | {Day}  | {Part}   | {Title}";
+	public string TableHeading => $"{Year} | {Day} | {Part} | {Title}";
 
 	public abstract void PrepareData(List<string> input);
 

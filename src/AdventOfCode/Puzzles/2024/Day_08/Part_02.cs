@@ -26,7 +26,7 @@ public class Part_02 : Day_08
 		return CalculateSumOfAntinodesForMatchingFrequenciesAtAnyDistance(_frequencyDictionary, _map).ToString();
 	}
 
-	private int CalculateSumOfAntinodesForMatchingFrequenciesAtAnyDistance(Dictionary<char, List<Vector2>> frequencyDictionary, List<List<char>> map)
+	private static int CalculateSumOfAntinodesForMatchingFrequenciesAtAnyDistance(Dictionary<char, List<Vector2>> frequencyDictionary, List<List<char>> map)
 	{
 		var antinodeLocations = new List<Vector2>();
 

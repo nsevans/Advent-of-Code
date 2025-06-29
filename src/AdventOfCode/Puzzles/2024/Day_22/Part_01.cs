@@ -20,7 +20,7 @@ public class Part_01 : Day_22
 		return CalculateSumOf2000thSecretNumber(_secretNumbers).ToString();
 	}
 
-	private long CalculateSumOf2000thSecretNumber(List<long> secretNumbers)
+	private static long CalculateSumOf2000thSecretNumber(List<long> secretNumbers)
 	{
 		var sum = 0L;
 		foreach (var secret in secretNumbers)
@@ -31,7 +31,7 @@ public class Part_01 : Day_22
 		return sum;
 	}
 
-	private long SimulateSecretGeneration(long secret, int cycles)
+	private static long SimulateSecretGeneration(long secret, int cycles)
 	{
 		var currentSecret = secret;
 		for (var i = 0; i < cycles; i++)
@@ -41,7 +41,7 @@ public class Part_01 : Day_22
 		return currentSecret;
 	}
 
-	private long GenerateNextSecret(long secret)
+	private static long GenerateNextSecret(long secret)
 	{
 		var step1 = ((secret * 64) ^ secret) % 16777216;
 		var step2 = ((step1 / 32) ^ step1) % 16777216;

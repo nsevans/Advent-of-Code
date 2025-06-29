@@ -1,7 +1,7 @@
 using System;
 using AdventOfCode.Common.Extensions;
-using AdventOfCode.Common.Models;
 using AdventOfCode.Common.Services;
+using AdventOfCode.Models;
 
 namespace AdventOfCode.Services.Generating;
 

@@ -25,7 +25,7 @@ public abstract class Day_04 : BaseSolver
 	public override int Day => 4;
 	public override int Year => 2024;
 
-	protected List<(int y, int x)> Directions => [
+	protected static List<(int y, int x)> Directions => [
 		(0,  -1),	// WEST
 		(-1, -1),	// SOUTH WEST 
 		(-1,  0),	// SOUTH

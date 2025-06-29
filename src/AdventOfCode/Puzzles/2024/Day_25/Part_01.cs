@@ -17,7 +17,7 @@ public class Part_01 : Day_25
 		_keys = ParseKeys(input);
 	}
 
-	private List<List<int>> ParseLocks(List<string> input)
+	private static List<List<int>> ParseLocks(List<string> input)
 	{
 		var locks = new List<List<int>>();
 
@@ -47,7 +47,7 @@ public class Part_01 : Day_25
 		return locks;
 	}
 
-	private List<List<int>> ParseKeys(List<string> input)
+	private static List<List<int>> ParseKeys(List<string> input)
 	{
 		var locks = new List<List<int>>();
 
@@ -82,7 +82,7 @@ public class Part_01 : Day_25
 		return SumOfUniqueKeyCombinations(_locks, _keys).ToString();
 	}
 
-	private int SumOfUniqueKeyCombinations(List<List<int>> locks, List<List<int>> keys)
+	private static int SumOfUniqueKeyCombinations(List<List<int>> locks, List<List<int>> keys)
 	{
 		var uniqueCombos = 0;
 

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -22,7 +21,7 @@ public class Part_02 : Day_23
 		return CalculatePasswordForLargestConnectedSetOfComputers(_connectedComputers);
 	}
 
-	private string CalculatePasswordForLargestConnectedSetOfComputers(Dictionary<string, List<string>> connectedComputers)
+	private static string CalculatePasswordForLargestConnectedSetOfComputers(Dictionary<string, List<string>> connectedComputers)
 	{
 		var largestSet = new List<string>();
 
@@ -40,7 +39,7 @@ public class Part_02 : Day_23
 		return string.Join(',', largestSet.OrderBy(x => x));
 	}
 
-	private List<string> GetLargestInterConnectedSetForComputer(string currentComputer, List<string> currentComputerSet, Dictionary<string, List<string>> connectedComputers)
+	private static List<string> GetLargestInterConnectedSetForComputer(string currentComputer, List<string> currentComputerSet, Dictionary<string, List<string>> connectedComputers)
 	{
 		if (currentComputerSet.Contains(currentComputer))
 			return currentComputerSet;

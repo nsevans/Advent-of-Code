@@ -17,7 +17,7 @@ public abstract class Day_03 : BaseSolver
 	public override int Day => 3;
 	public override int Year => 2024;
 
-	protected long GetProductOfValuesFromMatch(string match)
+	protected static long GetProductOfValuesFromMatch(string match)
 	{
 		// Strip out all non digit characters from "mul(xxx,xxx)"
 		var values = match

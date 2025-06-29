@@ -7,7 +7,7 @@ namespace AdventOfCode.Puzzles.Year_2023.Day_04;
 public class Part_02 : Day_04
 {
 	public override int Part => 2;
-	
+
 	private Dictionary<int, Card> _cardDictionary;
 	private List<int> _cardsToScratch;
 	private int _lastCardId;
@@ -23,8 +23,8 @@ public class Part_02 : Day_04
 		// Id of last card id, used to ensure no card ids greater than it are added
 		_lastCardId = _cardsToScratch.OrderBy(x => x).Last();
     }
-	
-	private Dictionary<int, Card> ConstructCardDictionary(IEnumerable<string> input)
+
+	private static Dictionary<int, Card> ConstructCardDictionary(IEnumerable<string> input)
 	{
 		var dictionary = new Dictionary<int, Card>();
 		foreach(var line in input)
@@ -54,8 +54,8 @@ public class Part_02 : Day_04
 		return CalculateNumberOfInstancesOfWinningCards(_cardDictionary, _cardsToScratch, _lastCardId).ToString();
     }
 
-	private int CalculateNumberOfInstancesOfWinningCards(Dictionary<int, Card> cardDictionary, List<int> cardsToScratch, int lastCardId)
-	{	
+	private static int CalculateNumberOfInstancesOfWinningCards(Dictionary<int, Card> cardDictionary, List<int> cardsToScratch, int lastCardId)
+	{
 		var numberOfCardsScratched = 0;
 
 		for (int i = 0; i < cardsToScratch.Count; i++)

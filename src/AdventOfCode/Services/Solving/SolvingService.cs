@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using AdventOfCode.Common.Extensions;
-using AdventOfCode.Common.Models;
+using AdventOfCode.Models;
 using AdventOfCode.Puzzles;
 
 namespace AdventOfCode.Services.Solving;

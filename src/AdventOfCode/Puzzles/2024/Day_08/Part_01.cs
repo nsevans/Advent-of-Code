@@ -26,7 +26,7 @@ public class Part_01 : Day_08
 		return CalculateSumOfAntinodesForMatchingFrequenciesAtSpecificDistance(_frequencyDictionary, _map).ToString();
 	}
 
-	private int CalculateSumOfAntinodesForMatchingFrequenciesAtSpecificDistance(Dictionary<char, List<Vector2>> frequencyDictionary, List<List<char>> map)
+	private static int CalculateSumOfAntinodesForMatchingFrequenciesAtSpecificDistance(Dictionary<char, List<Vector2>> frequencyDictionary, List<List<char>> map)
 	{
 		var antinodeLocations = new List<Vector2>();
 
@@ -54,7 +54,7 @@ public class Part_01 : Day_08
 		return antinodeLocations.Distinct().Count();
 	}
 
-	private bool IsValidAntinodePosition(Vector2 antinode, char frequency, List<List<char>> map)
+	private static bool IsValidAntinodePosition(Vector2 antinode, char frequency, List<List<char>> map)
 	{
 		return map.IsInBounds((int) antinode.X, (int) antinode.Y) && map[(int)antinode.Y][(int)antinode.X] != frequency;
 	}

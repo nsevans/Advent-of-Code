@@ -17,7 +17,7 @@ public class Part_01 : Day_19
 		_designs = ParseTowelDesigns(input);
 	}
 
-	private List<string> ParseTowelPatterns(List<string> input)
+	private static List<string> ParseTowelPatterns(List<string> input)
 	{
 		return input[0]
 			.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
@@ -25,7 +25,7 @@ public class Part_01 : Day_19
 			.ToList();
 	}
 
-	private List<string> ParseTowelDesigns(List<string> input)
+	private static List<string> ParseTowelDesigns(List<string> input)
 	{
 		return input[2..];
 	}
@@ -37,7 +37,7 @@ public class Part_01 : Day_19
 		return CalculateNumberOfPossibleDesigns(_patterns, _designs).ToString();
 	}
 
-	private int CalculateNumberOfPossibleDesigns(List<string> patterns, List<string> designs)
+	private static int CalculateNumberOfPossibleDesigns(List<string> patterns, List<string> designs)
 	{
 		var sum = 0;
 
@@ -58,7 +58,7 @@ public class Part_01 : Day_19
 		return sum;
 	}
 
-	private bool IsDesignPossibleRecursive(string design, string currentPattern, List<string> patterns)
+	private static bool IsDesignPossibleRecursive(string design, string currentPattern, List<string> patterns)
 	{
 		var remainingDesign = design.Substring(currentPattern.Length);
 

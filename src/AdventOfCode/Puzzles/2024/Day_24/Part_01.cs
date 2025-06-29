@@ -25,7 +25,7 @@ public class Part_01 : Day_24
 		return CalculateBinaryToIntResultOfGateOperations(_wireValueDictionary, _wireGateOutputDictionary).ToString();
 	}
 
-	private double CalculateBinaryToIntResultOfGateOperations(Dictionary<string, bool?> wireValueDictionary, List<KeyValuePair<(string wire1, string gate, string wire2), string>> wireGateOutputDictionary)
+	private static double CalculateBinaryToIntResultOfGateOperations(Dictionary<string, bool?> wireValueDictionary, List<KeyValuePair<(string wire1, string gate, string wire2), string>> wireGateOutputDictionary)
 	{
 
 		for (var i = 0; i < wireGateOutputDictionary.Count; i++)

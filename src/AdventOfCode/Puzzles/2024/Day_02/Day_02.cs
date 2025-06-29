@@ -21,7 +21,7 @@ public abstract class Day_02 : BaseSolver
 	public override int Day => 2;
 	public override int Year => 2024;
 
-	protected bool ValidateSet(int number1, int number2, bool isAscending)
+	protected static bool ValidateSet(int number1, int number2, bool isAscending)
 	{
 		var difference = Math.Abs(number1 - number2);
 		if (number1 == number2)

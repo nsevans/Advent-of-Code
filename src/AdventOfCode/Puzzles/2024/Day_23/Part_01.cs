@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using AdventOfCode.Common.Extensions;
 
 namespace AdventOfCode.Puzzles.Year_2024.Day_23;
 
@@ -23,7 +22,7 @@ public class Part_01 : Day_23
 		return CalculateNumberOfTriConnectedComputersContainingT(_connectedComputers).ToString();
 	}
 
-	private int CalculateNumberOfTriConnectedComputersContainingT(Dictionary<string, List<string>> connectedComputers)
+	private static int CalculateNumberOfTriConnectedComputersContainingT(Dictionary<string, List<string>> connectedComputers)
 	{
 		var sum = 0;
 		var triConnectedComputers = new List<List<string>>();

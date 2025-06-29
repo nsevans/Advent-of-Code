@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,7 +8,7 @@ public class Part_01 : Day_03
 	public override int Part => 1;
 
 	private List<List<char>> _preparedInput;
-    
+
 	public override void PrepareData(List<string> input)
     {
         _preparedInput = input.Select(x => x.ToCharArray().ToList()).ToList();
@@ -22,7 +21,7 @@ public class Part_01 : Day_03
 		return SumNumbersLinkedToSymbols(_preparedInput).ToString();
     }
 
-	private int SumNumbersLinkedToSymbols(List<List<char>> inputMap)
+	private static int SumNumbersLinkedToSymbols(List<List<char>> inputMap)
 	{
 		var sum = 0;
 

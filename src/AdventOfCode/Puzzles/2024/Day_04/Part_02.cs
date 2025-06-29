@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using AdventOfCode.Common.Extensions;
 
@@ -22,7 +21,7 @@ public class Part_02 : Day_04
 		return CountNumberOfTimesWordShapeAppears(_wordSearch).ToString();
 	}
 
-	private int CountNumberOfTimesWordShapeAppears(List<List<char>> wordSearch)
+	private static int CountNumberOfTimesWordShapeAppears(List<List<char>> wordSearch)
 	{
 		var shapeCount = 0;
 

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,7 +22,7 @@ public class Part_02 : Day_09
 		return CalculateChecksumOfDefragmentedDiskMap(_expandedDiskMap).ToString();
 	}
 
-	private long CalculateChecksumOfDefragmentedDiskMap(List<string> expandedDiskMap)
+	private static long CalculateChecksumOfDefragmentedDiskMap(List<string> expandedDiskMap)
 	{
 		// Keep track of the earliest empty location to make future free space scans quicker
 		var earliestFreeSpaceIndex = -1;
@@ -66,7 +65,7 @@ public class Part_02 : Day_09
 		return checksum;
 	}
 
-	private List<int> GetFileIndexes(List<string> expandedDiskMap, string fileId, int startIndex, out int latestFileChunkIndex)
+	private static List<int> GetFileIndexes(List<string> expandedDiskMap, string fileId, int startIndex, out int latestFileChunkIndex)
 	{
 		var fileIndexes = new List<int> { };
 		var latestFileChunkIndexValue = -1;
@@ -94,7 +93,7 @@ public class Part_02 : Day_09
 		return fileIndexes.OrderBy(x => x).ToList();
 	}
 
-	private List<int> GetFreeSpaceIndexes(List<string> expandedDiskMap, int startIndex, int fileSize, int firstFileIndex, out int earliestFreeSpaceIndex)
+	private static List<int> GetFreeSpaceIndexes(List<string> expandedDiskMap, int startIndex, int fileSize, int firstFileIndex, out int earliestFreeSpaceIndex)
 	{
 
 		var freeSpaceIndexes = new List<int>();

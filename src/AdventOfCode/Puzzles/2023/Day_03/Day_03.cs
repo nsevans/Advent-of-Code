@@ -18,9 +18,9 @@ public abstract class Day_03 : BaseSolver
     public override int Day => 3;
     public override int Year => 2023;
 
-	protected string ValidSymbols => "*=/%#&$-@+";
+	protected static string ValidSymbols => "*=/%#&$-@+";
 
-	protected int ParseNumberFromString(List<char> line, int index)
+	protected static int ParseNumberFromString(List<char> line, int index)
 	{
 		var startingIndex = index;
 		// Find starting index of number (loop backwards until first digit of group is found)

@@ -17,7 +17,7 @@ public class Part_02 : Day_19
 		_designs = ParseTowelDesigns(input);
 	}
 
-	private List<string> ParseTowelPatterns(List<string> input)
+	private static List<string> ParseTowelPatterns(List<string> input)
 	{
 		return input[0]
 			.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
@@ -25,7 +25,7 @@ public class Part_02 : Day_19
 			.ToList();
 	}
 
-	private List<string> ParseTowelDesigns(List<string> input)
+	private static List<string> ParseTowelDesigns(List<string> input)
 	{
 		return input[2..];
 	}
@@ -37,7 +37,7 @@ public class Part_02 : Day_19
 		return CalculateNumberOfPossibleDesigns(_patterns, _designs).ToString();
 	}
 
-	private long CalculateNumberOfPossibleDesigns(List<string> patterns, List<string> designs)
+	private static long CalculateNumberOfPossibleDesigns(List<string> patterns, List<string> designs)
 	{
 		var cache = new Dictionary<string, long>();
 		var result = 0L;
@@ -50,7 +50,7 @@ public class Part_02 : Day_19
 		return result;
 	}
 
-	private long CalculateNumberOfPossiblePatternCombinationsRecursive(string design, List<string> patterns, Dictionary<string, long> cache)
+	private static long CalculateNumberOfPossiblePatternCombinationsRecursive(string design, List<string> patterns, Dictionary<string, long> cache)
 	{
 		if (cache.TryGetValue(design, out var cachedValue))
 			return cachedValue;

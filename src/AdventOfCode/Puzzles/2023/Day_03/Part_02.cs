@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,7 +7,7 @@ public class Part_02 : Day_03
 {
 	public override int Part => 2;
 	
-	private char _specialSymbol => '*';
+	private static char _specialSymbol => '*';
 
 	private List<List<char>> _preparedInput;
 
@@ -24,7 +23,7 @@ public class Part_02 : Day_03
 		return SumProductOfNumbersLinkedToSpecialSymbol(_preparedInput).ToString();
 	}
 
-	private int SumProductOfNumbersLinkedToSpecialSymbol(List<List<char>> inputMap)
+	private static int SumProductOfNumbersLinkedToSpecialSymbol(List<List<char>> inputMap)
 	{
 		var sum = 0;
 		for (int i = 0; i < inputMap.Count; i++)
@@ -47,7 +46,7 @@ public class Part_02 : Day_03
 		return sum;
 	}
 
-	private List<int> GetListOfAdjacents(List<List<char>> inputMap, int i, int j)
+	private static List<int> GetListOfAdjacents(List<List<char>> inputMap, int i, int j)
 	{
 		var adjacents = new List<int>();
 		var lineLength = inputMap[i].Count;

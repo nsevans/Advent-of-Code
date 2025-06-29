@@ -45,7 +45,7 @@ public abstract class Day_05 : BaseSolver
 	public override int Day => 5;
 	public override int Year => 2024;
 
-	protected Dictionary<int, List<int>> ParsePageOrderingRules(IEnumerable<string> input)
+	protected static Dictionary<int, List<int>> ParsePageOrderingRules(IEnumerable<string> input)
 	{
 		var result = new Dictionary<int, List<int>>();
 
@@ -67,7 +67,7 @@ public abstract class Day_05 : BaseSolver
 		return result;
 	}
 
-	protected List<List<int>> ParsePagesToProduce(IEnumerable<string> input)
+	protected static List<List<int>> ParsePagesToProduce(IEnumerable<string> input)
 	{
 		var result = new List<List<int>>();
 

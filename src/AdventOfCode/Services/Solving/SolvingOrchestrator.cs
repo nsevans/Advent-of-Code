@@ -2,8 +2,8 @@ using System;
 using System.IO;
 using System.Linq;
 using AdventOfCode.Common.Extensions;
-using AdventOfCode.Common.Models;
 using AdventOfCode.Factories;
+using AdventOfCode.Models;
 
 namespace AdventOfCode.Services.Solving;
 
@@ -17,10 +17,10 @@ public class SolvingOrchestrator(SolverContext context)
 
         if (_context.Verbose)
         {
-            if (_context.NoFiltersSpecified())
-                Console.WriteLine("Collecting all puzzle solvers...");
-            else
+            if (_context.HasFilters)
                 Console.WriteLine($"Collecting puzzle solvers for {_context.YearText}, for {_context.DayText}, and for {_context.PartText}...");
+            else
+                Console.WriteLine("Collecting all puzzle solvers...");
         }
 
         var solverGroups = SolverFactory.GetGroupedSolvers(_context);

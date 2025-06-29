@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,7 +9,7 @@ public static class SolvingInputService
 {
     public static bool TryGetInput(BaseSolver solver, out List<string> fileContents)
     {
-        fileContents = new List<string>();
+        fileContents = [];
 
         if (!File.Exists(solver.InputFilePath))
         {

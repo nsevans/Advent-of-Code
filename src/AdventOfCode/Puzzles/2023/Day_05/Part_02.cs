@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using AdventOfCode.Common.Models;
 
 namespace AdventOfCode.Puzzles.Year_2023.Day_05;
 
@@ -11,10 +12,10 @@ public class Part_02 : Day_05
 	private Dictionary<int, List<Mapping>> _mappingsDictionary;
 	private List<ValueRange> _seedRanges;
 
-	public override void PrepareData(List<string> input)
+    public override void PrepareData(List<string> input)
     {
-		_mappingsDictionary = ParseMappings(input);
-		_seedRanges = ParseSeedRanges(input);
+        _mappingsDictionary = ParseMappings(input);
+        _seedRanges = ParseSeedRanges(input);
     }
 
 	private static List<ValueRange> ParseSeedRanges(List<string> input)

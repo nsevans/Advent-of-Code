@@ -112,7 +112,7 @@ public class Part_02 : Day_09
 				}
 			}
 			else
-				freeSpaceIndexes = new List<int>();
+				freeSpaceIndexes = [];
 
 			if (freeSpaceIndexes.Count == fileSize)
 				break;
@@ -123,6 +123,6 @@ public class Part_02 : Day_09
 		if (freeSpaceIndexes.Count == fileSize)
 			return freeSpaceIndexes.OrderBy(x => x).ToList();
 
-		return new List<int>();
+		return [];
 	}
 }

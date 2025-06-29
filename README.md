@@ -5,10 +5,10 @@ This project is for all of my attempts at the Advent of Code puzzles found on th
 ## Index
 
 * [Solvers](#solvers)
-  * [Running Solver](#running-solvers)
+  * [Running Solvers](#running-solvers)
   * [Solver Examples](#solver-examples)
 * [Generators](#generator)
-  * [Running Solver](#running-generators)
+  * [Running Generators](#running-generators)
   * [Generator Examples](#generator-examples)
 * [Solver Run Results](#solver-run-results)
 

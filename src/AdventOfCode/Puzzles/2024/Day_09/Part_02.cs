@@ -70,10 +70,10 @@ public class Part_02 : Day_09
 		var fileIndexes = new List<int> { };
 		var latestFileChunkIndexValue = -1;
 
-		// Only check the next 9 indexes (or until the start of the list) beause the size of  
+		// Only check the next 9 indexes (or until the start of the list) beause the size of
 		// a single file can be no larger than 9
 		var endIndex = startIndex - 9 < 0 ? 0 : startIndex - 9;
-		
+
 		for (var i = startIndex; i >= endIndex; i--)
 		{
 			if (expandedDiskMap[i] == fileId)

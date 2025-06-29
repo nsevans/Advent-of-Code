@@ -35,7 +35,7 @@ public class Part_01 : Day_02
 			{
 				var currentNumber = lineNumbers[i];
 				var nextNumber = lineNumbers[i + 1];
-				
+
 				if (!ValidateSet(currentNumber, nextNumber, isAscending))
 				{
 					isValidLine = false;

@@ -58,5 +58,5 @@ public class Part_01 : Day_08
 	{
 		return map.IsInBounds((int) antinode.X, (int) antinode.Y) && map[(int)antinode.Y][(int)antinode.X] != frequency;
 	}
-	
+
 }

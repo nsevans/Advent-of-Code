@@ -5,7 +5,7 @@ namespace AdventOfCode.Common.Extensions;
 public static class DictionaryExtensions
 {
 	/// <summary>
-	/// If the key exists add the value to the existing list, otherwise create the entry for the 
+	/// If the key exists add the value to the existing list, otherwise create the entry for the
 	/// key and add the value to the new list.
 	/// </summary>
 	/// <typeparam name="TKey"></typeparam>
@@ -47,7 +47,7 @@ public static class DictionaryExtensions
 	{
 		if (dict.TryGetValue(key, out var value))
 			return value;
-		
+
 		return definedDefault;
 	}
 }

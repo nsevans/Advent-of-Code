@@ -154,11 +154,11 @@ public static class ListExtensions
 		if (!list.IsInBounds(x, y))
 			return default;
 
-		return list[y][x]; 
+		return list[y][x];
 	}
 
 	/// <summary>
-	/// Set a given value in a 2D list at a given position, as long as the position is valid 
+	/// Set a given value in a 2D list at a given position, as long as the position is valid
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
 	/// <param name="list"></param>
@@ -168,7 +168,7 @@ public static class ListExtensions
 	public static bool SetValueAtIndex<T>(this List<List<T>> list, (int x, int y) position, T value) => list.SetValueAtIndex(position.x, position.y, value);
 
 	/// <summary>
-	/// Set a given value in a 2D list at a given position, as long as the position is valid 
+	/// Set a given value in a 2D list at a given position, as long as the position is valid
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
 	/// <param name="list"></param>

@@ -75,7 +75,7 @@ public class Part_01 : Day_17
 						continue;
 					}
 					break;
-				// (bxc) Bitwise XOR: B = B ^ C 
+				// (bxc) Bitwise XOR: B = B ^ C
 				case 4:
 					registers['B'] = registers['B'] ^ registers['C'];
 					break;

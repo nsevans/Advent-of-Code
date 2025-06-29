@@ -49,7 +49,7 @@ public class Part_02 : Day_03
 			// Potential "mul(xxx,xxx)", but only consider this option if "do()" was the most
 			// recent command out of "do()" or "don't()"
 			else if (inputLine[i] == 'm' && canMultiply)
-			{	
+			{
 				// Get substring length based on distance from current index to end of string
 				// Max length of substring is 12 because "mul(xxx,xxx)" is 12 characters long
 				var substringLength = inputLine.Length - i < 12 ? inputLine.Length - i : 12;

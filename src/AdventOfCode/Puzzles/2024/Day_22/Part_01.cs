@@ -25,7 +25,7 @@ public class Part_01 : Day_22
 		var sum = 0L;
 		foreach (var secret in secretNumbers)
 		{
-			var result = SimulateSecretGeneration(secret, 2000);			
+			var result = SimulateSecretGeneration(secret, 2000);
 			sum += result;
 		}
 		return sum;

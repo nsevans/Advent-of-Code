@@ -35,7 +35,7 @@ public class Part_01 : Day_24
 			var wireValue1 = wireValueDictionary[logicOperation.Key.wire1];
 			var wireValue2 = wireValueDictionary[logicOperation.Key.wire2];
 
-			// If a logic operation is encountered where one or both of the inputs don't have a value, add it to the 
+			// If a logic operation is encountered where one or both of the inputs don't have a value, add it to the
 			// end of the list to try again
 			if (!wireValue1.HasValue || !wireValue2.HasValue)
 			{

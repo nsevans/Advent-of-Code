@@ -2,12 +2,12 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_19;
 
 /// <summary>
 /// This base class is to store shared logic between Parts 1 and 2 of this day
-/// 
+///
 /// Link to Day https://adventofcode.com/2024/day/19
-/// 
-/// Example/Test Input: 
+///
+/// Example/Test Input:
 ///		r, wr, b, g, bwu, rb, gb, br
-///		
+///
 ///		brwrr
 ///		bggr
 ///		gbbr

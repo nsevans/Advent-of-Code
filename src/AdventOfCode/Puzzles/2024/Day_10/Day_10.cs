@@ -5,10 +5,10 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_10;
 
 /// <summary>
 /// This base class is to store shared logic between Parts 1 and 2 of this day
-/// 
+///
 /// Link to Day https://adventofcode.com/2024/day/10
-/// 
-/// Example/Test Input: 
+///
+/// Example/Test Input:
 /// 	0123
 ///		1234
 ///		8765
@@ -54,7 +54,7 @@ public abstract class Day_10 : BaseSolver
 		if (position.x - 1 >= 0 && trailMap[position.y][position.x - 1] == currentPositionValue + 1)
 			topsFound.AddRange(TryFindEndOfTrailRecursiveDFS(trailMap, (position.x - 1, position.y)));
 
-		// Ensure right position is valid and check it if it is 
+		// Ensure right position is valid and check it if it is
 		if (position.x + 1 < trailMap[position.y].Count && trailMap[position.y][position.x + 1] == currentPositionValue + 1)
 			topsFound.AddRange(TryFindEndOfTrailRecursiveDFS(trailMap, (position.x + 1, position.y)));
 

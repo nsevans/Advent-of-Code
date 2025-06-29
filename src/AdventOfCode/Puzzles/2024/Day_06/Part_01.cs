@@ -27,7 +27,7 @@ public class Part_01 : Day_06
 		var startingY = map.IndexOf(map.First(x => x.Contains('^')));
 		var startingX = map[startingY].IndexOf('^');
 		var startingDirection = Directions[0];
-		
+
 		var currentY = startingY;
 		var currentX = startingX;
 		var currentDirection = startingDirection;
@@ -47,7 +47,7 @@ public class Part_01 : Day_06
 
 			if (nextY < 0 || nextX < 0 || nextY >= map.Count || nextX >= map[nextY].Count)
 				break;
-			
+
 			if (map[nextY][nextX] == '#')
 				// Update to try new direction (90 degree right turn)
 				currentDirection = Directions[(Directions.IndexOf(currentDirection) + 1) % Directions.Count];

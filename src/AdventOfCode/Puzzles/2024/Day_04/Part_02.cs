@@ -45,7 +45,7 @@ public class Part_02 : Day_04
 
 					if (sectionOneIsValid && sectionTwoIsValid)
 						shapeCount++;
-				}	
+				}
 			}
 		}
 		return shapeCount;

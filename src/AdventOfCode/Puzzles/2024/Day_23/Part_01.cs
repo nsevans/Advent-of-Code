@@ -31,7 +31,7 @@ public class Part_01 : Day_23
 		{
 			foreach (var computer2 in connectedComputers[computer1])
 			{
-			
+
 				foreach (var computer3 in connectedComputers[computer1].Where(c2 => c2 != computer2))
 				{
 					// Order connections so they can be found reliably in the list of already found tri connections list
@@ -39,7 +39,7 @@ public class Part_01 : Day_23
 
 					if (!connections.Any(c => c.StartsWith('t')))
 						continue;
-					
+
 					// Ensure the computers are connected (aka appear in each others list of connected computers)
 					var computer1IsConnected = connections.Where(c => c != computer2).All(c => connectedComputers[computer2].Contains(c));
 					var computer2IsConnected = connections.Where(c => c != computer3).All(c => connectedComputers[computer3].Contains(c));

@@ -20,10 +20,10 @@ public static class MathHelper
 	}
 
 	/// <summary>
-	/// Attempting to emulate python's pow(base, exp) or pow(base, exp, mod) this method will calculate the base to the 
+	/// Attempting to emulate python's pow(base, exp) or pow(base, exp, mod) this method will calculate the base to the
 	/// exponent.
 	/// <para>If the modulo is present and is non zero and exponent is negative, then base must be relatively prime to mode.
-	/// In that case pow(inverse_base, -exponent, modulo) is returned, where inverse_base is an inverse to base modulo 
+	/// In that case pow(inverse_base, -exponent, modulo) is returned, where inverse_base is an inverse to base modulo
 	/// modulo.</para>
 	/// <para>See Python's documentation on it here: https://docs.python.org/3/library/functions.html#pow</para>
 	/// </summary>
@@ -36,7 +36,7 @@ public static class MathHelper
 	{
 		if (modulo != null && modulo <= 0)
 			throw new ArgumentException($"{nameof(modulo)} must be a non zero integer");
-		
+
 		if (modulo != null && exponent < 0)
 		{
 			var inverseBase = ModInverse(@base, modulo.Value);
@@ -60,10 +60,10 @@ public static class MathHelper
 	/// <returns></returns>
     public static double ModInverse(double value, double modulo)
     {
-		
+
 		if (GreatestCommonDivisor((ulong)value, (ulong)modulo) != 1)
 			return -1;
-		
+
         for (int X = 1; X < modulo; X++)
             if (((value % modulo) * (X % modulo)) % modulo == 1)
                 return X;

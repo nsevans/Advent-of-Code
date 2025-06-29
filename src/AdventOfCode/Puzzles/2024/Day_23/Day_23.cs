@@ -6,10 +6,10 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_23;
 
 /// <summary>
 /// This base class is to store shared logic between Parts 1 and 2 of this day
-/// 
+///
 /// Link to Day https://adventofcode.com/2024/day/23
-/// 
-/// Example/Test Input: 
+///
+/// Example/Test Input:
 ///		kh-tc
 ///		qp-kh
 ///		de-cg
@@ -49,7 +49,7 @@ public abstract class Day_23 : BaseSolver
 	public override int Day => 23;
 	public override int Year => 2024;
 
-	
+
 	protected static Dictionary<string, List<string>> ParseConnectedComputers(List<string> input)
 	{
 		var connectedComputers = new Dictionary<string, List<string>>();

@@ -10,7 +10,7 @@ public class Part_02 : Day_05
 
 	private Dictionary<int, List<Mapping>> _mappingsDictionary;
 	private List<ValueRange> _seedRanges;
-    
+
 	public override void PrepareData(List<string> input)
     {
 		_mappingsDictionary = ParseMappings(input);
@@ -77,7 +77,7 @@ public class Part_02 : Day_05
 						nextSourceRanges.Add(new ValueRange(mapping.Range.Start + mapping.Offset, mapping.Range.End + mapping.Offset));
 
 						// The outside edges of the source range need to be considered for the next mapping dictionary
-						nextMappingRanges.Add(new ValueRange(sourceRange.Start, mapping.Range.Start - 1));	
+						nextMappingRanges.Add(new ValueRange(sourceRange.Start, mapping.Range.Start - 1));
 						nextMappingRanges.Add(new ValueRange(mapping.Range.End + 1, sourceRange.End));
 						continue;
 					}
@@ -101,7 +101,7 @@ public class Part_02 : Day_05
 						nextMappingRanges.Add(new ValueRange(mapping.Range.End + 1, sourceRange.End));
 				}
 
-				// After the last mapping of a dictionary add the compiled list of intersecting ranges to the list 
+				// After the last mapping of a dictionary add the compiled list of intersecting ranges to the list
 				// used for the next mapping dictionary
 				if (index >= mappingDictionary.Value.Count - 1)
 					nextSourceRanges.AddRange(nextMappingRanges);

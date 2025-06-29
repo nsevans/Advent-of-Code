@@ -42,7 +42,7 @@ public class Part_02 : Day_17
 		return -1;
 	}
 
-	/* 
+	/*
 	 * TODO: Update to be more general and get result of any program
 	 * Would probably require passing in program and running each instruction
 	*/

@@ -49,7 +49,7 @@ public class Part_02 : Day_12
 	{
 		// Mark the current spot as evaluated
 		map[y][x] = evaluatedToken;
-		
+
 		var area = 1;
 		// Calculate corners of current position
 		var corners = GetOutsideCornerCount(map, plant, evaluatedToken, x, y) + GetInsideCornerCount(map, plant, evaluatedToken, x, y);
@@ -101,7 +101,7 @@ public class Part_02 : Day_12
 
 			var point1 = map[y + dir1.dy][x + dir1.dx];
 			var point2 = map[y + dir2.dy][x + dir2.dx];
-			
+
 			// If neither sides are matching, then this side must be a corner
 			if (!plantValues.Contains(point1) && !plantValues.Contains(point2))
 				corners++;
@@ -114,7 +114,7 @@ public class Part_02 : Day_12
 		var plantValues = new List<char> { plant, evaluatedToken };
 		var corners = 0;
 
-		// Check (left, top left, and top), (top, top right, and right), 
+		// Check (left, top left, and top), (top, top right, and right),
 		// (right, bottom right, and bottom), and (bottom, bottom left, and left)
 		for (var i = 0; i < AllDirections.Count; i += 2)
 		{
@@ -125,12 +125,12 @@ public class Part_02 : Day_12
 			var point1 = map[y + dir1.dy][x + dir1.dx];
 			var point2 = map[y + dir2.dy][x + dir2.dx];
 			var point3 = map[y + dir3.dy][x + dir3.dx];
-			
+
 			// If the two sides are matching but the diagonal side isn't, this must be an inside corner
 			if (plantValues.Contains(point1) && !plantValues.Contains(point2) && plantValues.Contains(point3))
 				corners++;
 		}
-		
+
 		return corners;
 	}
 }

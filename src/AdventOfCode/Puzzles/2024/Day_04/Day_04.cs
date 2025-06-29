@@ -4,10 +4,10 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_04;
 
 /// <summary>
 /// This base class is to store shared logic between Parts 1 and 2 of this day
-/// 
+///
 /// Link to Day https://adventofcode.com/2024/day/4
-/// 
-/// Example/Test Input: 
+///
+/// Example/Test Input:
 /// 	MMMSXXMASM
 /// 	MSAMXMSMSA
 /// 	AMXSXMAAMM
@@ -27,7 +27,7 @@ public abstract class Day_04 : BaseSolver
 
 	protected static List<(int y, int x)> Directions => [
 		(0,  -1),	// WEST
-		(-1, -1),	// SOUTH WEST 
+		(-1, -1),	// SOUTH WEST
 		(-1,  0),	// SOUTH
 		(-1,  1),	// SOUTH EAST
 		( 0,  1),	// EAST

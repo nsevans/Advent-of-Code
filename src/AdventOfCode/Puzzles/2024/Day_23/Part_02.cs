@@ -27,7 +27,7 @@ public class Part_02 : Day_23
 
 		// Order by the largest set first as the largest connected set may most likely come from it.
 		connectedComputers = connectedComputers.OrderBy(x => x.Value.Count).ToDictionary();
-		
+
 		foreach (var computer in connectedComputers.Keys)
 		{
 			var currentComputerLargestSet = GetLargestInterConnectedSetForComputer(computer, [], connectedComputers);

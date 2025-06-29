@@ -27,7 +27,7 @@ public class Part_02 : Day_14
 	{
 		// Use chinese remainder theorem to calculate the time in which the robots are neareast to each other
 		// aka: the x and y variance is lowest
-		
+
 		var secondsToSimulate = Math.Max(MapHeight, MapWidth);
 
 		var minXVariance = 1000d;
@@ -39,7 +39,7 @@ public class Part_02 : Day_14
 		for (int t = 0; t < secondsToSimulate; t++)
 		{
 			var simulatedPositions = SimulateRobotsToSecond(robotData, t);
-			
+
 			var xVariance = MathHelper.Variance(simulatedPositions.Select(d => d.X).ToList());
 			var yVariance = MathHelper.Variance(simulatedPositions.Select(d => d.Y).ToList());
 

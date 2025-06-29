@@ -61,6 +61,6 @@ public class Part_02 : Day_08
 			}
 		}
 
-		return antinodeLocations.Distinct().Count(); 
+		return antinodeLocations.Distinct().Count();
 	}
 }

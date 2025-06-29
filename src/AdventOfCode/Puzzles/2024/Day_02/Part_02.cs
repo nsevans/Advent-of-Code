@@ -9,7 +9,7 @@ public class Part_02 : Day_02
 	public override int Part => 2;
 
 	private List<string> _preparedInput;
-	
+
     public override void PrepareData(List<string> input)
     {
 		_preparedInput = input;
@@ -46,7 +46,7 @@ public class Part_02 : Day_02
 
 			var isAscending = copy[0] < copy[1];
 			var isValidLine = true;
-			
+
 			// Iterate over the new list with the removed index to see if it's valid
 			for (var j = 0; j < copy.Count - 1; j++)
 			{

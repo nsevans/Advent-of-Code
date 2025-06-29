@@ -5,9 +5,9 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_15;
 
 /// <summary>
 /// This base class is to store shared logic between Parts 1 and 2 of this day
-/// 
+///
 /// Link to Day https://adventofcode.com/2024/day/15
-/// 
+///
 /// Input Format:
 /// 	########
 ///		#..O.O.#
@@ -17,7 +17,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_15;
 ///		#...O..#
 ///		#......#
 ///		########
-///		
+///
 ///		<^^>>>vv<v>>v<<
 /// </summary>
 public abstract class Day_15 : BaseSolver

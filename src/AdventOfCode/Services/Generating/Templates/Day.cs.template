@@ -2,10 +2,10 @@ namespace AdventOfCode.Puzzles.Year_<year>.Day_<day>;
 
 /// <summary>
 /// This base class is to store shared logic between Parts 1 and 2 of this day
-/// 
+///
 /// Link to Day https://adventofcode.com/<year>/day/<day>
-/// 
-/// Example/Test Input: 
+///
+/// Example/Test Input:
 ///
 /// </summary>
 public abstract class Day_<day> : BaseSolver

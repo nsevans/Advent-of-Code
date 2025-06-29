@@ -6,7 +6,7 @@ namespace AdventOfCode.Puzzles.Year_2023.Day_03;
 public class Part_02 : Day_03
 {
 	public override int Part => 2;
-	
+
 	private static char _specialSymbol => '*';
 
 	private List<List<char>> _preparedInput;

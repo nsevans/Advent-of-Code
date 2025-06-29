@@ -10,7 +10,7 @@ public class Part_02 : Day_21
     protected override int MaxLayers => 27;
 
     private List<List<char>> _padInput;
-	
+
 	public override void PrepareData(List<string> input)
 	{
 		_padInput = input.To2DCharList();
@@ -21,5 +21,5 @@ public class Part_02 : Day_21
 	public override string GetResult()
 	{
 		return CalculateSumOfKeyPresses(_padInput).ToString();
-	}	
+	}
 }

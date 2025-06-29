@@ -44,7 +44,7 @@ public class Part_01 : Day_19
 		foreach (var design in designs)
 		{
 			var possibleStartingPatterns = patterns.Where(p => design.StartsWith(p));
-			
+
 			foreach (var startingPattern in possibleStartingPatterns)
 			{
 				if (IsDesignPossibleRecursive(design, startingPattern, patterns))

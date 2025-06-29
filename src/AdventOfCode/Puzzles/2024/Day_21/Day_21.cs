@@ -7,10 +7,10 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_21;
 
 /// <summary>
 /// This base class is to store shared logic between Parts 1 and 2 of this day
-/// 
+///
 /// Link to Day https://adventofcode.com/2024/day/21
-/// 
-/// Example/Test Input: 
+///
+/// Example/Test Input:
 ///		029A
 ///		980A
 ///		179A
@@ -27,9 +27,9 @@ public abstract class Day_21 : BaseSolver
 	/// Max number of layers to recurse
 	/// In terms of puzzle: root direction pad (1) + number robots controlling direction pads + robot controlling num pad (1)
 	/// </summary>
-	protected abstract int MaxLayers { get; } 
+	protected abstract int MaxLayers { get; }
 
-	/// <summary> 
+	/// <summary>
 	///	+---+---+---+
 	///	| 7 | 8 | 9 |
 	///	+---+---+---+
@@ -55,7 +55,7 @@ public abstract class Day_21 : BaseSolver
 		{ '9', new(2, 0) }
 	};
 
-	/// <summary> 
+	/// <summary>
 	///  	+---+---+
 	///	    | ^ | A |
 	///	+---+---+---+
@@ -76,7 +76,7 @@ public abstract class Day_21 : BaseSolver
 		if (position.X == 0 && position.Y == 3)
 			return false;
 
-		return position.X >= 0 && position.Y >= 0 && position.X < 3 && position.Y < 4; 
+		return position.X >= 0 && position.Y >= 0 && position.X < 3 && position.Y < 4;
 	}
 
 	protected static bool IsInBoundsDirectionPad(Point2D position)
@@ -91,13 +91,13 @@ public abstract class Day_21 : BaseSolver
 	{
 		// Cache of shortest path between 2 buttons at a specific layer
 		var cache = new Dictionary<(char start, char end, int layer), double>();
-		
+
 		var sum = 0d;
 		foreach (var inputLine in padInput)
 		{
 			var currentLength = 0d;
 			var currentButton = 'A';
-			
+
 			foreach (var targetButton in inputLine)
 			{
 				currentLength += CalculateShortestLengthToNextButton(currentButton, targetButton, 0, cache);
@@ -125,7 +125,7 @@ public abstract class Day_21 : BaseSolver
 		var paths = layer == 0
 			? GetPaths(NumpadDictionary[current], NumpadDictionary[target], IsInBoundsNumpad)
 			: GetPaths(DirectionPadDictionary[current], DirectionPadDictionary[target], IsInBoundsDirectionPad);
-		
+
 		foreach (var path in paths)
 		{
 			var currentLength = 0d;

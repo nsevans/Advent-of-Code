@@ -91,7 +91,7 @@ public class Part_01 : Day_15
 		if (itemAtNextPosition == 'O')
 		{
 			var isValidMove = MoveBoxes(warehouseMap, direction, nextPosition);
-			
+
 			if (isValidMove)
 			{
 				warehouseMap.SetValueAtIndex(currentPosition, '.');

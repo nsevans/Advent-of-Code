@@ -6,10 +6,10 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_07;
 
 /// <summary>
 /// This base class is to store shared logic between Parts 1 and 2 of this day
-/// 
+///
 /// Link to Day https://adventofcode.com/2024/day/7
-/// 
-/// Example/Test Input: 
+///
+/// Example/Test Input:
 /// 	190: 10 19
 ///		3267: 81 40 27
 ///		83: 17 5
@@ -38,7 +38,7 @@ public abstract class Day_07 : BaseSolver
 		foreach (var line in input)
 		{
 			var split = line.Split(':', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
-			
+
 			var key = long.Parse(split[0]);
 			var numbers = split[1]
 				.Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)

@@ -22,7 +22,7 @@ public class Part_02 : Day_05
 	public override string GetResult()
 	{
 		return CalculateSumOfInvalidMiddlePageNumbers(_pageOrderingRules, _pagesToProduce).ToString();
-	}	
+	}
 
 	private static int CalculateSumOfInvalidMiddlePageNumbers(Dictionary<int, List<int>> pageOrderingRules, List<List<int>> pagesToProduce)
 	{
@@ -47,7 +47,7 @@ public class Part_02 : Day_05
 				else
 					newUpdate.Add(page);
 			}
-			
+
 			if (!update.SequenceEqual(newUpdate))
 				sum += newUpdate[newUpdate.Count / 2];
 		}

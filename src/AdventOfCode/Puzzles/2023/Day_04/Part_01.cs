@@ -32,7 +32,7 @@ public class Part_01 : Day_04
 			// Get left side of card, removing first two entries "Card" and "##:"
 			var references = split[0].Split(" ", StringSplitOptions.RemoveEmptyEntries)[2..].Select(x => int.Parse(x));
 			var values = split[1].Split(" ", StringSplitOptions.RemoveEmptyEntries).Select(x => int.Parse(x));
-			
+
 			var cardPoints = 0;
 			foreach(var value in values)
 			{

@@ -7,17 +7,17 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_24;
 
 /// <summary>
 /// This base class is to store shared logic between Parts 1 and 2 of this day
-/// 
+///
 /// Link to Day https://adventofcode.com/2024/day/24
-/// 
-/// Example/Test Input: 
+///
+/// Example/Test Input:
 ///		x00: 1
 ///		x01: 1
 ///		x02: 1
 ///		y00: 0
 ///		y01: 1
 ///		y02: 0
-///		
+///
 ///		x00 AND y00 -> z00
 ///		x01 XOR y01 -> z01
 ///		x02 OR y02 -> z02
@@ -56,7 +56,7 @@ public abstract class Day_24 : BaseSolver
 				continue;
 
 			var split = line.Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
-			
+
 			var key = (split[0], split[1], split[2]);
 			var value = split[4];
 

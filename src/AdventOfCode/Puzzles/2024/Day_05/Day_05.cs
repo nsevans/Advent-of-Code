@@ -6,10 +6,10 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_05;
 
 /// <summary>
 /// This base class is to store shared logic between Parts 1 and 2 of this day
-/// 
+///
 /// Link to Day https://adventofcode.com/2024/day/5
-/// 
-/// Example/Test Input: 
+///
+/// Example/Test Input:
 /// 	47|53
 ///		97|13
 ///		97|61
@@ -31,7 +31,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_05;
 ///		47|29
 ///		75|13
 ///		53|13
-///		
+///
 ///		75,47,61,53,29
 ///		97,61,53,29,13
 ///		75,29,13
@@ -80,7 +80,7 @@ public abstract class Day_05 : BaseSolver
 			var lineValues = line.Split(',', StringSplitOptions.RemoveEmptyEntries)
 				.Select(x => int.Parse(x))
 				.ToList();
-				
+
 			result.Add(lineValues);
 		}
 		return result;

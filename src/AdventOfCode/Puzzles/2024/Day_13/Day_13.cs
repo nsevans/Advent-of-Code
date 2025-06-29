@@ -7,22 +7,22 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_13;
 
 /// <summary>
 /// This base class is to store shared logic between Parts 1 and 2 of this day
-/// 
+///
 /// Link to Day https://adventofcode.com/2024/day/13
-/// 
-/// Example/Test Input: 
+///
+/// Example/Test Input:
 /// 	Button A: X+94, Y+34
 ///		Button B: X+22, Y+67
 ///		Prize: X=8400, Y=5400
-///		
+///
 ///		Button A: X+26, Y+66
 ///		Button B: X+67, Y+21
 ///		Prize: X=12748, Y=12176
-///		
+///
 ///		Button A: X+17, Y+86
 ///		Button B: X+84, Y+37
 ///		Prize: X=7870, Y=6450
-///		
+///
 ///		Button A: X+69, Y+23
 ///		Button B: X+27, Y+71
 ///		Prize: X=18641, Y=10279
@@ -33,7 +33,7 @@ public abstract class Day_13 : BaseSolver
 	public override int Day => 13;
 	public override int Year => 2024;
 
-	
+
 	protected record Game(Vector2 ButtonA, Vector2 ButtonB, Vector2 Prize);
 
 	protected static List<Game> ParseGames(List<string> input)
@@ -45,7 +45,7 @@ public abstract class Day_13 : BaseSolver
 			var buttonA = ParseGameData(input[i]);
 			var buttonB = ParseGameData(input[i+1]);
 			var prize = ParseGameData(input[i+2]);
-			
+
 			games.Add(new Game(buttonA, buttonB, prize));
 		}
 
@@ -59,7 +59,7 @@ public abstract class Day_13 : BaseSolver
 			.Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)[^2..]
 			.Select(x => int.Parse(new string(x.Where(c => char.IsDigit(c)).ToArray())))
 			.ToList();
-		
+
 		return new Vector2(parsedLine[0], parsedLine[1]);
 	}
 

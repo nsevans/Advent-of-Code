@@ -6,14 +6,14 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_17;
 
 /// <summary>
 /// This base class is to store shared logic between Parts 1 and 2 of this day
-/// 
+///
 /// Link to Day https://adventofcode.com/2024/day/17
-/// 
-/// Example/Test Input: 
+///
+/// Example/Test Input:
 ///		Register A: 729
 ///		Register B: 0
 ///		Register C: 0
-///		
+///
 ///		Program: 0,1,5,4,3,0
 /// </summary>
 public abstract class Day_17 : BaseSolver

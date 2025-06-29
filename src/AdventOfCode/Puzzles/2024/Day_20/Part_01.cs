@@ -37,7 +37,7 @@ public class Part_01 : Day_20
 	{
         // Calculate time at each valid position on the track
         TraverseRaceMap(raceMap, visited, startPosition, endPosition, positionTimeDictionary);
-		
+
 		var skipsSavingMoreThan100Picoseconds = 0L;
 		foreach (var positionTime in positionTimeDictionary)
 		{
@@ -67,7 +67,7 @@ public class Part_01 : Day_20
 	private static long GetTimeAtNextPosition(List<List<char>> raceMap, Dictionary<(int x, int y), int> positionTimeDictionary, (int x, int y) currentPosition, (int x, int y) direction)
 	{
 		var skipPosition = (x: currentPosition.x + direction.x, y: currentPosition.y + direction.y);
-		
+
 		// Skips should only happen over walls
 		if (raceMap.GetValueAtIndex(skipPosition) != '#')
 			return 0;

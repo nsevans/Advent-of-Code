@@ -4,10 +4,10 @@ namespace AdventOfCode.Puzzles.Year_2023.Day_03;
 
 /// <summary>
 /// This base class is to store shared logic between Parts 1 and 2 of this day
-/// 
+///
 /// Link to Day https://adventofcode.com/2023/day/3
-/// 
-/// Example/Test Input: 
+///
+/// Example/Test Input:
 ///		..172..............................454..46.......507..........809
 ///		............*.........712........=.......*................515.*..
 ///		.........823.835........%.........710.....749........134..%......
@@ -34,7 +34,7 @@ public abstract class Day_03 : BaseSolver
 		}
 
 		var numberAsString = "";
-		// Compile number until end of list or first symbol is hit and  replace all found 
+		// Compile number until end of list or first symbol is hit and  replace all found
 		// digits with '.' so they aren't counted twice
 		for (int i = startingIndex; i < line.Count; i++)
 		{

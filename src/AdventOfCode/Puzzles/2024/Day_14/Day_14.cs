@@ -7,10 +7,10 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_14;
 
 /// <summary>
 /// This base class is to store shared logic between Parts 1 and 2 of this day
-/// 
+///
 /// Link to Day https://adventofcode.com/2024/day/14
-/// 
-/// Example/Test Input: 
+///
+/// Example/Test Input:
 ///		p=0,4 v=3,-3
 ///     p=6,3 v=-1,-3
 ///     p=10,3 v=-1,2
@@ -66,7 +66,7 @@ public abstract class Day_14 : BaseSolver
         for (var i = 0; i < robotData.Count; i++)
 		{
 			var totalDistince = robotData[i].Velocity * second;
-			
+
 			var newX = MathHelper.Mod(robotData[i].Position.X + totalDistince.X, MapWidth);
 			var newY = MathHelper.Mod(robotData[i].Position.Y + totalDistince.Y, MapHeight);
 

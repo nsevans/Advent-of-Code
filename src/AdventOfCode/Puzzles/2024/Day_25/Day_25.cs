@@ -2,10 +2,10 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_25;
 
 /// <summary>
 /// This base class is to store shared logic between Parts 1 and 2 of this day
-/// 
+///
 /// Link to Day https://adventofcode.com/2024/day/25
-/// 
-/// Example/Test Input: 
+///
+/// Example/Test Input:
 ///		#####
 ///		.####
 ///		.####
@@ -13,7 +13,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_25;
 ///		.#.#.
 ///		.#...
 ///		.....
-///		
+///
 ///		#####
 ///		##.##
 ///		.#.##
@@ -21,7 +21,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_25;
 ///		...#.
 ///		...#.
 ///		.....
-///		
+///
 ///		.....
 ///		#....
 ///		#....
@@ -29,7 +29,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_25;
 ///		#.#.#
 ///		#.###
 ///		#####
-///		
+///
 ///		.....
 ///		.....
 ///		#.#..
@@ -37,7 +37,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_25;
 ///		###.#
 ///		###.#
 ///		#####
-///		
+///
 ///		.....
 ///		.....
 ///		.....

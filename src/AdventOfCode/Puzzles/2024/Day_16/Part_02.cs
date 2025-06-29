@@ -42,8 +42,8 @@ public class Part_02 : Day_16
 		var priorityQueue = new PriorityQueue<MazeState, int>();
 		priorityQueue.Enqueue(start, 0);
 
-		var lowestCosts = new Dictionary<MazeState, int> 
-		{ 
+		var lowestCosts = new Dictionary<MazeState, int>
+		{
 			{ start, 0 }
 		};
 
@@ -56,7 +56,7 @@ public class Part_02 : Day_16
 		{
 			if (!priorityQueue.TryDequeue(out var state, out var cost))
 				continue;
-			
+
 			if (cost > lowestCosts.GetValueOrDefinedDefault(state, int.MaxValue))
 				continue;
 
@@ -64,7 +64,7 @@ public class Part_02 : Day_16
 			{
 				if (cost > bestCost)
 					break;
-				
+
 				bestCost = cost;
 				endStates.Add(state);
 			}

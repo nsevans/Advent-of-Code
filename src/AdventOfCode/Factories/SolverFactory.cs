@@ -10,7 +10,7 @@ namespace AdventOfCode.Factories;
 public static class SolverFactory
 {
 	/// <summary>
-	/// Get a list of grouped solvers, grouped by year and day, ordered by year, day, and part, and 
+	/// Get a list of grouped solvers, grouped by year and day, ordered by year, day, and part, and
 	/// filtered by the given context.
 	/// </summary>
 	/// <param name="context"></param>

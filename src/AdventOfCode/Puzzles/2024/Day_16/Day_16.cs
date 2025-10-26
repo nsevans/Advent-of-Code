@@ -24,7 +24,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_16;
 ///		#S..#.....#...#
 ///		###############
 /// </summary>
-public abstract class Day_16 : BaseSolver
+public abstract class Day_16 : BaseDotnetSolver
 {
 	public override string Title => "Reindeer Maze";
 	public override int Day => 16;

@@ -15,7 +15,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_02;
 /// 	8 6 4 4 1
 /// 	1 3 6 7 9
 /// </summary>
-public abstract class Day_02 : BaseSolver
+public abstract class Day_02 : BaseDotnetSolver
 {
 	public override string Title => "Red-Nosed Reports";
 	public override int Day => 2;

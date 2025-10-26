@@ -22,7 +22,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_24;
 ///		x01 XOR y01 -> z01
 ///		x02 OR y02 -> z02
 /// </summary>
-public abstract class Day_24 : BaseSolver
+public abstract class Day_24 : BaseDotnetSolver
 {
 	public override string Title => "Crossed Wires";
 	public override int Day => 24;

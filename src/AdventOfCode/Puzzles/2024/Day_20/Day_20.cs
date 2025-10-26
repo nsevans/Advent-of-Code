@@ -25,18 +25,11 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_20;
 ///		#...#...#...###
 ///		###############
 /// </summary>
-public abstract class Day_20 : BaseSolver
+public abstract class Day_20 : BaseDotnetSolver
 {
 	public override string Title => "Race Condition";
 	public override int Day => 20;
 	public override int Year => 2024;
-
-	protected readonly List<(int x, int y)> Directions = [
-		(0,  -1),	// NORTH
-		( 1,  0),	// EAST
-		( 0,  1),	// SOUTH
-		(-1,  0)	// WEST
-	];
 
 	protected static List<List<bool>> InitializeVisitedMap(List<List<char>> map)
 	{
@@ -54,7 +47,7 @@ public abstract class Day_20 : BaseSolver
 		return visited;
 	}
 
-	protected static void TraverseRaceMap(List<List<char>> raceMap, List<List<bool>> visited, (int x, int y) startPosition, (int x, int y) endPosition, Dictionary<(int x, int y), int> positionTimeDictionary)
+	protected static void CalculateRaceMapTraversalTimes(List<List<char>> raceMap, List<List<bool>> visited, (int x, int y) startPosition, (int x, int y) endPosition, Dictionary<(int x, int y), int> positionTimeDictionary)
 	{
 		var currentTime = 0;
 		var currentPosition = startPosition;

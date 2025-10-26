@@ -11,7 +11,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_09;
 /// Example/Test Input:
 /// 	2333133121414131402
 /// </summary>
-public abstract class Day_09 : BaseSolver
+public abstract class Day_09 : BaseDotnetSolver
 {
 	public override string Title => "Disk Fragmenter";
 	public override int Day => 9;

@@ -14,7 +14,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_22;
 ///		100
 ///		2024
 /// </summary>
-public abstract class Day_22 : BaseSolver
+public abstract class Day_22 : BaseDotnetSolver
 {
 	public override string Title => "Monkey Market";
 	public override int Day => 22;
@@ -22,6 +22,6 @@ public abstract class Day_22 : BaseSolver
 
 	protected static List<long> ParseSecretNumbers(List<string> input)
 	{
-		return input.Select(x => long.Parse(x)).ToList();
+		return input.Select(long.Parse).ToList();
 	}
 }

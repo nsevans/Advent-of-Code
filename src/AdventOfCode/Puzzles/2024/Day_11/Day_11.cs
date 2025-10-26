@@ -12,7 +12,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_11;
 /// Example/Test Input:
 /// 	125 17
 /// </summary>
-public abstract class Day_11 : BaseSolver
+public abstract class Day_11 : BaseDotnetSolver
 {
 	public override string Title => "Plutonian Pebbles";
 	public override int Day => 11;

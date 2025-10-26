@@ -24,7 +24,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_14;
 ///     p=2,4 v=2,-3
 ///     p=9,5 v=-3,-3
 /// </summary>
-public abstract class Day_14 : BaseSolver
+public abstract class Day_14 : BaseDotnetSolver
 {
 	public override string Title => "Restroom Redoubt";
     public override int Day => 14;

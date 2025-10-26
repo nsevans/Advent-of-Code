@@ -58,7 +58,7 @@ public static class SolverFactory
             .GetTypes()
             .Where(t => t.IsClass)
             .Where(t => !t.IsAbstract)
-            .Where(t => t.IsAssignableTo(typeof(BaseSolver)))
+            .Where(t => t.IsAssignableTo(typeof(ISolver)))
             .Where(t => t.Namespace.StartsWith("AdventOfCode.Puzzles."));
 
         // Filter out years

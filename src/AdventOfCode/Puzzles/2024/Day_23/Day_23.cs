@@ -43,7 +43,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_23;
 ///		tb-vc
 ///		td-yn
 /// </summary>
-public abstract class Day_23 : BaseSolver
+public abstract class Day_23 : BaseDotnetSolver
 {
 	public override string Title => "LAN Party";
 	public override int Day => 23;

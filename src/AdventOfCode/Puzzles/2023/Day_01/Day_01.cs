@@ -10,7 +10,7 @@ namespace AdventOfCode.Puzzles.Year_2023.Day_01;
 /// Example/Test Input:
 ///		mrjstg5onetwoeightgcczx8vgrgl
 /// </summary>
-public abstract class Day_01 : BaseSolver
+public abstract class Day_01 : BaseDotnetSolver
 {
 	public override string Title => "Trebuchet?!";
     public override int Day => 1;

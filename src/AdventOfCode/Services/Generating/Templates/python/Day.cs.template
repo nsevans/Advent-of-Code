@@ -1,0 +1,16 @@
+namespace AdventOfCode.Puzzles.Year_<year>.Day_<day>;
+
+/// <summary>
+/// This base class is to store shared logic between Parts 1 and 2 of this day
+///
+/// Link to Day https://adventofcode.com/<year>/day/<day>
+///
+/// Example/Test Input:
+///
+/// </summary>
+public abstract class Day_<day> : BasePythonSolver
+{
+    public override string Title => "<title>";
+    public override int Day => <day>;
+    public override int Year => <year>;
+}

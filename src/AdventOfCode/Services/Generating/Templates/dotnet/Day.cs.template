@@ -8,7 +8,7 @@ namespace AdventOfCode.Puzzles.Year_<year>.Day_<day>;
 /// Example/Test Input:
 ///
 /// </summary>
-public abstract class Day_<day> : BaseSolver
+public abstract class Day_<day> : BaseDotnetSolver
 {
 	public override string Title => "<title>";
 	public override int Day => <day>;

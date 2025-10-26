@@ -41,7 +41,7 @@ public static class ArgumentExtensions
 	/// <param name="isRequired">Flag that determines if the requested argument is required. If it is required and not present an exception is thrown</param>
 	/// <returns></returns>
 	/// <exception cref="ArgumentException"></exception>
-	public static string GetValueForArgument(this string[] args, string[] argOptions, bool isRequired = false)
+	public static string GetValueForArgument(this string[] args, string[] argOptions, bool isRequired = false, string[] allowedValues = null)
 	{
 		if (!argOptions.Any(a => args.Contains(a)))
 		{
@@ -70,6 +70,9 @@ public static class ArgumentExtensions
 			value = args[argIndex + 1];
 			break;
 		}
+
+        if (allowedValues != null && !allowedValues.Contains(value))
+            throw new ArgumentException($"Argument '{argOptions}' passed invalid value '{value}'.");
 
 		return value;
 	}

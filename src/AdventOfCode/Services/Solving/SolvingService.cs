@@ -20,8 +20,8 @@ public class SolvingService(SolverContext context)
 
         if (_context.GenerateMarkdownTable)
         {
-            _context.MarkdownTableOutput.AppendLine($"| Year | Day | Part | Title | Language | Total Time |");
-            _context.MarkdownTableOutput.AppendLine($"|:-----|:----|:-----|:------|:---------|-----------:|");
+            _context.MarkdownTableOutput.AppendLine($"| Year | Day | Part | Language | Title | Total Time |");
+            _context.MarkdownTableOutput.AppendLine($"|:-----|:----|:-----|:---------|:------|-----------:|");
         }
 
         foreach (var group in solverGroups)
@@ -78,7 +78,7 @@ public class SolvingService(SolverContext context)
         }
 
         if (_context.GenerateMarkdownTable)
-            _context.MarkdownTableOutput.AppendLine($"| {solver.TableHeading} | {solver.GetSolvingLanguage()} | {totalTime.ToRoundedMilliseconds(4)} ms |");
+            _context.MarkdownTableOutput.AppendLine($"| {solver.TableHeading} | {totalTime.ToRoundedMilliseconds(4)} ms |");
     }
 
     private static TimeSpan PrepareSolverData(BaseSolver solver, List<string> input)

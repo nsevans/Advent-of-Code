@@ -14,14 +14,14 @@ public class SolvingService(SolverContext context)
     {
         if (!_context.Verbose)
         {
-            Console.WriteLine($"| {new string("Puzzle"),-15} | {new string("Total Time"),18} | {new string("Result"),-50} |");
-            Console.WriteLine($"|{new string('-', 17)}+{new string('-',20)}+{new string('-',52)}|");
+            Console.WriteLine($"| {new string("Puzzle"),-15} | {new string("Language"),-10} | {new string("Total Time"),18} | {new string("Result"),-50} |");
+            Console.WriteLine($"|{new string('-', 17)}+{new string('-',12)}+{new string('-',20)}+{new string('-',52)}|");
         }
 
         if (_context.GenerateMarkdownTable)
         {
-            _context.MarkdownTableOutput.AppendLine($"| Year | Day | Part | Title | Total Time |");
-            _context.MarkdownTableOutput.AppendLine($"|:-----|:----|:-----|:------|-----------:|");
+            _context.MarkdownTableOutput.AppendLine($"| Year | Day | Part | Title | Language | Total Time |");
+            _context.MarkdownTableOutput.AppendLine($"|:-----|:----|:-----|:------|:---------|-----------:|");
         }
 
         foreach (var group in solverGroups)
@@ -33,7 +33,7 @@ public class SolvingService(SolverContext context)
 
         if (!_context.Verbose)
         {
-            Console.WriteLine($"|{new string('-', 17)}-{new string('-',20)}-{new string('-',52)}|");
+            Console.WriteLine($"|{new string('-', 17)}-{new string('-',12)}-{new string('-',20)}-{new string('-',52)}|");
         }
     }
 
@@ -44,7 +44,7 @@ public class SolvingService(SolverContext context)
             if (_context.Verbose)
                 Console.WriteLine(solver.DetailedHeading);
             else
-                Console.Write($"| {solver.MinimalHeading,-15} | ");
+                Console.Write($"| {solver.MinimalHeading,-15} | {solver.GetSolvingLanguage(),-10} | ");
 
             if (!SolvingInputService.TryGetInput(solver, out var input))
             {
@@ -78,7 +78,7 @@ public class SolvingService(SolverContext context)
         }
 
         if (_context.GenerateMarkdownTable)
-            _context.MarkdownTableOutput.AppendLine($"| {solver.TableHeading} | {totalTime.ToRoundedMilliseconds(4)} ms |");
+            _context.MarkdownTableOutput.AppendLine($"| {solver.TableHeading} | {solver.GetSolvingLanguage()} | {totalTime.ToRoundedMilliseconds(4)} ms |");
     }
 
     private static TimeSpan PrepareSolverData(BaseSolver solver, List<string> input)

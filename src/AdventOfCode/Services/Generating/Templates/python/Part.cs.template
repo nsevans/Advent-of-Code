@@ -1,6 +1,6 @@
-namespace AdventOfCode.Puzzles.Year_<year>.Day_<day>;
+namespace AdventOfCode.Puzzles.Year_<year>.Day_<displayday>;
 
-public class Part_0<part> : Day_<day>
+public class Part_<displaypart> : Day_<displayday>
 {
     public override int Part => <part>;
     public override string ResultMessage => "";

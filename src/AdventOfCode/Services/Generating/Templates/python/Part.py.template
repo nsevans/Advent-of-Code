@@ -1,11 +1,18 @@
+#####
+# Year <year>, Day <displayday>, Part <displaypart>
+#
+
 import sys
 
-def getResult(input):
+def prepareData(inputFile: str) -> any:
+    with open(inputFile) as file:
+        inputValues = file.read()
+        return inputValues
+
+def getResult(input: any) -> str:
     pass
 
 if __name__ == '__main__':
     inputFile = sys.argv[1]
-    file = open(inputFile)
-    inputValues = file.read()
-    file.close()
+    inputValues = prepareData(inputFile)
     print(getResult(inputValues))

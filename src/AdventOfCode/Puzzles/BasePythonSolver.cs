@@ -28,7 +28,7 @@ public abstract class BasePythonSolver : BaseSolver
         process.OutputDataReceived += (sender, arg) =>
         {
             if (!string.IsNullOrEmpty(arg.Data))
-                result = arg.Data;
+                result += arg.Data;
         };
 
         process.Start();

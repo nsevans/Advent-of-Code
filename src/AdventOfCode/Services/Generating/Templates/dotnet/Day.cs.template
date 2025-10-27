@@ -1,4 +1,4 @@
-namespace AdventOfCode.Puzzles.Year_<year>.Day_<day>;
+namespace AdventOfCode.Puzzles.Year_<year>.Day_<displayday>;
 
 /// <summary>
 /// This base class is to store shared logic between Parts 1 and 2 of this day
@@ -8,7 +8,7 @@ namespace AdventOfCode.Puzzles.Year_<year>.Day_<day>;
 /// Example/Test Input:
 ///
 /// </summary>
-public abstract class Day_<day> : BaseDotnetSolver
+public abstract class Day_<displayday> : BaseDotnetSolver
 {
 	public override string Title => "<title>";
 	public override int Day => <day>;

@@ -15,7 +15,7 @@ public class GeneratingService(GeneratorContext context)
 	{
 		var outputDirectory = $"./Puzzles/{_context.Year}/Day_{_context.DisplayDay}";
 
-		Console.WriteLine($"Generating {_context.Language} files for day {_context.Day} of {_context.Year}");
+		Console.WriteLine($"Generating {_context.Language} files for day {_context.DisplayDay} of {_context.Year}");
 
 		if (Directory.Exists(outputDirectory) && Directory.EnumerateFileSystemEntries(outputDirectory).Any())
 		{
@@ -33,7 +33,7 @@ public class GeneratingService(GeneratorContext context)
         else
             throw new InvalidOperationException($"Invalid language {_context.Language}.");
 
-		Console.WriteLine($"Finished generating files for day {_context.Day} of {_context.Year}");
+		Console.WriteLine($"Finished generating files for day {_context.DisplayDay} of {_context.Year}");
 	}
 
     private static void GenerateDotnetTemplates(string outputDirectory, GeneratorContext context)
@@ -44,6 +44,7 @@ public class GeneratingService(GeneratorContext context)
 		var dayClass = dayTemplate
 			.Replace("<year>", context.Year.ToString())
 			.Replace("<day>", context.Day.ToString())
+			.Replace("<displayday>", context.DisplayDay)
 			.Replace("<title>", context.Title);
 
 		var partClasses = new List<string>();
@@ -52,7 +53,9 @@ public class GeneratingService(GeneratorContext context)
 			var partClass = partTemplate
 				.Replace("<year>", context.Year.ToString())
 				.Replace("<day>", context.Day.ToString())
-				.Replace("<part>", i.ToString());
+			    .Replace("<displayday>", context.DisplayDay)
+				.Replace("<part>", i.ToString())
+				.Replace("<displaypart>", i.ToString().PadLeft(2, '0'));
 
 			partClasses.Add(partClass);
 		}
@@ -71,6 +74,7 @@ public class GeneratingService(GeneratorContext context)
         var dayClass = dayTemplate
             .Replace("<year>", context.Year.ToString())
             .Replace("<day>", context.Day.ToString())
+			.Replace("<displayday>", context.DisplayDay)
             .Replace("<title>", context.Title);
 
         var partClasses = new List<string>();
@@ -79,7 +83,9 @@ public class GeneratingService(GeneratorContext context)
             var partClass = partDotnetTemplate
                 .Replace("<year>", context.Year.ToString())
                 .Replace("<day>", context.Day.ToString())
-                .Replace("<part>", i.ToString());
+			    .Replace("<displayday>", context.DisplayDay)
+                .Replace("<part>", i.ToString())
+                .Replace("<displaypart>", i.ToString().PadLeft(2, '0'));
 
             partClasses.Add(partClass);
         }
@@ -90,7 +96,9 @@ public class GeneratingService(GeneratorContext context)
             var partScript = partPythonTemplate
                 .Replace("<year>", context.Year.ToString())
                 .Replace("<day>", context.Day.ToString())
-                .Replace("<part>", i.ToString());
+			    .Replace("<displayday>", context.DisplayDay)
+                .Replace("<part>", i.ToString())
+                .Replace("<displaypart>", i.ToString().PadLeft(2, '0'));
 
             partScripts.Add(partScript);
         }

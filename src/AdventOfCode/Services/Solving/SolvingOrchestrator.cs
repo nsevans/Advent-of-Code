@@ -32,12 +32,12 @@ public class SolvingOrchestrator(SolverContext context)
 
         #region Run Solvers
 
-        var startTotalTime = DateTime.Now;
+        // var startTotalTime = DateTime.Now;
 
         var solvingService = new SolvingService(_context);
-        solvingService.Run(solverGroups);
+        var totalTime = solvingService.Run(solverGroups);
 
-        var totalTime = DateTime.Now - startTotalTime;
+        // var totalTime = DateTime.Now - startTotalTime;
 
         var totalTimeOutput = $"Total Time for {solverGroups.SelectMany(x => x).Count()} puzzles: {totalTime.ToRoundedMilliseconds(4)} ms";
         Console.WriteLine(totalTimeOutput);

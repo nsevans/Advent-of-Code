@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using AdventOfCode.Common.Constants;
 using AdventOfCode.Common.Extensions;
 
 namespace AdventOfCode.Puzzles.Year_2024.Day_06;
@@ -37,7 +38,7 @@ public class Part_02 : Day_06
 
 			mapCopy[guardPosition.y][guardPosition.x] = '#';
 
-			SimulateGuardPath(mapCopy, out var isLooping);
+            SimulateGuardPath(mapCopy, out var isLooping);
 
 			if (isLooping)
 				possibleObstacles++;
@@ -46,13 +47,13 @@ public class Part_02 : Day_06
 		return possibleObstacles;
 	}
 
-	private List<(int x, int y)> GetAllPossibleGuardPositions(List<List<char>> map)
+	private static List<(int x, int y)> GetAllPossibleGuardPositions(List<List<char>> map)
 	{
 		var guardPositions = new List<(int x, int y)>();
 
 		var startingY = map.IndexOf(map.First(x => x.Contains('^')));
 		var startingX = map[startingY].IndexOf('^');
-		var startingDirection = Directions[0];
+		var startingDirection = Directions.Cardinal[0];
 
 		var currentY = startingY;
 		var currentX = startingX;
@@ -73,7 +74,7 @@ public class Part_02 : Day_06
 
 			if (map[nextY][nextX] == '#')
 				// Update to try new direction (90 degree right turn)
-				currentDirection = Directions[(Directions.IndexOf(currentDirection) + 1) % Directions.Count];
+				currentDirection = Directions.Cardinal[(Directions.Cardinal.IndexOf(currentDirection) + 1) % Directions.Cardinal.Count];
 			else
 			{
 				currentX = nextX;
@@ -102,7 +103,7 @@ public class Part_02 : Day_06
 		return positions;
 	}
 
-	private void SimulateGuardPath(List<List<char>> map, out bool isLooping)
+	private static void SimulateGuardPath(List<List<char>> map, out bool isLooping)
 	{
 		isLooping = false;
 
@@ -110,11 +111,11 @@ public class Part_02 : Day_06
 
 		var startingY = map.IndexOf(map.First(x => x.Contains('^')));
 		var startingX = map[startingY].IndexOf('^');
-		var startingDirection = Directions[0];
+		var startingDirection = Directions.Cardinal[0];
 
 		var currentY = startingY;
 		var currentX = startingX;
-		var currentDirection = Directions[0];
+		var currentDirection = Directions.Cardinal[0];
 
 		do
 		{
@@ -127,7 +128,7 @@ public class Part_02 : Day_06
 			if (map[nextY][nextX] == '#')
 			{
 				// Update to try new direction (90 degree right turn)
-				currentDirection = Directions[(Directions.IndexOf(currentDirection) + 1) % Directions.Count];
+				currentDirection = Directions.Cardinal[(Directions.Cardinal.IndexOf(currentDirection) + 1) % Directions.Cardinal.Count];
 
 				if (obstacleCollisions.ContainsKey((nextX, nextY)))
 					obstacleCollisions[(nextX, nextY)]++;

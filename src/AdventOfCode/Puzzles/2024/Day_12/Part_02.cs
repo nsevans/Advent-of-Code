@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using AdventOfCode.Common.Constants;
 
 namespace AdventOfCode.Puzzles.Year_2024.Day_12;
 
@@ -89,18 +90,18 @@ public class Part_02 : Day_12
 		return (area, corners);
 	}
 
-	private int GetOutsideCornerCount(List<List<char>> map, char plant, char evaluatedToken, int x, int y)
+	private static int GetOutsideCornerCount(List<List<char>> map, char plant, char evaluatedToken, int x, int y)
 	{
 		var plantValues = new List<char> { plant, evaluatedToken };
 		var corners = 0;
 
 		// Check left and top, top and right, right and bottom, and bottom and left corners
-		foreach (var (dir1, index) in CardinalDirections.Select((d, i) => (d, i)))
+		foreach (var (dir1, index) in Directions.Cardinal.Select((d, i) => (d, i)))
 		{
-			var dir2 = CardinalDirections[(index + 1) % CardinalDirections.Count];
+			var dir2 = Directions.Cardinal[(index + 1) % Directions.Cardinal.Count];
 
-			var point1 = map[y + dir1.dy][x + dir1.dx];
-			var point2 = map[y + dir2.dy][x + dir2.dx];
+			var point1 = map[y + dir1.y][x + dir1.x];
+			var point2 = map[y + dir2.y][x + dir2.x];
 
 			// If neither sides are matching, then this side must be a corner
 			if (!plantValues.Contains(point1) && !plantValues.Contains(point2))
@@ -109,22 +110,22 @@ public class Part_02 : Day_12
 		return corners;
 	}
 
-	private int GetInsideCornerCount(List<List<char>> map, char plant, char evaluatedToken, int x, int y)
+	private static int GetInsideCornerCount(List<List<char>> map, char plant, char evaluatedToken, int x, int y)
 	{
 		var plantValues = new List<char> { plant, evaluatedToken };
 		var corners = 0;
 
 		// Check (left, top left, and top), (top, top right, and right),
 		// (right, bottom right, and bottom), and (bottom, bottom left, and left)
-		for (var i = 0; i < AllDirections.Count; i += 2)
+		for (var i = 0; i < Directions.All.Count; i += 2)
 		{
-			var dir1 = AllDirections[i];
-			var dir2 = AllDirections[(i + 1) % AllDirections.Count];
-			var dir3 = AllDirections[(i + 2) % AllDirections.Count];
+			var dir1 = Directions.All[i];
+			var dir2 = Directions.All[(i + 1) % Directions.All.Count];
+			var dir3 = Directions.All[(i + 2) % Directions.All.Count];
 
-			var point1 = map[y + dir1.dy][x + dir1.dx];
-			var point2 = map[y + dir2.dy][x + dir2.dx];
-			var point3 = map[y + dir3.dy][x + dir3.dx];
+			var point1 = map[y + dir1.y][x + dir1.x];
+			var point2 = map[y + dir2.y][x + dir2.x];
+			var point3 = map[y + dir3.y][x + dir3.x];
 
 			// If the two sides are matching but the diagonal side isn't, this must be an inside corner
 			if (plantValues.Contains(point1) && !plantValues.Contains(point2) && plantValues.Contains(point3))

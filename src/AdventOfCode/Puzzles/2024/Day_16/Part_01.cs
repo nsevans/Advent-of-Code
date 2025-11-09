@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using AdventOfCode.Common.Constants;
 using AdventOfCode.Common.Extensions;
 
 namespace AdventOfCode.Puzzles.Year_2024.Day_16;
@@ -32,10 +33,10 @@ public class Part_01 : Day_16
 		return score;
 	}
 
-	private int FindShortestPathLength(List<List<char>> maze, (int x, int y) startIndex, (int x, int y) endIndex)
+	private static int FindShortestPathLength(List<List<char>> maze, (int x, int y) startIndex, (int x, int y) endIndex)
 	{
 		var (sx, sy) = startIndex;
-		var (sdx, sdy) = CardinalDirections[0];
+		var (sdx, sdy) = Directions.Cardinal[0];
 		var start = new MazeState(sx, sy, sdx, sdy);
 
 		var priorityQueue = new PriorityQueue<MazeState, int>();

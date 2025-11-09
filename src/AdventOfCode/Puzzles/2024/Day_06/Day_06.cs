@@ -24,11 +24,4 @@ public abstract class Day_06 : BaseDotnetSolver
 	public override string Title => "Guard Gallivant";
 	public override int Day => 6;
 	public override int Year => 2024;
-
-	protected readonly List<(int x, int y)> Directions = [
-		(0,  -1),	// NORTH
-		( 1,  0),	// EAST
-		( 0,  1),	// SOUTH
-		(-1,  0)	// WEST
-	];
 }

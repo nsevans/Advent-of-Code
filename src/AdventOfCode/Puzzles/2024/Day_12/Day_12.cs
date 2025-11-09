@@ -20,31 +20,6 @@ public abstract class Day_12 : BaseDotnetSolver
 	public override int Day => 12;
 	public override int Year => 2024;
 
-	protected readonly List<(int dx, int dy)> CardinalDirections = [
-		(-1,  0),	// WEST
-		( 0, -1),	// NORTH
-		( 1,  0),	// EAST
-		( 0,  1)	// SOUTH
-	];
-
-	protected readonly List<(int dx, int dy)> OrdinalDirections = [
-		(-1, -1),	// NORTH WEST
-		( 1, -1),	// NORTH EAST
-		( 1,  1),	// SOUTH EAST
-		(-1,  1)	// SOUTH WEST
-	];
-
-	protected readonly List<(int dx, int dy)> AllDirections = [
-		(-1,  0),	// WEST
-		(-1, -1),	// NORTH WEST
-		( 0, -1),	// NORTH
-		( 1, -1),	// NORTH EAST
-		( 1,  0),	// EAST
-		( 1,  1),	// SOUTH EAST
-		( 0,  1),	// SOUTH
-		(-1,  1)	// SOUTH WEST
-	];
-
 	protected static List<List<char>> ParsePaddedGardenMap(IEnumerable<string> input)
 	{
 		// Pad top and bottom with padding character

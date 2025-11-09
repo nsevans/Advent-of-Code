@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using AdventOfCode.Common.Constants;
 using AdventOfCode.Common.Extensions;
 
 namespace AdventOfCode.Puzzles.Year_2024.Day_20;
@@ -26,42 +27,42 @@ public class Part_01 : Day_20
 		_positionTimeDictionary = new() { { _startPosition, 0} };
 	}
 
-	public override string ResultMessage => "Number of cheats that would save at least 100 picoseconds";
+    public override string ResultMessage => "100 picosecond saving cheats when skipping twice";
 
 	public override string GetResult()
 	{
-		return CalculateSumOfSecondsSavedFrom2SkipsOver100Picoseconds(_raceMap, _visited, _startPosition, _endPosition, _positionTimeDictionary).ToString();
+		return CalculateSumOfSkipsSavingOver100Picoseconds(_raceMap, _visited, _startPosition, _endPosition, _positionTimeDictionary).ToString();
 	}
 
-	private long CalculateSumOfSecondsSavedFrom2SkipsOver100Picoseconds(List<List<char>> raceMap, List<List<bool>> visited, (int x, int y) startPosition, (int x, int y) endPosition, Dictionary<(int x, int y), int> positionTimeDictionary)
+	private static long CalculateSumOfSkipsSavingOver100Picoseconds(List<List<char>> raceMap, List<List<bool>> visited, (int x, int y) startPosition, (int x, int y) endPosition, Dictionary<(int x, int y), int> positionTimeDictionary)
 	{
         // Calculate time at each valid position on the track
-        TraverseRaceMap(raceMap, visited, startPosition, endPosition, positionTimeDictionary);
+        CalculateRaceMapTraversalTimes(raceMap, visited, startPosition, endPosition, positionTimeDictionary);
 
 		var skipsSavingMoreThan100Picoseconds = 0L;
 		foreach (var positionTime in positionTimeDictionary)
 		{
-			skipsSavingMoreThan100Picoseconds += SimulateRaceWithSkip(raceMap, positionTimeDictionary, positionTime.Key);
+			skipsSavingMoreThan100Picoseconds += SimulateRaceWithWallSkip(raceMap, positionTimeDictionary, positionTime.Key);
 		}
 
 		return skipsSavingMoreThan100Picoseconds;
 	}
 
-	private long SimulateRaceWithSkip(List<List<char>> raceMap, Dictionary<(int x, int y), int> positionTimeDictionary, (int x, int y) currentPosition)
+	private static long SimulateRaceWithWallSkip(List<List<char>> raceMap, Dictionary<(int x, int y), int> positionTimeDictionary, (int x, int y) currentPosition)
     {
-		var timeSaved = 0L;
+		var timesSaved = 0L;
 
 		var timeAtCurrentPosition = positionTimeDictionary[currentPosition];
 
-		foreach (var direction in Directions)
+		foreach (var direction in Directions.Cardinal)
 		{
 			var timeAtSkippedPosition = GetTimeAtNextPosition(raceMap, positionTimeDictionary, currentPosition, direction);
 
 			if (timeAtSkippedPosition - timeAtCurrentPosition - 2 >= 100)
-				timeSaved += 1;
+				timesSaved += 1;
 		}
 
-		return timeSaved;
+		return timesSaved;
     }
 
 	private static long GetTimeAtNextPosition(List<List<char>> raceMap, Dictionary<(int x, int y), int> positionTimeDictionary, (int x, int y) currentPosition, (int x, int y) direction)

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using AdventOfCode.Common.Constants;
 using AdventOfCode.Common.Extensions;
 
 namespace AdventOfCode.Puzzles.Year_2024.Day_04;
@@ -62,8 +63,8 @@ public class Part_01 : Day_04
 		if (wordSearch[y][x] != word[0])
 			return false;
 
-		var newX = x + Directions[direction].x;
-		var newY = y + Directions[direction].y;
+		var newX = x + Directions.All[direction].x;
+		var newY = y + Directions.All[direction].y;
 		return SearchForWordRecursive(wordSearch, word[1..], newX, newY, direction);
 	}
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using AdventOfCode.Common.Constants;
 using AdventOfCode.Common.Extensions;
 
 namespace AdventOfCode.Puzzles.Year_2024.Day_06;
@@ -22,11 +23,11 @@ public class Part_01 : Day_06
 		return CalculateDistinctPositionsInPath(_map).ToString();
 	}
 
-	private int CalculateDistinctPositionsInPath(List<List<char>> map)
+	private static int CalculateDistinctPositionsInPath(List<List<char>> map)
 	{
 		var startingY = map.IndexOf(map.First(x => x.Contains('^')));
 		var startingX = map[startingY].IndexOf('^');
-		var startingDirection = Directions[0];
+		var startingDirection = Directions.Cardinal[0];
 
 		var currentY = startingY;
 		var currentX = startingX;
@@ -50,7 +51,7 @@ public class Part_01 : Day_06
 
 			if (map[nextY][nextX] == '#')
 				// Update to try new direction (90 degree right turn)
-				currentDirection = Directions[(Directions.IndexOf(currentDirection) + 1) % Directions.Count];
+				currentDirection = Directions.Cardinal[(Directions.Cardinal.IndexOf(currentDirection) + 1) % Directions.Cardinal.Count];
 			else
 			{
 				currentX = nextX;

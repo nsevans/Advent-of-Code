@@ -1,6 +1,8 @@
 using System;
 using System.Linq;
+using AdventOfCode.Common.Constants;
 using AdventOfCode.Services.Generating;
+using AdventOfCode.Services.Help;
 using AdventOfCode.Services.Solving;
 
 namespace AdventOfCode;
@@ -17,25 +19,30 @@ public class Program
 	{
 		var firstArgument = args.FirstOrDefault();
 
-		if (firstArgument == "--generate" || firstArgument == "-g")
-		{
-			var context = GenerationArgumentHandler.HandleInput(args[1..]);
-			var generator = new GeneratingService(context);
-			generator.Generate();
-		}
-		else if (firstArgument == "--solve" || firstArgument == "-s")
-		{
-			var context = SolvingArgumentHandler.HandleInput(args[1..]);
-			var orchestrator = new SolvingOrchestrator(context);
-			orchestrator.Run();
-		}
-		else
-		{
-			if (firstArgument == null)
-				Console.Write("No service specified.");
-			else
-				Console.Write($"Invalid service '{firstArgument}'.");
-			Console.WriteLine(" Either use '--solve' to run the solving service or '--generate' to run the generation service.");
-		}
+        if (GenerateCommandConstants.Generate.Options.Contains(firstArgument))
+        {
+            var context = GenerationArgumentHandler.HandleInput(args[1..]);
+            var generator = new GeneratingService(context);
+            generator.Generate();
+        }
+        else if (SolveCommandConstants.Solve.Options.Contains(firstArgument))
+        {
+            var context = SolvingArgumentHandler.HandleInput(args[1..]);
+            var orchestrator = new SolvingOrchestrator(context);
+            orchestrator.Run();
+        }
+        else if (HelpCommandConstants.Help.Options.Contains(firstArgument))
+        {
+            var command = HelpArgumentHandler.HandleInput(args);
+            HelpService.ShowHelp(command);
+        }
+        else
+        {
+            if (firstArgument == null)
+                Console.WriteLine("No service specified");
+            else
+                Console.WriteLine($"Unknown option {firstArgument}");
+            Console.WriteLine("Try `dotnet run -- --help` for more information.");
+        }
 	}
 }

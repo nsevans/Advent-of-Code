@@ -1,5 +1,5 @@
 using System;
-using System.Linq;
+using AdventOfCode.Common.Constants;
 using AdventOfCode.Common.Extensions;
 using AdventOfCode.Common.Services;
 using AdventOfCode.Models;
@@ -8,22 +8,23 @@ namespace AdventOfCode.Services.Generating;
 
 public class GenerationArgumentHandler : IInputHandler<GeneratorContext>
 {
-    private static readonly string[] ValidLanguages = ["c#", "dotnet", "python"];
-
 	public static GeneratorContext HandleInput(string[] args)
     {
         try
         {
-            var yearValue = args.GetValueForArgument(["-y", "--year"], isRequired: true);
+            var yearValue = args.GetValueForArgument(GenerateCommandConstants.Year.Options, isRequired: true);
             var year = int.Parse(yearValue);
 
-            var dayValue = args.GetValueForArgument(["-d", "--day"], isRequired: true);
+            var dayValue = args.GetValueForArgument(GenerateCommandConstants.Day.Options, isRequired: true);
             var day = int.Parse(dayValue);
 
-            var title = args.GetValueForArgument(["-t", "--title"]) ?? "";
+            var title = args.GetValueForArgument(GenerateCommandConstants.Title.Options) ?? "";
 
-            var language = args.GetValueForArgument(["-l", "--language"], isRequired: true, allowedValues: ValidLanguages).ToLower();
-            language = language == "c#" ? "dotnet" : language;
+            var language = args
+                .GetValueForArgument(GenerateCommandConstants.Language.Options,
+                    isRequired: true,
+                    allowedValues: GenerateCommandConstants.Language.AcceptedValues)
+                .ToLower();
 
             var context = new GeneratorContext(year, day, title, language);
             return context;

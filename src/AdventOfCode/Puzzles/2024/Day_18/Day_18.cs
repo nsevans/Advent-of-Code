@@ -36,7 +36,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_18;
 ///		1,6
 ///		2,0
 /// </summary>
-public abstract class Day_18 : BaseDotnetSolver
+public abstract class Day_18 : BaseCsharpSolver
 {
 	public override string Title => "RAM Run";
 	public override int Day => 18;

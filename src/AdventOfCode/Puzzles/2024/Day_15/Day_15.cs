@@ -20,7 +20,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_15;
 ///
 ///		<^^>>>vv<v>>v<<
 /// </summary>
-public abstract class Day_15 : BaseDotnetSolver
+public abstract class Day_15 : BaseCsharpSolver
 {
 	public override string Title => "Warehouse Woes";
 	public override int Day => 15;

@@ -11,7 +11,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_03;
 /// Example/Test Input:
 /// 	xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))
 /// </summary>
-public abstract class Day_03 : BaseDotnetSolver
+public abstract class Day_03 : BaseCsharpSolver
 {
 	public override string Title => "Mull It Over";
 	public override int Day => 3;

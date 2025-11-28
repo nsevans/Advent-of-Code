@@ -76,7 +76,7 @@ public static class GenerateCommandConstants
         Name = "language",
         Shortcut = "l",
         AcceptedType = typeof(string),
-        AcceptedValues = ["python", "dotnet"],
+        AcceptedValues = ["csharp", "python"],
         Description = "[Required] Specify the programming language the puzzle template is generated for."
     };
 

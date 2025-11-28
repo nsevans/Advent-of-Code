@@ -79,14 +79,14 @@ dotnet run -- [-g|--generate]
 | `[-y\|--year]` | `--year 2025` | `int` | Yes | Set the year that the generator is generating the classes for. |
 | `[-d\|--day]` | `--day 1` | `int`, 1 to 25 | Yes | Set the day that the generator is generating the classes for. |
 | `[-t\|--title]` | `--title "Title of the puzzle"` | `string` | No | Set the title of the puzzle. |
-| `[-l\|--language]` | `--language "python"` | Supported Languages: `python` or `dotnet` | Yes | Set the language the puzzle will be solved with. |
+| `[-l\|--language]` | `--language "python"` | Supported Languages: `python` or `csharp` | Yes | Set the language the puzzle will be solved with. |
 
 ### Generator Examples
 
 * Generate a puzzle and its parts:  
-`dotnet run -- --generate --year 2025 --day 1 --language "dotnet"`
+`dotnet run -- --generate --year 2025 --day 1 --language "csharp"`
 * Generate a puzzle, its parts and give it a title:  
-`dotnet run -- --generate --year 2025 --day 1 --title "Title of the puzzle" --language "dotnet"`
+`dotnet run -- --generate --year 2025 --day 1 --title "Title of the puzzle" --language "csharp"`
 
 ## Solver Run Results
 

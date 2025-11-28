@@ -30,7 +30,7 @@ public abstract class BaseSolver : ISolver
 
     public string GetSolvingLanguage()
     {
-        if (this is BaseDotnetSolver)
+        if (this is BaseCsharpSolver)
             return "C#";
         else if (this is BasePythonSolver)
             return "Python";

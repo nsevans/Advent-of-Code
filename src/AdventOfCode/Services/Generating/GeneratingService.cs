@@ -26,8 +26,8 @@ public class GeneratingService(GeneratorContext context)
 		if (!Directory.Exists(outputDirectory))
 			Directory.CreateDirectory(outputDirectory);
 
-        if (_context.Language.ToLower() == "dotnet")
-            GenerateDotnetTemplates(outputDirectory, _context);
+        if (_context.Language.ToLower() == "csharp")
+            GenerateCsharpTemplates(outputDirectory, _context);
         else if (_context.Language.ToLower() == "python")
             GeneratePythonTemplates(outputDirectory, _context);
         else
@@ -36,10 +36,10 @@ public class GeneratingService(GeneratorContext context)
 		Console.WriteLine($"Finished generating files for day {_context.DisplayDay} of {_context.Year}");
 	}
 
-    private static void GenerateDotnetTemplates(string outputDirectory, GeneratorContext context)
+    private static void GenerateCsharpTemplates(string outputDirectory, GeneratorContext context)
     {
-        var dayTemplate = LoadDotnetTemplate(TemplateType.Day, context.Language);
-		var partTemplate = LoadDotnetTemplate(TemplateType.Part, context.Language);
+        var dayTemplate = LoadCsharpTemplate(TemplateType.Day, context.Language);
+		var partTemplate = LoadCsharpTemplate(TemplateType.Part, context.Language);
 
 		var dayClass = dayTemplate
 			.Replace("<year>", context.Year.ToString())
@@ -67,8 +67,8 @@ public class GeneratingService(GeneratorContext context)
 
     private static void GeneratePythonTemplates(string outputDirectory, GeneratorContext context)
     {
-        var dayTemplate = LoadDotnetTemplate(TemplateType.Day, context.Language);
-        var partDotnetTemplate = LoadDotnetTemplate(TemplateType.Part, context.Language);
+        var dayTemplate = LoadCsharpTemplate(TemplateType.Day, context.Language);
+        var partCsharpTemplate = LoadCsharpTemplate(TemplateType.Part, context.Language);
         var partPythonTemplate = LoadPythonTemplate(TemplateType.Part, context.Language);
 
         var dayClass = dayTemplate
@@ -80,7 +80,7 @@ public class GeneratingService(GeneratorContext context)
         var partClasses = new List<string>();
         for (var i = 1; i <= 2; i++)
         {
-            var partClass = partDotnetTemplate
+            var partClass = partCsharpTemplate
                 .Replace("<year>", context.Year.ToString())
                 .Replace("<day>", context.Day.ToString())
 			    .Replace("<displayday>", context.DisplayDay)
@@ -115,7 +115,7 @@ public class GeneratingService(GeneratorContext context)
         return File.ReadAllText($"./Services/Generating/Templates/{language}/{Enum.GetName(typeof(TemplateType), templateType)}.py.template");
     }
 
-    private static string LoadDotnetTemplate(TemplateType templateType, string language)
+    private static string LoadCsharpTemplate(TemplateType templateType, string language)
     {
         return File.ReadAllText($"./Services/Generating/Templates/{language}/{Enum.GetName(typeof(TemplateType), templateType)}.cs.template");
     }

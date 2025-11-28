@@ -9,9 +9,6 @@ public class HelpArgumentHandler : IInputHandler<string>
     {
         args.TryGetArgumentAtIndex(1, out var command);
 
-        if (command != null && !command.StartsWith("--"))
-            command = $"--{command}";
-
         return command;
     }
 }

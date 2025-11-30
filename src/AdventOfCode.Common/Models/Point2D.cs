@@ -1,22 +1,53 @@
+using System;
+
 namespace AdventOfCode.Common.Models;
 
-public class Point2D(int x, int y)
+public class Point2D
 {
-	public readonly int X = x;
-	public readonly int Y = y;
+	public readonly int X;
+    public readonly int Y;
 
-    public override bool Equals(object other)
+    public Point2D(int x, int y)
     {
-		return Equals(other);
+        X = x;
+        Y = y;
     }
 
+    public Point2D((int x, int y) position)
+    {
+        X = position.x;
+        Y = position.y;
+    }
+
+    public static bool operator ==(Point2D left, Point2D right)
+    {
+        if (ReferenceEquals(left, right))
+            return true;
+        if (left is null)
+            return false;
+        if (right is null)
+            return false;
+
+        return left.Equals(right);
+    }
+
+    public static bool operator !=(Point2D left, Point2D right) => !(left == right);
+
 	public bool Equals(Point2D other)
-	{
-		return other != null && X == other.X && Y == other.Y;
+    {
+        if (other is null)
+            return false;
+
+        if (ReferenceEquals(this, other))
+            return true;
+
+		return X == other.X && Y == other.Y;
 	}
+
+    public override bool Equals(object other) => Equals(other as Point2D);
 
     public override int GetHashCode()
     {
-        return base.GetHashCode();
+        return HashCode.Combine(X, Y);
     }
 }

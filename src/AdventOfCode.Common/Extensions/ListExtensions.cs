@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using AdventOfCode.Common.Models;
 
 namespace AdventOfCode.Common.Extensions;
 
@@ -10,43 +11,60 @@ public static class ListExtensions
 	/// </summary>
 	/// <param name="list"></param>
 	/// <returns></returns>
-	public static List<List<char>> To2DCharList(this List<string> list)
-		=> list.Select(x => x.ToCharArray().ToList()).ToList();
+	public static List<List<char>> To2DCharList(this List<string> list) => list.Select(x => x.ToCharArray().ToList()).ToList();
 
 	/// <summary>
 	/// Convert a list of strings to a 2D list of ints
 	/// </summary>
 	/// <param name="list"></param>
 	/// <returns></returns>
-	public static List<List<int>> To2DIntList(this List<string> list)
-		=> list.Select(l => l.ToCharArray().Select(x => int.Parse(x.ToString())).ToList()).ToList();
+	public static List<List<int>> To2DIntList(this List<string> list) => list.Select(l => l.ToCharArray().Select(x => int.Parse(x.ToString())).ToList()).ToList();
 
-	/// <summary>
-	/// Check if the given coordinates are within the bounds of the given 2 dimensional list.
-	/// </summary>
-	/// <typeparam name="T"></typeparam>
-	/// <param name="map"></param>
-	/// <param name="index"></param>
-	/// <returns></returns>
-	public static bool IsInBounds<T>(this List<List<T>> map, (int x, int y) index) => map.IsInBounds(index.x, index.y);
+    /// <summary>
+    /// Check if the given coordinates are within the bounds of the given 2 dimensional list.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="map"></param>
+    /// <param name="point"></param>
+    /// <returns></returns>
+    public static bool IsInBounds<T>(this List<List<T>> map, Point2D point) => map.IsInBounds(point.X, point.Y);
 
-	/// <summary>
-	/// Check if the given coordinates are within the bounds of the given 2 dimensional list.
-	/// </summary>
-	/// <param name="map"></param>
-	/// <param name="x"></param>
-	/// <param name="y"></param>
-	/// <returns></returns>
-	public static bool IsInBounds<T>(this List<List<T>> map, int x, int y)
-	{
-		if (x < 0 || y < 0)
-			return false;
+    /// <summary>
+    /// Check if the given coordinates are within the bounds of the given 2 dimensional list.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="map"></param>
+    /// <param name="index"></param>
+    /// <returns></returns>
+    public static bool IsInBounds<T>(this List<List<T>> map, (int x, int y) index) => map.IsInBounds(index.x, index.y);
 
-		if (y >= map.Count || x >= map[y].Count)
-			return false;
+    /// <summary>
+    /// Check if the given coordinates are within the bounds of the given 2 dimensional list.
+    /// </summary>
+    /// <param name="map"></param>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <returns></returns>
+    public static bool IsInBounds<T>(this List<List<T>> map, int x, int y)
+    {
+        if (x < 0 || y < 0)
+            return false;
 
-		return true;
-	}
+        if (y >= map.Count || x >= map[y].Count)
+            return false;
+
+        return true;
+    }
+
+    /// <summary>
+    /// Check if the given coordinates are safe (i.e.: in bounds of the 2D list and not an unsafe value)
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="map"></param>
+    /// <param name="point"></param>
+    /// <param name="unsafeValues"></param>
+    /// <returns></returns>
+    public static bool IsSafe<T>(this List<List<T>> map, Point2D point, List<T> unsafeValues = null) => map.IsSafe(point.X, point.Y, unsafeValues);
 
 	/// <summary>
 	/// Check if the given coordinates are safe (i.e.: in bounds of the 2D list and not an unsafe value)
@@ -56,7 +74,7 @@ public static class ListExtensions
 	/// <param name="index"></param>
 	/// <param name="unsafes"></param>
 	/// <returns></returns>
-	public static bool IsSafe<T>(this List<List<T>> map, (int x, int y) index, List<T> unsafes = null) => map.IsSafe(index.x, index.y, unsafes);
+	public static bool IsSafe<T>(this List<List<T>> map, (int x, int y) index, List<T> unsafeValues = null) => map.IsSafe(index.x, index.y, unsafeValues);
 
 	/// <summary>
 	/// Check if the given coordinates are safe (i.e.: in bounds of the 2D list and not an unsafe value)
@@ -65,14 +83,14 @@ public static class ListExtensions
 	/// <param name="map"></param>
 	/// <param name="x"></param>
 	/// <param name="y"></param>
-	/// <param name="unsafes"></param>
+	/// <param name="unsafeValues"></param>
 	/// <returns></returns>
-	public static bool IsSafe<T>(this List<List<T>> map, int x, int y, List<T> unsafes = null)
+	public static bool IsSafe<T>(this List<List<T>> map, int x, int y, List<T> unsafeValues = null)
 	{
 		if (!map.IsInBounds(x, y))
 			return false;
 
-		if (unsafes.Contains(map[y][x]))
+		if (unsafeValues.Contains(map[y][x]))
 			return false;
 
 		return true;
@@ -132,30 +150,49 @@ public static class ListExtensions
 		return indexes;
 	}
 
-	/// <summary>
-	/// Get a value from a specified index of a 2D list at a given position, as long as the position is valid
-	/// </summary>
-	/// <typeparam name="T"></typeparam>
-	/// <param name="list"></param>
-	/// <param name="position"></param>
-	/// <returns>The value at the given index, default if the index is invalid</returns>
-	public static T GetValueAtIndex<T>(this List<List<T>> list, (int x, int y) position) => list.GetValueAtIndex(position.x, position.y);
+    /// <summary>
+    /// Get a value from a specified index of a 2D list at a given position, as long as the position is valid
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="list"></param>
+    /// <param name="point"></param>
+    /// <returns>The value at the given index, default if the index is invalid</returns>
+    public static T GetValueAtIndex<T>(this List<List<T>> list, Point2D point) => list.GetValueAtIndex(point.X, point.Y);
 
-	/// <summary>
-	/// Get a value from a specified index of a 2D list at a given position, as long as the position is valid
-	/// </summary>
-	/// <typeparam name="T"></typeparam>
-	/// <param name="list"></param>
-	/// <param name="x"></param>
-	/// <param name="y"></param>
-	/// <returns>The value at the given index, default if the index is invalid</returns>
-	public static T GetValueAtIndex<T>(this List<List<T>> list, int x, int y)
-	{
-		if (!list.IsInBounds(x, y))
-			return default;
+    /// <summary>
+    /// Get a value from a specified index of a 2D list at a given position, as long as the position is valid
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="list"></param>
+    /// <param name="position"></param>
+    /// <returns>The value at the given index, default if the index is invalid</returns>
+    public static T GetValueAtIndex<T>(this List<List<T>> list, (int x, int y) position) => list.GetValueAtIndex(position.x, position.y);
 
-		return list[y][x];
-	}
+    /// <summary>
+    /// Get a value from a specified index of a 2D list at a given position, as long as the position is valid
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="list"></param>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <returns>The value at the given index, default if the index is invalid</returns>
+    public static T GetValueAtIndex<T>(this List<List<T>> list, int x, int y)
+    {
+        if (!list.IsInBounds(x, y))
+            return default;
+
+        return list[y][x];
+    }
+
+    /// <summary>
+    /// Set a given value in a 2D list at a given position, as long as the position is valid
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="list"></param>
+    /// <param name="point"></param>
+    /// <param name="value"></param>
+    /// <returns>True if set successfully, false otherwise</returns>
+    public static bool SetValueAtIndex<T>(this List<List<T>> list, Point2D point, T value) => list.SetValueAtIndex(point.X, point.Y, value);
 
 	/// <summary>
 	/// Set a given value in a 2D list at a given position, as long as the position is valid

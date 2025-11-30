@@ -6,7 +6,20 @@ namespace AdventOfCode.Puzzles.Year_2022.Day_01;
 /// Link to Day https://adventofcode.com/2022/day/1
 ///
 /// Example/Test Input:
+///     1000
+///     2000
+///     3000
 ///
+///     4000
+///
+///     5000
+///     6000
+///
+///     7000
+///     8000
+///     9000
+///
+///     10000
 /// </summary>
 public abstract class Day_01 : BasePythonSolver
 {

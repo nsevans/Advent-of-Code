@@ -6,7 +6,12 @@ namespace AdventOfCode.Puzzles.Year_2022.Day_03;
 /// Link to Day https://adventofcode.com/2022/day/3
 ///
 /// Example/Test Input:
-///
+///     vJrwpWtwJgWrhcsFMMfFFhFp
+///     jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+///     PmmdzqPrVvPwwTWBwg
+///     wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+///     ttgJtRGJQctTZtZT
+///     CrZsJsPPZsGzwwsLwLmpwMDw
 /// </summary>
 public abstract class Day_03 : BasePythonSolver
 {

@@ -6,7 +6,9 @@ namespace AdventOfCode.Puzzles.Year_2022.Day_02;
 /// Link to Day https://adventofcode.com/2022/day/2
 ///
 /// Example/Test Input:
-///
+///     A Y
+///     B X
+///     C Z
 /// </summary>
 public abstract class Day_02 : BasePythonSolver
 {

@@ -2,25 +2,25 @@
 
 import sys
 
-def parseData(inputFile: str) -> list[int]:
-    with open(inputFile) as file:
-        inputValues = file.read()
+def parse_data(input_file: str) -> list[int]:
+    with open(input_file) as file:
+        input_values = file.read()
         # Convert to list of ints and replace all empty lines with a 0
-        return list(map(int, inputValues.replace('\n\n', '\n0\n').split('\n')))
+        return list(map(int, input_values.replace('\n\n', '\n0\n').split('\n')))
 
-def getResult(input: list[int]) -> str:
-    mostCalories = 0
-    currentCalories = 0
+def get_gesult(input: list[int]) -> str:
+    most_calories = 0
+    current_calories = 0
     for i in input:
         if i == 0:
-            mostCalories = currentCalories if currentCalories > mostCalories else mostCalories
-            currentCalories = 0
+            most_calories = current_calories if current_calories > most_calories else most_calories
+            current_calories = 0
             continue
-        currentCalories += i
+        current_calories += i
 
-    return mostCalories
+    return most_calories
 
 if __name__ == '__main__':
-    inputFile = sys.argv[1]
-    inputValues = parseData(inputFile)
-    print(getResult(inputValues))
+    input_file = sys.argv[1]
+    input_values = parse_data(input_file)
+    print(get_gesult(input_values))

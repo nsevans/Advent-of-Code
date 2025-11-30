@@ -5,12 +5,12 @@
 import sys
 import re
 
-def prepareData(inputFile: str) -> list[list[int]]:
-    with open(inputFile) as file:
-        inputValues = file.read()
-        return [list(int(i) for i in re.split(r'[,-]', l)) for l in inputValues.split('\n')]
+def prepare_data(input_file: str) -> list[list[int]]:
+    with open(input_file) as file:
+        input_values = file.read()
+        return [list(int(i) for i in re.split(r'[,-]', l)) for l in input_values.split('\n')]
 
-def getResult(input: list[list[int]]) -> int:
+def get_result(input: list[list[int]]) -> int:
     redundencies = 0
     for p in input:
         if p[0] <= p[2] and p[1] >= p[2] and p[0] <= p[3] and p[1] >= p[3]:
@@ -20,6 +20,6 @@ def getResult(input: list[list[int]]) -> int:
     return redundencies
 
 if __name__ == '__main__':
-    inputFile = sys.argv[1]
-    inputValues = prepareData(inputFile)
-    print(getResult(inputValues))
+    input_file = sys.argv[1]
+    input_values = prepare_data(input_file)
+    print(get_result(input_values))

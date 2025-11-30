@@ -23,18 +23,18 @@ outcomes = {
     'C': {'X': 2 + 0, 'Y': 3 + 3, 'Z': 1 + 6}
 }
 
-def prepareData(inputFile: str) -> list[(chr, chr)]:
-    with open(inputFile) as file:
-        inputValues = file.read()
-        return inputValues.split('\n')
+def prepare_data(input_file: str) -> list[(chr, chr)]:
+    with open(input_file) as file:
+        input_values = file.read()
+        return input_values.split('\n')
 
-def getResult(input: list[(chr, chr)]) -> str:
+def get_result(input: list[(chr, chr)]) -> str:
     score = 0
     for i in input:
         score += outcomes[i[0]][i[-1]]
     return score
 
 if __name__ == '__main__':
-    inputFile = sys.argv[1]
-    inputValues = prepareData(inputFile)
-    print(getResult(inputValues))
+    input_file = sys.argv[1]
+    input_values = prepare_data(input_file)
+    print(get_result(input_values))

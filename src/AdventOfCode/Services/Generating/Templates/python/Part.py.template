@@ -4,15 +4,15 @@
 
 import sys
 
-def prepareData(inputFile: str) -> any:
-    with open(inputFile) as file:
-        inputValues = file.read()
-        return inputValues
+def prepare_data(input_file: str) -> any:
+    with open(input_file) as file:
+        input_values = file.read()
+        return input_values
 
-def getResult(input: any) -> str:
+def get_result(input: any) -> str:
     pass
 
 if __name__ == '__main__':
-    inputFile = sys.argv[1]
-    inputValues = prepareData(inputFile)
-    print(getResult(inputValues))
+    input_file = sys.argv[1]
+    input_values = prepare_data(input_file)
+    print(get_result(input_values))

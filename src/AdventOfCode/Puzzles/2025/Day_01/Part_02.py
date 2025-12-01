@@ -5,27 +5,20 @@
 import sys
 import math
 
-def prepare_data(input_file: str) -> list[list]:
+def prepare_data(input_file: str) -> list[int]:
     with open(input_file) as file:
         input_values = file.read().split('\n')
-        return [[l[0], int(l[1:])] for l in input_values]
+        return [int(l[1:]) if l[0] == 'R' else -int(l[1:]) for l in input_values]
 
-def get_result(input: list[list]) -> str:
+def get_result(input: list[int]) -> str:
     zero_count = 0
     dial_value = 50
 
-    for i in input:
-        direction = i[0]
-        amount = i[1]
-        new_dial_value = dial_value
+    for amount in input:
+        total_rotations = math.floor(abs(amount) / 100)
+        amount = (-1 if amount < 0 else 1) * (abs(amount) % 100)
 
-        total_rotations = math.floor(amount / 100)
-        amount = amount % 100
-
-        if direction == 'L':
-            new_dial_value -= amount
-        elif direction == 'R':
-            new_dial_value += amount
+        new_dial_value = dial_value + amount
 
         if dial_value != 0 and (new_dial_value <= 0 or new_dial_value >= 100):
             zero_count += 1

@@ -14,7 +14,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_22;
 ///		100
 ///		2024
 /// </summary>
-public abstract class Day_22 : BaseCsharpSolver
+public abstract class Day_22 : BaseCSharpSolver
 {
 	public override string Title => "Monkey Market";
 	public override int Day => 22;

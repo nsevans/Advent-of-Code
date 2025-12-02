@@ -22,7 +22,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_16;
 ///		#S..#.....#...#
 ///		###############
 /// </summary>
-public abstract class Day_16 : BaseCsharpSolver
+public abstract class Day_16 : BaseCSharpSolver
 {
 	public override string Title => "Reindeer Maze";
 	public override int Day => 16;

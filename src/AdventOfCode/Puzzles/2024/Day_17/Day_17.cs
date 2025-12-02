@@ -16,7 +16,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_17;
 ///
 ///		Program: 0,1,5,4,3,0
 /// </summary>
-public abstract class Day_17 : BaseCsharpSolver
+public abstract class Day_17 : BaseCSharpSolver
 {
 	public override string Title => "Chronospatial Computer";
 	public override int Day => 17;

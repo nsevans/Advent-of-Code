@@ -17,7 +17,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_19;
 ///		brgr
 ///		bbrgwb
 /// </summary>
-public abstract class Day_19 : BaseCsharpSolver
+public abstract class Day_19 : BaseCSharpSolver
 {
 	public override string Title => "Linen Layout";
 	public override int Day => 19;

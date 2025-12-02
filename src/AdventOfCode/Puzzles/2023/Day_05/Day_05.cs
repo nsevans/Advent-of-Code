@@ -45,7 +45,7 @@ namespace AdventOfCode.Puzzles.Year_2023.Day_05;
 ///		60 56 37
 ///		56 93 4
 /// </summary>
-public abstract class Day_05 : BaseCsharpSolver
+public abstract class Day_05 : BaseCSharpSolver
 {
 	public override string Title => "If You Give A Seed A Fertilizer";
     public override int Day => 5;

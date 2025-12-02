@@ -17,7 +17,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_06;
 ///		#.........
 ///		......#...
 /// </summary>
-public abstract class Day_06 : BaseCsharpSolver
+public abstract class Day_06 : BaseCSharpSolver
 {
 	public override string Title => "Guard Gallivant";
 	public override int Day => 6;

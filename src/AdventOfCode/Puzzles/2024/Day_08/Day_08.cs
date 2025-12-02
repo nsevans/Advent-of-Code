@@ -23,7 +23,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_08;
 ///		............
 ///		............
 /// </summary>
-public abstract class Day_08 : BaseCsharpSolver
+public abstract class Day_08 : BaseCSharpSolver
 {
 	public override string Title => "Resonant Collinearity";
 	public override int Day => 8;

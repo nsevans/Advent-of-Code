@@ -12,7 +12,7 @@ namespace AdventOfCode.Puzzles.Year_2023.Day_03;
 ///		............*.........712........=.......*................515.*..
 ///		.........823.835........%.........710.....749........134..%......
 /// </summary>
-public abstract class Day_03 : BaseCsharpSolver
+public abstract class Day_03 : BaseCSharpSolver
 {
 	public override string Title => "Gear Ratios";
     public override int Day => 3;

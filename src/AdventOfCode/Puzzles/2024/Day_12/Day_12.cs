@@ -14,7 +14,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_12;
 ///		BBCC
 ///		EEEC
 /// </summary>
-public abstract class Day_12 : BaseCsharpSolver
+public abstract class Day_12 : BaseCSharpSolver
 {
 	public override string Title => "Garden Groups";
 	public override int Day => 12;

@@ -17,7 +17,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_21;
 ///		456A
 ///		379A
 /// </summary>
-public abstract class Day_21 : BaseCsharpSolver
+public abstract class Day_21 : BaseCSharpSolver
 {
 	public override string Title => "Keypad Conundrum";
 	public override int Day => 21;

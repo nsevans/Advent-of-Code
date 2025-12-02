@@ -17,7 +17,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_04;
 /// 	MAMMMXMMMM
 /// 	MXMXAXMASX
 /// </summary>
-public abstract class Day_04 : BaseCsharpSolver
+public abstract class Day_04 : BaseCSharpSolver
 {
 	public override string Title => "Ceres Search";
 	public override int Day => 4;

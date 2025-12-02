@@ -39,7 +39,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_05;
 ///		61,13,29
 ///		97,13,75,29,47
 /// </summary>
-public abstract class Day_05 : BaseCsharpSolver
+public abstract class Day_05 : BaseCSharpSolver
 {
 	public override string Title => "Print Queue";
 	public override int Day => 5;

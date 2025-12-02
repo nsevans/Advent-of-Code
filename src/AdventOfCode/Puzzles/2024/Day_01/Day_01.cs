@@ -16,7 +16,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_01;
 /// 	3   9
 /// 	3   3
 /// </summary>
-public abstract class Day_01 : BaseCsharpSolver
+public abstract class Day_01 : BaseCSharpSolver
 {
 	public override string Title => "Historian Hysteria";
     public override int Day => 1;

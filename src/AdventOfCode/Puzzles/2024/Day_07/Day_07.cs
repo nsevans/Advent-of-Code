@@ -20,7 +20,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_07;
 ///		21037: 9 7 18 13
 ///		292: 11 6 16 20
 /// </summary>
-public abstract class Day_07 : BaseCsharpSolver
+public abstract class Day_07 : BaseCSharpSolver
 {
 	public override string Title => "Bridge Repair";
 	public override int Day => 7;

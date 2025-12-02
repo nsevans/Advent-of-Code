@@ -46,7 +46,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_25;
 ///		#.#.#
 ///		#####
 /// </summary>
-public abstract class Day_25 : BaseCsharpSolver
+public abstract class Day_25 : BaseCSharpSolver
 {
 	public override string Title => "Code Chronicle";
 	public override int Day => 25;

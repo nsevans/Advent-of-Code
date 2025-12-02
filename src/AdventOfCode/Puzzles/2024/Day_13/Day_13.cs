@@ -27,7 +27,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_13;
 ///		Button B: X+27, Y+71
 ///		Prize: X=18641, Y=10279
 /// </summary>
-public abstract class Day_13 : BaseCsharpSolver
+public abstract class Day_13 : BaseCSharpSolver
 {
 	public override string Title => "Claw Contraption";
 	public override int Day => 13;

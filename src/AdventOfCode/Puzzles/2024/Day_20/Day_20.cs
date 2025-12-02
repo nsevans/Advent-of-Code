@@ -25,7 +25,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_20;
 ///		#...#...#...###
 ///		###############
 /// </summary>
-public abstract class Day_20 : BaseCsharpSolver
+public abstract class Day_20 : BaseCSharpSolver
 {
 	public override string Title => "Race Condition";
 	public override int Day => 20;

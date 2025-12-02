@@ -14,7 +14,7 @@ namespace AdventOfCode.Puzzles.Year_2024.Day_10;
 ///		8765
 ///		9876
 /// </summary>
-public abstract class Day_10 : BaseCsharpSolver
+public abstract class Day_10 : BaseCSharpSolver
 {
 	public override string Title => "Hoof It";
 	public override int Day => 10;

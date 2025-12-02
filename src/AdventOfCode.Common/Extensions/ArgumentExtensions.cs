@@ -47,7 +47,7 @@ public static class ArgumentExtensions
         if (!argOptions.Any(a => inputArgs.Contains(a)))
         {
             if (isRequired)
-                throw new ArgumentException($"Argument '{argOptions[0]}' is a required argument.");
+                throw new ArgumentException($"Argument '{argOptions[1]}' is a required argument.");
             return null;
         }
 

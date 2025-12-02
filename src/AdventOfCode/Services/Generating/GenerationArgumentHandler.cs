@@ -18,7 +18,7 @@ public class GenerationArgumentHandler : IInputHandler<GeneratorContext>
             var dayValue = args.GetValueForArgument(GenerateCommandConstants.Day.Options, isRequired: true);
             var day = int.Parse(dayValue);
 
-            var title = args.GetValueForArgument(GenerateCommandConstants.Title.Options) ?? "";
+            var title = args.GetValueForArgument(GenerateCommandConstants.Title.Options, isRequired: true);
 
             var language = args
                 .GetValueForArgument(GenerateCommandConstants.Language.Options,

@@ -19,6 +19,18 @@ public class Point2D
         Y = position.y;
     }
 
+    public (int x, int y) ToTuple() => (X, Y);
+
+    public override string ToString() => $"[{X}, {Y}]";
+
+    public static Point2D operator +(Point2D left, Point2D right) => new(left.X + right.X, left.Y + right.Y);
+
+    public static Point2D operator +(Point2D left, (int x, int y) right) => new(left.X + right.x, left.Y + right.y);
+
+    public static Point2D operator -(Point2D left, Point2D right) => new(left.X - right.X, left.Y - right.Y);
+
+    public static Point2D operator -(Point2D left, (int x, int y) right) => new(left.X - right.x, left.Y - right.y);
+
     public static bool operator ==(Point2D left, Point2D right)
     {
         if (ReferenceEquals(left, right))

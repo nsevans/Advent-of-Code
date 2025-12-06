@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using AdventOfCode.Common.Constants;
 using AdventOfCode.Common.Extensions;
+using AdventOfCode.Common.Models;
 
 namespace AdventOfCode.Puzzles.Year_2024.Day_20;
 
@@ -10,34 +11,26 @@ public class Part_01 : Day_20
 	public override int Part => 1;
 
 	private List<List<char>> _raceMap;
-	private List<List<bool>> _visited;
-	private (int x, int y) _startPosition;
-	private (int x, int y) _endPosition;
-	private Dictionary<(int x, int y), int> _positionTimeDictionary;
+	private Dictionary<Point2D, int> _positionTimeDictionary;
 
 	public override void PrepareData(List<string> input)
 	{
 		_raceMap = input.To2DCharList();
-		_visited = InitializeVisitedMap(_raceMap);
+        _positionTimeDictionary = new() { { new Point2D(_raceMap.IndexOf('S')), 0 } };
 
-		_startPosition = _raceMap.IndexOf('S');
-		_endPosition = _raceMap.IndexOf('E');
-
-
-		_positionTimeDictionary = new() { { _startPosition, 0} };
+        // Calculate time at each valid position on the track
+        CalculateRaceMapTraversalTimes(_raceMap, _positionTimeDictionary);
 	}
 
-    public override string ResultMessage => "100 picosecond saving cheats when skipping twice";
+    public override string ResultMessage => "100 picosecond saving cheats when skipping for no more than 2 picoseconds";
 
 	public override string GetResult()
 	{
-		return CalculateSumOfSkipsSavingOver100Picoseconds(_raceMap, _visited, _startPosition, _endPosition, _positionTimeDictionary).ToString();
+		return CalculateSumOfSkipsSavingOver100Picoseconds(_raceMap, _positionTimeDictionary).ToString();
 	}
 
-	private static long CalculateSumOfSkipsSavingOver100Picoseconds(List<List<char>> raceMap, List<List<bool>> visited, (int x, int y) startPosition, (int x, int y) endPosition, Dictionary<(int x, int y), int> positionTimeDictionary)
+	private static long CalculateSumOfSkipsSavingOver100Picoseconds(List<List<char>> raceMap, Dictionary<Point2D, int> positionTimeDictionary)
 	{
-        // Calculate time at each valid position on the track
-        CalculateRaceMapTraversalTimes(raceMap, visited, startPosition, endPosition, positionTimeDictionary);
 
 		var skipsSavingMoreThan100Picoseconds = 0L;
 		foreach (var positionTime in positionTimeDictionary)
@@ -48,7 +41,7 @@ public class Part_01 : Day_20
 		return skipsSavingMoreThan100Picoseconds;
 	}
 
-	private static long SimulateRaceWithWallSkip(List<List<char>> raceMap, Dictionary<(int x, int y), int> positionTimeDictionary, (int x, int y) currentPosition)
+	private static long SimulateRaceWithWallSkip(List<List<char>> raceMap, Dictionary<Point2D, int> positionTimeDictionary, Point2D currentPosition)
     {
 		var timesSaved = 0L;
 
@@ -65,15 +58,15 @@ public class Part_01 : Day_20
 		return timesSaved;
     }
 
-	private static long GetTimeAtNextPosition(List<List<char>> raceMap, Dictionary<(int x, int y), int> positionTimeDictionary, (int x, int y) currentPosition, (int x, int y) direction)
+	private static long GetTimeAtNextPosition(List<List<char>> raceMap, Dictionary<Point2D, int> positionTimeDictionary, Point2D currentPosition, (int x, int y) direction)
 	{
-		var skipPosition = (x: currentPosition.x + direction.x, y: currentPosition.y + direction.y);
+		var skipPosition = new Point2D(currentPosition.X + direction.x, currentPosition.Y + direction.y);
 
 		// Skips should only happen over walls
 		if (raceMap.GetValueAtIndex(skipPosition) != '#')
 			return 0;
 
-		var nextPosition = (x: skipPosition.x + direction.x, y: skipPosition.y + direction.y);
+		var nextPosition = new Point2D(skipPosition.X + direction.x, skipPosition.Y + direction.y);
 
 		// The next position must be a valid race track position, and in bounds
 		if (raceMap.IsInBounds(nextPosition) && raceMap.GetValueAtIndex(nextPosition) != '#')

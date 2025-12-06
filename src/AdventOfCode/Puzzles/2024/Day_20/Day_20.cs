@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using AdventOfCode.Common.Extensions;
+using AdventOfCode.Common.Models;
 
 namespace AdventOfCode.Puzzles.Year_2024.Day_20;
 
@@ -47,41 +48,45 @@ public abstract class Day_20 : BaseCSharpSolver
 		return visited;
 	}
 
-	protected static void CalculateRaceMapTraversalTimes(List<List<char>> raceMap, List<List<bool>> visited, (int x, int y) startPosition, (int x, int y) endPosition, Dictionary<(int x, int y), int> positionTimeDictionary)
-	{
+	protected static void CalculateRaceMapTraversalTimes(List<List<char>> raceMap, Dictionary<Point2D, int> positionTimeDictionary)
+    {
+        var startPosition = new Point2D(raceMap.IndexOf('S'));
+        var endPosition = new Point2D(raceMap.IndexOf('E'));
+        var visited = InitializeVisitedMap(raceMap);
+
 		var currentTime = 0;
-		var currentPosition = startPosition;
+        var currentPosition = startPosition;
 
 		while(currentPosition != endPosition)
 		{
-			visited.SetValueAtIndex(currentPosition, true);
+			visited.SetValueAtIndex(currentPosition.X, currentPosition.Y, true);
 
-			var leftPosition = (x: currentPosition.x - 1, y: currentPosition.y);
-			if (raceMap.IsInBounds(leftPosition) && !visited.GetValueAtIndex(leftPosition) && raceMap.GetValueAtIndex(leftPosition) != '#')
+			var leftPosition = new Point2D(currentPosition.X - 1, currentPosition.Y);
+			if (raceMap.IsSafe(leftPosition, ['#']) && !visited.GetValueAtIndex(leftPosition))
 			{
 				positionTimeDictionary.Add(leftPosition, ++currentTime);
 				currentPosition = leftPosition;
 				continue;
 			}
 
-			var rightPosition = (x: currentPosition.x + 1, y: currentPosition.y);
-			if (raceMap.IsInBounds(rightPosition) && !visited.GetValueAtIndex(rightPosition) && raceMap.GetValueAtIndex(rightPosition) != '#')
+			var rightPosition = new Point2D(currentPosition.X + 1, currentPosition.Y);
+			if (raceMap.IsSafe(rightPosition, ['#']) && !visited.GetValueAtIndex(rightPosition))
 			{
 				positionTimeDictionary.Add(rightPosition, ++currentTime);
 				currentPosition = rightPosition;
 				continue;
 			}
 
-			var topPosition = (x: currentPosition.x, y: currentPosition.y - 1);
-			if (raceMap.IsInBounds(topPosition) && !visited.GetValueAtIndex(topPosition) && raceMap.GetValueAtIndex(topPosition) != '#')
+			var topPosition = new Point2D(currentPosition.X, currentPosition.Y - 1);
+			if (raceMap.IsSafe(topPosition, ['#']) && !visited.GetValueAtIndex(topPosition))
 			{
 				positionTimeDictionary.Add(topPosition, ++currentTime);
 				currentPosition = topPosition;
 				continue;
 			}
 
-			var bottomPosition = (x: currentPosition.x, y: currentPosition.y + 1);
-			if (raceMap.IsInBounds(bottomPosition) && !visited.GetValueAtIndex(bottomPosition) && raceMap.GetValueAtIndex(bottomPosition) != '#')
+			var bottomPosition = new Point2D(currentPosition.X, currentPosition.Y + 1);
+			if (raceMap.IsSafe(bottomPosition, ['#']) && !visited.GetValueAtIndex(bottomPosition))
 			{
 				positionTimeDictionary.Add(bottomPosition, ++currentTime);
 				currentPosition = bottomPosition;

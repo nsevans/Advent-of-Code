@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using AdventOfCode.Common.Models;
 
 namespace AdventOfCode.Common.Utility.Debugging;
 
@@ -13,19 +14,19 @@ public static class PrintHelper
     /// <typeparam name="T"></typeparam>
     /// <param name="map"></param>
     /// <param name="highlightValues"></param>
-    /// <param name="highlightIndexes"></param>
+    /// <param name="highlightIndeces"></param>
     /// <param name="highlighter"></param>
     /// <param name="padItems"></param>
-	public static void PrintMap<T>(List<List<T>> map, List<T> highlightValues = null, List<(int x, int y)> highlightIndexes = null, char highlighter = '_', bool padItems = true)
+	public static void PrintMap<T>(List<List<T>> map, T[] highlightValues = null, Point2D[] highlightIndeces = null, char highlighter = '_', bool padItems = true)
     {
         highlightValues ??= [];
-        highlightIndexes ??= [];
+        highlightIndeces ??= [];
 
         foreach (var (row, yIndex) in map.Select((r, y) => (r, y)))
         {
             foreach (var (item, xIndex) in row.Select((i, x) => (i, x)))
             {
-                if (highlightIndexes.Contains((xIndex, yIndex)) || highlightValues.Contains(item))
+                if (highlightIndeces.Contains(new(xIndex, yIndex)) || highlightValues.Contains(item))
                 {
                     if (padItems)
                         Console.Write($" {highlighter}{item}{highlighter} ");

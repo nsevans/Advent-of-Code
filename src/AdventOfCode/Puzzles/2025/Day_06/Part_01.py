@@ -25,5 +25,4 @@ def get_result(input: list[list[str]]) -> str:
 if __name__ == '__main__':
     input_file = sys.argv[1]
     input_values = prepare_data(input_file)
-    print(input_values)
     print(get_result(input_values))

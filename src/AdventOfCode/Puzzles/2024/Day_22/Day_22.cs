@@ -20,8 +20,16 @@ public abstract class Day_22 : BaseCSharpSolver
 	public override int Day => 22;
 	public override int Year => 2024;
 
-	protected static List<long> ParseSecretNumbers(List<string> input)
+    protected static List<long> ParseSecretNumbers(List<string> input)
+    {
+        return input.Select(long.Parse).ToList();
+    }
+
+    protected static long GenerateNextSecret(long secret)
 	{
-		return input.Select(long.Parse).ToList();
+		secret = ((secret << 6) ^ secret) & (16777216 - 1);
+		secret = ((secret >> 5) ^ secret) & (16777216 - 1);
+		secret = ((secret << 11) ^ secret) & (16777216 - 1);
+		return secret;
 	}
 }

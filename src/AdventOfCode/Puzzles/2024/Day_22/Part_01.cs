@@ -40,12 +40,4 @@ public class Part_01 : Day_22
 		}
 		return currentSecret;
 	}
-
-	private static long GenerateNextSecret(long secret)
-	{
-		var step1 = ((secret * 64) ^ secret) % 16777216;
-		var step2 = ((step1 / 32) ^ step1) % 16777216;
-		var step3 = ((step2 * 2048) ^ step2) % 16777216;
-		return step3;
-	}
 }

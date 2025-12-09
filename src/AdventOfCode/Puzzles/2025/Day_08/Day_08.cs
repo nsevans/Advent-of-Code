@@ -1,0 +1,35 @@
+namespace AdventOfCode.Puzzles.Year_2025.Day_08;
+
+/// <summary>
+/// This base class is to store shared logic between Parts 1 and 2 of this day
+///
+/// Link to Day https://adventofcode.com/2025/day/8
+///
+/// Example/Test Input:
+///     162,817,812
+///     57,618,57
+///     906,360,560
+///     592,479,940
+///     352,342,300
+///     466,668,158
+///     542,29,236
+///     431,825,988
+///     739,650,466
+///     52,470,668
+///     216,146,977
+///     819,987,18
+///     117,168,530
+///     805,96,715
+///     346,949,466
+///     970,615,88
+///     941,993,340
+///     862,61,35
+///     984,92,344
+///     425,690,68
+/// </summary>
+public abstract class Day_08 : BasePythonSolver
+{
+    public override string Title => "Playground";
+    public override int Day => 8;
+    public override int Year => 2025;
+}

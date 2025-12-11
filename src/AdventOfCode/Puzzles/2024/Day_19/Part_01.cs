@@ -8,6 +8,8 @@ public class Part_01 : Day_19
 {
 	public override int Part => 1;
 
+	public override string ResultMessage => "Sum of all possible valid designs";
+
 	private List<string> _patterns;
 	private List<string> _designs;
 
@@ -29,8 +31,6 @@ public class Part_01 : Day_19
 	{
 		return input[2..];
 	}
-
-	public override string ResultMessage => "Sum of all possible valid designs";
 
 	public override string GetResult()
 	{

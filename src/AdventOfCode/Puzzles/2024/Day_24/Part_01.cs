@@ -6,6 +6,8 @@ public class Part_01 : Day_24
 {
     public override int Part => 1;
 
+    public override string ResultMessage => "Binary logic gate operation result to decimal";
+
 	// Registry of each wire and it's corresponding value
 	private Dictionary<string, bool?> _wireValueDictionary;
 
@@ -17,8 +19,6 @@ public class Part_01 : Day_24
 		_wireValueDictionary = ParseWireValues(input);
 		_wireGateOutputDictionary = ParseWireGateOutputs(input, _wireValueDictionary);
 	}
-
-	public override string ResultMessage => "Binary logic gate operation result to decimal";
 
 	public override string GetResult()
 	{
@@ -49,6 +49,6 @@ public class Part_01 : Day_24
 			wireValueDictionary[logicOperation.Value] = PerformOperation(wireValue1.Value, gate, wireValue2.Value);
 		}
 
-		return GetRegistryValue(wireValueDictionary, 'z');
+		return GetRegistryValueAsDecimal(wireValueDictionary, 'z');
 	}
 }

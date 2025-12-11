@@ -6,14 +6,14 @@ public class Part_02 : Day_13
 {
 	public override int Part => 2;
 
+	public override string ResultMessage => "Sum of fewest tokens used to win all possible games with a coordinate offset of 10,000,000,000,000";
+
 	private List<Game> _games;
 
 	public override void PrepareData(List<string> input)
 	{
 		_games = ParseGames(input);
 	}
-
-	public override string ResultMessage => "Sum of fewest tokens used to win all possible games with a coordinate offset of 10,000,000,000,000";
 
 	public override string GetResult()
 	{

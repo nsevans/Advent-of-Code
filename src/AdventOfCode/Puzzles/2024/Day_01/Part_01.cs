@@ -8,14 +8,14 @@ public class Part_01 : Day_01
 {
 	public override int Part => 1;
 
+	public override string ResultMessage => "Sum of differences of ordered distances";
+
 	private (List<long> leftItems, List<long> rightItems) _inputPairs;
 
 	public override void PrepareData(List<string> input)
 	{
 		_inputPairs = ParsePairs(input);
 	}
-
-	public override string ResultMessage => "Sum of differences of ordered distances";
 
 	public override string GetResult()
 	{

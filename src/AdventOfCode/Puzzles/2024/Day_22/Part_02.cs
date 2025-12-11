@@ -7,6 +7,8 @@ public class Part_02 : Day_22
 {
     public override int Part => 2;
 
+    public override string ResultMessage => "Sum of most bananas earned for the best sequence";
+
     private readonly int _cycleCount = 2000;
 	private List<long> _buyerSecrets;
 
@@ -14,8 +16,6 @@ public class Part_02 : Day_22
 	{
 		_buyerSecrets = ParseSecretNumbers(input);
 	}
-
-    public override string ResultMessage => "Sum of most bananas earned for the best sequence";
 
     public override string GetResult()
     {

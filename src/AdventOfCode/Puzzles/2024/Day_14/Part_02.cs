@@ -9,14 +9,14 @@ public class Part_02 : Day_14
 {
 	public override int Part => 2;
 
+	public override string ResultMessage => "Lowest second where robots form christman tree";
+
 	private List<RobotData> _robotData;
 
 	public override void PrepareData(List<string> input)
 	{
 		_robotData = ParseRobotData(input);
 	}
-
-	public override string ResultMessage => "Lowest second where robots form christman tree";
 
 	public override string GetResult()
 	{

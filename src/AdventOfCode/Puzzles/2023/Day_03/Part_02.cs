@@ -7,6 +7,8 @@ public class Part_02 : Day_03
 {
 	public override int Part => 2;
 
+	public override string ResultMessage => "Sum of product of numbers adjacent to '*' when only 2 numbers are adjacent";
+
 	private static char _specialSymbol => '*';
 
 	private List<List<char>> _preparedInput;
@@ -15,8 +17,6 @@ public class Part_02 : Day_03
     {
         _preparedInput = input.Select(x => x.ToCharArray().ToList()).ToList();
     }
-
-	public override string ResultMessage => "Sum of product of numbers adjacent to '*' when only 2 numbers are adjacent";
 
     public override string GetResult()
     {

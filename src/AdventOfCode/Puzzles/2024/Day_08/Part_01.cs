@@ -10,6 +10,8 @@ public class Part_01 : Day_08
 {
 	public override int Part => 1;
 
+	public override string ResultMessage => "Sum of unique antinode positions for matching frequencies at specific distance";
+
 	private Dictionary<char, List<Vector2>> _frequencyDictionary;
 	private List<List<char>> _map;
 
@@ -18,8 +20,6 @@ public class Part_01 : Day_08
 		_frequencyDictionary = ParseFrequenceyDictionary(input);
 		_map = input.To2DCharList();
 	}
-
-	public override string ResultMessage => "Sum of unique antinode positions for matching frequencies at specific distance";
 
 	public override string GetResult()
 	{

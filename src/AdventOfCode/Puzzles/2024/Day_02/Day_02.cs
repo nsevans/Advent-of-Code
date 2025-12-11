@@ -1,4 +1,5 @@
 using System;
+using AdventOfCode.Puzzles.Solvers;
 
 namespace AdventOfCode.Puzzles.Year_2024.Day_02;
 

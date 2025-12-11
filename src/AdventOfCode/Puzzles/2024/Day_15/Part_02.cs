@@ -9,6 +9,8 @@ public class Part_02 : Day_15
 {
 	public override int Part => 2;
 
+	public override string ResultMessage => "Sum of large boxes' GPS coordinates";
+
 	private List<List<char>> _warehouseMap;
 	private List<char> _movements;
 
@@ -44,8 +46,6 @@ public class Part_02 : Day_15
 
 		return map;
 	}
-
-	public override string ResultMessage => "Sum of large boxes' GPS coordinates";
 
 	public override string GetResult()
 	{

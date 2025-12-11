@@ -6,6 +6,8 @@ public class Part_01 : Day_02
 {
 	public override int Part => 1;
 
+	public override string ResultMessage => "Sum of Game IDs that match criteria";
+
 	private const int _redLimit = 12;
 	private const int _greenLimit = 13;
 	private const int _blueLimit = 14;
@@ -17,8 +19,6 @@ public class Part_01 : Day_02
     {
 		_preparedInput = input;
     }
-
-	public override string ResultMessage => "Sum of Game IDs that match criteria";
 
     public override string GetResult()
     {

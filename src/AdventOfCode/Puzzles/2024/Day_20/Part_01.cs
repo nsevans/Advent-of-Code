@@ -10,6 +10,8 @@ public class Part_01 : Day_20
 {
 	public override int Part => 1;
 
+    public override string ResultMessage => "100 picosecond saving cheats when skipping for no more than 2 picoseconds";
+
 	private List<List<char>> _raceMap;
 	private Dictionary<Point2D, int> _positionTimeDictionary;
 
@@ -21,8 +23,6 @@ public class Part_01 : Day_20
         // Calculate time at each valid position on the track
         CalculateRaceMapTraversalTimes(_raceMap, _positionTimeDictionary);
 	}
-
-    public override string ResultMessage => "100 picosecond saving cheats when skipping for no more than 2 picoseconds";
 
 	public override string GetResult()
 	{

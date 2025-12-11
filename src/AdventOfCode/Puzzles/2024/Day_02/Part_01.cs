@@ -8,14 +8,14 @@ public class Part_01 : Day_02
 {
 	public override int Part => 1;
 
+    public override string ResultMessage => "Sum of all safe files (lines with gradual increases or decreases)";
+
 	private List<string> _preparedInput;
 
     public override void PrepareData(List<string> input)
     {
 		_preparedInput = input;
     }
-
-    public override string ResultMessage => "Sum of all safe files (lines with gradual increases or decreases)";
 
 	public override string GetResult()
     {

@@ -6,14 +6,14 @@ public class Part_01 : Day_12
 {
 	public override int Part => 1;
 
+	public override string ResultMessage => "Sum of fence prices using area and perimeter";
+
 	List<List<char>> _gardenMap;
 
 	public override void PrepareData(List<string> input)
 	{
 		_gardenMap = ParsePaddedGardenMap(input);
 	}
-
-	public override string ResultMessage => "Sum of fence prices using area and perimeter";
 
 	public override string GetResult()
 	{

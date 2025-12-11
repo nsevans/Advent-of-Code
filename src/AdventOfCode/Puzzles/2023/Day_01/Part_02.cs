@@ -8,14 +8,14 @@ public class Part_02 : Day_01
 {
 	public override int Part => 2;
 
+	public override string ResultMessage => "Sum of combined first and last digit or string number of each line";
+
 	private List<string> _preparedInput;
 
 	public override void PrepareData(List<string> input)
     {
         _preparedInput = input;
     }
-
-	public override string ResultMessage => "Sum of combined first and last digit or string number of each line";
 
     public override string GetResult()
     {

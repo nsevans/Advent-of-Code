@@ -9,14 +9,14 @@ public class Part_02 : Day_07
 {
 	public override int Part => 2;
 
+	public override string ResultMessage => "Sum of valid equations using +, *, and || (concatenate)";
+
 	private Dictionary<long, List<List<long>>> _equationDictionary;
 
 	public override void PrepareData(List<string> input)
 	{
 		_equationDictionary = ParseEquationDictionary(input);
 	}
-
-	public override string ResultMessage => "Sum of valid equations using +, *, and || (concatenate)";
 
 	public override string GetResult()
 	{

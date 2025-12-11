@@ -7,14 +7,14 @@ public class Part_02 : Day_11
 {
 	public override int Part => 2;
 
+	public override string ResultMessage => "Number of stones after 75 blinks";
+
 	private List<long> _stones;
 
 	public override void PrepareData(List<string> input)
 	{
 		_stones = ParseStones(input);
 	}
-
-	public override string ResultMessage => "Number of stones after 75 blinks";
 
 	public override string GetResult()
 	{

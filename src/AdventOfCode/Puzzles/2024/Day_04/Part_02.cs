@@ -7,14 +7,14 @@ public class Part_02 : Day_04
 {
 	public override int Part => 2;
 
+	public override string ResultMessage => "Number of times an X of MAS appears in word search";
+
 	private List<List<char>> _wordSearch;
 
 	public override void PrepareData(List<string> input)
 	{
 		_wordSearch = input.To2DCharList();
 	}
-
-	public override string ResultMessage => "Number of times an X of MAS appears in word search";
 
 	public override string GetResult()
 	{

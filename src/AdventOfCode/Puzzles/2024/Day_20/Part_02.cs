@@ -10,6 +10,8 @@ public class Part_02 : Day_20
 {
     public override int Part => 2;
 
+    public override string ResultMessage => "100 picosecond saving cheats when skipping for no more than 20 picoseconds";
+
     private static readonly int _cheatTimeToBeatThreshold = 100;
     private static readonly int _maxCheatTime = 20;
 
@@ -24,8 +26,6 @@ public class Part_02 : Day_20
         // Calculate time at each valid position on the track
         CalculateRaceMapTraversalTimes(_raceMap, _positionTimeDictionary);
     }
-
-    public override string ResultMessage => "100 picosecond saving cheats when skipping for no more than 20 picoseconds";
 
     public override string GetResult()
     {

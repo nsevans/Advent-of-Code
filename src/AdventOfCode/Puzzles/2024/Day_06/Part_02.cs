@@ -9,14 +9,14 @@ public class Part_02 : Day_06
 {
 	public override int Part => 2;
 
+	public override string ResultMessage => "Number of positions causing guard infinite loop";
+
 	private List<List<char>> _map;
 
 	public override void PrepareData(List<string> input)
 	{
 		_map = input.To2DCharList();
 	}
-
-	public override string ResultMessage => "Number of positions causing guard infinite loop";
 
 	public override string GetResult()
 	{

@@ -7,14 +7,14 @@ public class Part_02 : Day_18
 {
 	public override int Part => 2;
 
+	public override string ResultMessage => "The coordinate of the first byte that completely blocks the path";
+
 	List<(int x, int y)> _incomingBytes;
 
 	public override void PrepareData(List<string> input)
 	{
 		_incomingBytes = ParseIncomingBytes(input);
 	}
-
-	public override string ResultMessage => "The coordinate of the first byte that completely blocks the path";
 
 	public override string GetResult()
 	{

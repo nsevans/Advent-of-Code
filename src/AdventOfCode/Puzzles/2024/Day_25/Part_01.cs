@@ -8,6 +8,8 @@ public class Part_01 : Day_25
 {
     public override int Part => 1;
 
+    public override string ResultMessage => "Number of unique key/lock combinations";
+
 	private List<List<int>> _locks;
 	private List<List<int>> _keys;
 
@@ -74,8 +76,6 @@ public class Part_01 : Day_25
 		}
 		return locks;
 	}
-
-	public override string ResultMessage => "Number of unique key/lock combinations";
 
 	public override string GetResult()
 	{

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using AdventOfCode.Common.Extensions;
+using AdventOfCode.Puzzles.Solvers;
 
 namespace AdventOfCode.Puzzles.Year_2024.Day_24;
 
@@ -89,10 +90,11 @@ public abstract class Day_24 : BaseCSharpSolver
 		throw new InvalidOperationException($"Invalid logic gate '{gate}'");
 	}
 
-	protected static double GetRegistryValue(Dictionary<string, bool?> registry, char registryIdentifier)
+	protected static double GetRegistryValueAsDecimal(Dictionary<string, bool?> registry, char registryLetter, string registryNumber = null)
 	{
 		var registryValues = registry
-			.Where(x => x.Key.StartsWith(registryIdentifier))
+			.Where(x => x.Key.StartsWith(registryLetter))
+            .Where(x => registryNumber == null || x.Key.EndsWith(registryNumber.ToString()))
 			.OrderByDescending(x => x.Key)
 			.Select(x => x.Value == true ? 1 : 0);
 

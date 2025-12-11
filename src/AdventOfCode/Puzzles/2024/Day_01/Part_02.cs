@@ -8,14 +8,14 @@ public class Part_02 : Day_01
 {
 	public override int Part => 2;
 
+	public override string ResultMessage => "Sum of product of duplicate values";
+
 	private (List<long> leftItems, List<long> rightItems) _inputPairs;
 
 	public override void PrepareData(List<string> input)
 	{
 		_inputPairs = ParsePairs(input);
 	}
-
-	public override string ResultMessage => "Sum of product of duplicate values";
 
 	public override string GetResult()
 	{

@@ -8,14 +8,14 @@ public class Part_01 : Day_04
 {
 	public override int Part => 1;
 
+	public override string ResultMessage => "Sum of points for matching number";
+
 	private List<string> _preparedInput;
 
 	public override void PrepareData(List<string> input)
     {
 		_preparedInput = input;
     }
-
-	public override string ResultMessage => "Sum of points for matching number";
 
     public override string GetResult()
     {

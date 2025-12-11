@@ -7,6 +7,8 @@ public class Part_01 : Day_17
 {
 	public override int Part => 1;
 
+	public override string ResultMessage => "The output of the program";
+
 	private Dictionary<char, int> _registers;
 
 	private List<int> _program;
@@ -34,8 +36,6 @@ public class Part_01 : Day_17
 
 		return registers;
 	}
-
-	public override string ResultMessage => "The output of the program";
 
 	public override string GetResult()
 	{

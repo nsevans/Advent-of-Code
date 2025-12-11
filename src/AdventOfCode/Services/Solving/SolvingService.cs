@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Text.Json;
 using AdventOfCode.Common.Extensions;
 using AdventOfCode.Common.Models.Contexts;
-using AdventOfCode.Puzzles;
+using AdventOfCode.Puzzles.Solvers;
 
 namespace AdventOfCode.Services.Solving;
 

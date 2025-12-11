@@ -7,14 +7,14 @@ public class Part_01 : Day_03
 {
 	public override int Part => 1;
 
+	public override string ResultMessage => "Sum of symbol adjacent numbers";
+
 	private List<List<char>> _preparedInput;
 
 	public override void PrepareData(List<string> input)
     {
         _preparedInput = input.Select(x => x.ToCharArray().ToList()).ToList();
     }
-
-	public override string ResultMessage => "Sum of symbol adjacent numbers";
 
     public override string GetResult()
     {

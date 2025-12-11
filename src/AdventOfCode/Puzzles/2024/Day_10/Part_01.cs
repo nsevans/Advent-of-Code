@@ -8,6 +8,8 @@ public class Part_01 : Day_10
 {
 	public override int Part => 1;
 
+	public override string ResultMessage => "Sum of distinct trail heads to trail ends";
+
 	private List<List<int>> _trailMap;
 	private List<(int x, int y)> _startLocations;
 	private List<(int x, int y)> _endLocations;
@@ -18,8 +20,6 @@ public class Part_01 : Day_10
 		_startLocations = ParseLocations(_trailMap, 0);
 		_endLocations = ParseLocations(_trailMap, 9);
 	}
-
-	public override string ResultMessage => "Sum of distinct trail heads to trail ends";
 
 	public override string GetResult()
 	{

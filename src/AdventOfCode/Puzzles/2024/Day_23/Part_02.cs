@@ -7,14 +7,14 @@ public class Part_02 : Day_23
 {
     public override int Part => 2;
 
+    public override string ResultMessage => "Password for largest connected set of computers";
+
 	private Dictionary<string, List<string>> _connectedComputers;
 
 	public override void PrepareData(List<string> input)
 	{
 		_connectedComputers = ParseConnectedComputers(input);
 	}
-
-	public override string ResultMessage => "Password for largest connected set of computers";
 
 	public override string GetResult()
 	{

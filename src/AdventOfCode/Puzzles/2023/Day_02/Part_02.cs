@@ -6,14 +6,14 @@ public class Part_02 : Day_02
 {
 	public override int Part => 2;
 
+	public override string ResultMessage => "Sum of the powers of the fewest cubes of each color per game";
+
 	private List<string> _preparedInput;
 
 	public override void PrepareData(List<string> input)
     {
 		_preparedInput = input;
     }
-
-	public override string ResultMessage => "Sum of the powers of the fewest cubes of each color per game";
 
     public override string GetResult()
     {

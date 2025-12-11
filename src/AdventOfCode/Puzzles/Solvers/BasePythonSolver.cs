@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text.Json;
 
-namespace AdventOfCode.Puzzles;
+namespace AdventOfCode.Puzzles.Solvers;
 
 public abstract class BasePythonSolver : BaseSolver
 {

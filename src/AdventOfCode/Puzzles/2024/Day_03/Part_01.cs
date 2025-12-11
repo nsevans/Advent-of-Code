@@ -8,14 +8,14 @@ public class Part_01 : Day_03
 {
 	public override int Part => 1;
 
+    public override string ResultMessage => "Sum of products of mul commands";
+
 	private List<string> _preparedInput;
 
     public override void PrepareData(List<string> input)
     {
 		_preparedInput = input;
     }
-
-    public override string ResultMessage => "Sum of products of mul commands";
 
 	public override string GetResult()
     {

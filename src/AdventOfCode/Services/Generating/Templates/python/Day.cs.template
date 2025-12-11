@@ -1,3 +1,5 @@
+using AdventOfCode.Puzzles.Solvers;
+
 namespace AdventOfCode.Puzzles.Year_<year>.Day_<displayday>;
 
 /// <summary>

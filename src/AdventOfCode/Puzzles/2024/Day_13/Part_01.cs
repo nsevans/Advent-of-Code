@@ -6,14 +6,14 @@ public class Part_01 : Day_13
 {
 	public override int Part => 1;
 
+	public override string ResultMessage => "Sum of fewest tokens used to win all possible games";
+
 	private List<Game> _games;
 
 	public override void PrepareData(List<string> input)
 	{
 		_games = ParseGames(input);
 	}
-
-	public override string ResultMessage => "Sum of fewest tokens used to win all possible games";
 
 	public override string GetResult()
 	{

@@ -7,6 +7,8 @@ public class Part_02 : Day_09
 {
 	public override int Part => 2;
 
+	public override string ResultMessage => "Checksum of defragmentation";
+
 	private List<string> _expandedDiskMap;
 
 	public override void PrepareData(List<string> input)
@@ -14,8 +16,6 @@ public class Part_02 : Day_09
 		var diskMap = ParseDiskMap(input);
 		_expandedDiskMap = ParseExpandedDiskMap(diskMap);
 	}
-
-	public override string ResultMessage => "Checksum of defragmentation";
 
 	public override string GetResult()
 	{

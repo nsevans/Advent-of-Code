@@ -9,6 +9,8 @@ public class Part_02 : Day_05
 {
 	public override int Part => 2;
 
+	public override string ResultMessage => "Lowest location value with seed range";
+
 	private Dictionary<int, List<Mapping>> _mappingsDictionary;
 	private List<ValueRange> _seedRanges;
 
@@ -32,8 +34,6 @@ public class Part_02 : Day_05
 
 		return seedRanges.ToList();
 	}
-
-	public override string ResultMessage => "Lowest location value with seed range";
 
     public override string GetResult()
     {

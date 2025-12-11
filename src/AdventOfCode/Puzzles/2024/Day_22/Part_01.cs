@@ -6,14 +6,14 @@ public class Part_01 : Day_22
 {
     public override int Part => 1;
 
+	public override string ResultMessage => "Sum of the 2000th secret number generated for each buyer";
+
 	private List<long> _secretNumbers;
 
 	public override void PrepareData(List<string> input)
 	{
 		_secretNumbers = ParseSecretNumbers(input);
 	}
-
-	public override string ResultMessage => "Sum of the 2000th secret number generated for each buyer";
 
 	public override string GetResult()
 	{

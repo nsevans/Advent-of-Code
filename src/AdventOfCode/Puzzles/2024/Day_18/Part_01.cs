@@ -7,6 +7,8 @@ public class Part_01 : Day_18
 {
 	public override int Part => 1;
 
+	public override string ResultMessage => "The minimum number of steps needed to reach the exit";
+
 	List<(int x, int y)> _incomingBytes;
 	List<List<char>> _map;
 
@@ -17,8 +19,6 @@ public class Part_01 : Day_18
 		_incomingBytes = ParseIncomingBytes(input);
 		_map = GenerateMap();
 	}
-
-	public override string ResultMessage => "The minimum number of steps needed to reach the exit";
 
 	public override string GetResult()
 	{

@@ -10,14 +10,14 @@ public class Part_02 : Day_16
 {
 	public override int Part => 2;
 
+	public override string ResultMessage => "Number of tiles in all best paths";
+
 	List<List<char>> _maze;
 
 	public override void PrepareData(List<string> input)
 	{
 		_maze = input.To2DCharList();
 	}
-
-	public override string ResultMessage => "Number of tiles in all best paths";
 
 	public override string GetResult()
 	{

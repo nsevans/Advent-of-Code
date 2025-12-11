@@ -9,14 +9,14 @@ public class Part_01 : Day_16
 {
 	public override int Part => 1;
 
+	public override string ResultMessage => "Lowest maze cost a reindeer could get";
+
 	List<List<char>> _maze;
 
 	public override void PrepareData(List<string> input)
 	{
 		_maze = input.To2DCharList();
 	}
-
-	public override string ResultMessage => "Lowest maze cost a reindeer could get";
 
 	public override string GetResult()
 	{

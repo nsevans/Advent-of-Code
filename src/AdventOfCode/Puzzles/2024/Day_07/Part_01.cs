@@ -6,14 +6,14 @@ public class Part_01 : Day_07
 {
 	public override int Part => 1;
 
+	public override string ResultMessage => "Sum of valid equations using + and *";
+
 	private Dictionary<long, List<List<long>>> _equationDictionary;
 
 	public override void PrepareData(List<string> input)
 	{
 		_equationDictionary = ParseEquationDictionary(input);
 	}
-
-	public override string ResultMessage => "Sum of valid equations using + and *";
 
 	public override string GetResult()
 	{

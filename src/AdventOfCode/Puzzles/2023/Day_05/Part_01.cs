@@ -8,6 +8,8 @@ public class Part_01 : Day_05
 {
 	public override int Part => 1;
 
+	public override string ResultMessage => "Lowest location value with seed";
+
 	private Dictionary<int, List<Mapping>> _mappingDictionary;
 	private List<long> _seeds;
 
@@ -23,8 +25,6 @@ public class Part_01 : Day_05
 			.Select(x => long.Parse(x))
 			.ToList();
 	}
-
-	public override string ResultMessage => "Lowest location value with seed";
 
     public override string GetResult()
     {

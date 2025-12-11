@@ -8,6 +8,8 @@ public class Part_02 : Day_05
 {
 	public override int Part => 2;
 
+	public override string ResultMessage => "Sum of middle pages of re ordered updates";
+
 	private Dictionary<int, List<int>> _pageOrderingRules;
 	private List<List<int>> _pagesToProduce;
 
@@ -16,8 +18,6 @@ public class Part_02 : Day_05
 		_pageOrderingRules = ParsePageOrderingRules(input);
 		_pagesToProduce = ParsePagesToProduce(input);
 	}
-
-	public override string ResultMessage => "Sum of middle pages of re ordered updates";
 
 	public override string GetResult()
 	{

@@ -6,6 +6,8 @@ public class Part_02 : Day_17
 {
 	public override int Part => 2;
 
+	public override string ResultMessage => "The value of register A that makes the programs output equal to itself";
+
 	private List<int> _program;
 
 	public override void PrepareData(List<string> input)
@@ -14,8 +16,6 @@ public class Part_02 : Day_17
 		// Trying to figure out A, and B & C always start at 0
 		_program = ParseProgram(input);
 	}
-
-	public override string ResultMessage => "The value of register A that makes the programs output equal to itself";
 
 	public override string GetResult()
 	{

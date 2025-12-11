@@ -9,14 +9,14 @@ public class Part_01 : Day_06
 {
 	public override int Part => 1;
 
+	public override string ResultMessage => "Number of distinct guard positions";
+
 	private List<List<char>> _map;
 
 	public override void PrepareData(List<string> input)
 	{
 		_map = input.To2DCharList();
 	}
-
-	public override string ResultMessage => "Number of distinct guard positions";
 
 	public override string GetResult()
 	{

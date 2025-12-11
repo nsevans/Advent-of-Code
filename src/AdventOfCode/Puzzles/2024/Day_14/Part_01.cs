@@ -7,14 +7,14 @@ public class Part_01 : Day_14
 {
 	public override int Part => 1;
 
+	public override string ResultMessage => "Robot safety factor after 100 seconds simulated";
+
 	private List<RobotData> _robotData;
 
 	public override void PrepareData(List<string> input)
 	{
 		_robotData = ParseRobotData(input);
 	}
-
-	public override string ResultMessage => "Robot safety factor after 100 seconds simulated";
 
 	public override string GetResult()
 	{

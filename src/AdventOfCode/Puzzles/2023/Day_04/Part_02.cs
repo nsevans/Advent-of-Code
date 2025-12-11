@@ -8,6 +8,8 @@ public class Part_02 : Day_04
 {
 	public override int Part => 2;
 
+	public override string ResultMessage => "Sum of total cards scratched";
+
 	private Dictionary<int, Card> _cardDictionary;
 	private List<int> _cardsToScratch;
 	private int _lastCardId;
@@ -46,8 +48,6 @@ public class Part_02 : Day_04
 
 		return dictionary;
 	}
-
-	public override string ResultMessage => "Sum of total cards scratched";
 
     public override string GetResult()
     {

@@ -7,6 +7,8 @@ public class Part_02 : Day_21
 {
     public override int Part => 2;
 
+	public override string ResultMessage => "Sum of shortest lengths of 27 deep robot control times numpad value";
+
     protected override int MaxLayers => 27;
 
     private List<List<char>> _padInput;
@@ -15,8 +17,6 @@ public class Part_02 : Day_21
 	{
 		_padInput = input.To2DCharList();
 	}
-
-	public override string ResultMessage => "Sum of shortest lengths of 27 deep robot control times numpad value";
 
 	public override string GetResult()
 	{

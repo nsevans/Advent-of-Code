@@ -7,14 +7,14 @@ public class Part_02 : Day_03
 {
 	public override int Part => 2;
 
+    public override string ResultMessage => "Sum of products of allowed mul commands";
+
 	private List<string> _preparedInput;
 
     public override void PrepareData(List<string> input)
     {
 		_preparedInput = input;
     }
-
-    public override string ResultMessage => "Sum of products of allowed mul commands";
 
 	public override string GetResult()
     {

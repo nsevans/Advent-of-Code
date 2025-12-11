@@ -8,14 +8,14 @@ public class Part_01 : Day_23
 {
     public override int Part => 1;
 
+	public override string ResultMessage => "Number of tri-connected computers where at least 1 starts with the letter 't'";
+
 	private Dictionary<string, List<string>> _connectedComputers;
 
 	public override void PrepareData(List<string> input)
 	{
 		_connectedComputers = ParseConnectedComputers(input);
 	}
-
-	public override string ResultMessage => "Number of tri-connected computers where at least 1 starts with the letter 't'";
 
 	public override string GetResult()
 	{

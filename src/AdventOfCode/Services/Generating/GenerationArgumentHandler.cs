@@ -1,8 +1,8 @@
 using System;
 using AdventOfCode.Common.Constants;
 using AdventOfCode.Common.Extensions;
+using AdventOfCode.Common.Models.Contexts;
 using AdventOfCode.Common.Services;
-using AdventOfCode.Models;
 
 namespace AdventOfCode.Services.Generating;
 

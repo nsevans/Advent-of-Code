@@ -2,8 +2,8 @@ using System;
 using System.IO;
 using System.Linq;
 using AdventOfCode.Common.Extensions;
+using AdventOfCode.Common.Models.Contexts;
 using AdventOfCode.Factories;
-using AdventOfCode.Models;
 
 namespace AdventOfCode.Services.Solving;
 

@@ -3,6 +3,8 @@
 #
 
 import sys
+sys.path += './AdventOfCode/Common/Python'
+import Common.Python.utils.solve_wrapper as solver
 
 def prepare_data(input_file: str) -> list[tuple]:
     with open(input_file) as file:
@@ -22,7 +24,4 @@ def get_area(a: tuple, b: tuple) -> int:
     return (abs(a[0] - b[0]) + 1) * (abs(a[1] - b[1]) + 1)
 
 if __name__ == '__main__':
-    input_file = sys.argv[1]
-    input_values = prepare_data(input_file)
-    # print(input_values)
-    print(get_result(input_values))
+    solver.run(sys.argv[1], prepare_data, get_result)

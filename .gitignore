@@ -44,3 +44,6 @@ msbuild.wrn
 
 # Puzzle Inputs
 [iI]nputs/
+
+# Python
+__pycache__/

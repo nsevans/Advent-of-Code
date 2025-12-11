@@ -3,6 +3,8 @@
 #
 
 import sys
+sys.path += './AdventOfCode/Common/Python'
+import Common.Python.utils.solve_wrapper as solver
 
 def prepare_data(input_file: str) -> list[int]:
     with open(input_file) as file:
@@ -22,6 +24,4 @@ def get_result(input: list[int]) -> str:
     return zero_count
 
 if __name__ == '__main__':
-    input_file = sys.argv[1]
-    input_values = prepare_data(input_file)
-    print(get_result(input_values))
+    solver.run(sys.argv[1], prepare_data, get_result)

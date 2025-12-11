@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using AdventOfCode.Models;
+using AdventOfCode.Common.Models.Contexts;
 using AdventOfCode.Puzzles;
 
 namespace AdventOfCode.Factories;

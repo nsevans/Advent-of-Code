@@ -3,6 +3,8 @@
 #
 
 import sys
+sys.path += './AdventOfCode/Common/Python'
+import Common.Python.utils.solve_wrapper as solver
 
 priority = [x for x in ' abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ']
 
@@ -18,6 +20,4 @@ def get_result(input: list[(set[str], set[str])]) -> str:
     return total_priority
 
 if __name__ == '__main__':
-    input_file = sys.argv[1]
-    input_values = prepare_data(input_file)
-    print(get_result(input_values))
+    solver.run(sys.argv[1], prepare_data, get_result)

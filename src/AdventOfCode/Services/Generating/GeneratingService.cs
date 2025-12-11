@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using AdventOfCode.Common.Models.Contexts;
 using AdventOfCode.Common.Models.Enums;
-using AdventOfCode.Models;
 
 namespace AdventOfCode.Services.Generating;
 

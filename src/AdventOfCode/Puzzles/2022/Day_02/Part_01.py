@@ -13,6 +13,8 @@
 #
 
 import sys
+sys.path += './AdventOfCode/Common/Python'
+import Common.Python.utils.solve_wrapper as solver
 
 # Possible outcomes for each player hand
 # The hand it woudl win against, the hand it would lose against, and the number of points for playing that hand
@@ -45,6 +47,4 @@ def get_result(input: list[(chr, chr)]) -> str:
     return score
 
 if __name__ == '__main__':
-    input_file = sys.argv[1]
-    input_values = prepare_data(input_file)
-    print(get_result(input_values))
+    solver.run(sys.argv[1], prepare_data, get_result)

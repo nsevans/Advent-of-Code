@@ -3,6 +3,8 @@
 #
 
 import sys
+sys.path += './AdventOfCode/Common/Python'
+import Common.Python.utils.solve_wrapper as solver
 from itertools import combinations
 
 def prepare_data(input_file: str) -> list[tuple[list]]:
@@ -33,6 +35,4 @@ def get_result(input: list[tuple[list]]) -> str:
     return total_presses
 
 if __name__ == '__main__':
-    input_file = sys.argv[1]
-    input_values = prepare_data(input_file)
-    print(get_result(input_values))
+    solver.run(sys.argv[1], prepare_data, get_result)

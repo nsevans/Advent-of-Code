@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Text.Json;
 using AdventOfCode.Common.Extensions;
-using AdventOfCode.Models;
+using AdventOfCode.Common.Models.Contexts;
 using AdventOfCode.Puzzles;
 
 namespace AdventOfCode.Services.Solving;
@@ -11,13 +11,8 @@ public class SolvingService(SolverContext context)
 {
     private readonly SolverContext _context = context;
 
-    private static readonly Dictionary<Type, TimeSpan> _processOverheadTimes = [];
-    private static TimeSpan _usedOverheadTime = new();
-
     public TimeSpan Run(List<List<BaseSolver>> solverGroups)
     {
-        CalculateProcessOverheadTimes();
-
         if (!_context.Verbose)
         {
             Console.WriteLine($"| {new string("Puzzle"),-15} | {new string("Language"),-10} | {new string("Total Time"),18} | {new string("Result"),-50} |");
@@ -37,7 +32,7 @@ public class SolvingService(SolverContext context)
             if (_context.Verbose)
                 Console.WriteLine("\n#--------------------------------------------------#\n");
         }
-        
+
         if (!_context.Verbose)
         {
             Console.WriteLine($"|{new string('-', 17)}-{new string('-', 12)}-{new string('-', 20)}-{new string('-', 52)}|");
@@ -74,12 +69,6 @@ public class SolvingService(SolverContext context)
         var loadTime = PrepareSolverData(solver, input);
         var solveTime = GetSolverResult(solver, out var result);
 
-        if (_processOverheadTimes.TryGetValue(solver.GetType().BaseType.BaseType, out var overheadTime))
-        {
-            solveTime -= overheadTime;
-            _usedOverheadTime += overheadTime;
-        }
-
         var totalTime = loadTime + solveTime;
 
         if (_context.Verbose)
@@ -112,51 +101,34 @@ public class SolvingService(SolverContext context)
 
     private static TimeSpan GetSolverResult(BaseSolver solver, out string result)
     {
-        var solveStartTime = DateTime.Now;
-        result = solver.GetResult();
-        var solveTime = DateTime.Now - solveStartTime;
+        result = string.Empty;
+        var solveTime = TimeSpan.MaxValue;
+
+        if (solver is BaseCSharpSolver cSharpSolver)
+        {
+            solveTime = GetCSharpSolverResult(cSharpSolver, out result);
+        }
+        else if (solver is BasePythonSolver pythonSolver)
+        {
+            solveTime = GetPythonSolverResult(pythonSolver, out result);
+        }
 
         return solveTime;
     }
 
-    /**
-    * This is temporary
-    * TODO: Figure out a new way of either running python scripts via C#, or a better way of calculating python puzzle execution time
-    * For the mean time, getting an average process start and close time is sufficient.
-    */
-    private static void CalculateProcessOverheadTimes()
+    private static TimeSpan GetCSharpSolverResult(BaseCSharpSolver solver, out string result)
     {
-        _processOverheadTimes.Add(typeof(BasePythonSolver), GetPythonProcessOverheadTime());
+        var solveStartTime = DateTime.Now;
+        result = solver.GetResult();
+        var solveTime = DateTime.Now - solveStartTime;
+        return solveTime;
     }
 
-    private static TimeSpan GetPythonProcessOverheadTime()
+    private static TimeSpan GetPythonSolverResult(BasePythonSolver solver, out string result)
     {
-        var pythonProcessOverheadTime = new TimeSpan();
-        var count = 10;
-        for (var i = 0; i < count; i++)
-        {
-            var process = new Process()
-            {
-                StartInfo = new()
-                {
-                    FileName = "python",
-                    UseShellExecute = false,
-                    Arguments = "-c \"1 + 1\"",
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = false
-                }
-            };
-
-            var startTime = DateTime.Now;
-            process.Start();
-            process.BeginOutputReadLine();
-            pythonProcessOverheadTime += DateTime.Now - startTime;
-
-            process.WaitForExit();
-            process.Close();
-        }
-
-        pythonProcessOverheadTime /= count;
-        return pythonProcessOverheadTime;
+        var output = JsonSerializer.Deserialize<Dictionary<string, string>>(solver.GetResult());
+        var solveTime = TimeSpan.FromMilliseconds(double.Parse(output["time"]));
+        result = output["result"];
+        return solveTime;
     }
 }

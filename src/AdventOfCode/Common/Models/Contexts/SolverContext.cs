@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace AdventOfCode.Models;
+namespace AdventOfCode.Common.Models.Contexts;
 
 public class SolverContext(int? year, int? day, int? part, bool verbose, string markdownOutputPath)
 {

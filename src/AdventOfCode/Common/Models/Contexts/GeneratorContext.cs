@@ -1,4 +1,4 @@
-namespace AdventOfCode.Models;
+namespace AdventOfCode.Common.Models.Contexts;
 
 public class GeneratorContext(int year, int day, string title, string language)
 {

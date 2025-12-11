@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using AdventOfCode.Common.Models;
 
 namespace AdventOfCode.Common.Extensions;
 

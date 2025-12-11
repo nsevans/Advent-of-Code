@@ -66,8 +66,8 @@ public class SolvingService(SolverContext context)
 
     private TimeSpan RunSolver(BaseSolver solver, List<string> input)
     {
-        var loadTime = PrepareSolverData(solver, input);
-        var solveTime = GetSolverResult(solver, out var result);
+        var loadTime = solver.TimePrepareDateExecution(input);
+        var solveTime = solver.TimeGetResultExecution(out var result);
 
         var totalTime = loadTime + solveTime;
 
@@ -88,47 +88,5 @@ public class SolvingService(SolverContext context)
             _context.MarkdownTableOutput.AppendLine($"| {solver.TableHeading} | {totalTime.ToRoundedMilliseconds(4)} ms |");
 
         return totalTime;
-    }
-
-    private static TimeSpan PrepareSolverData(BaseSolver solver, List<string> input)
-    {
-        var loadStartTime = DateTime.Now;
-        solver.PrepareData(input);
-        var loadTime = DateTime.Now - loadStartTime;
-
-        return loadTime;
-    }
-
-    private static TimeSpan GetSolverResult(BaseSolver solver, out string result)
-    {
-        result = string.Empty;
-        var solveTime = TimeSpan.MaxValue;
-
-        if (solver is BaseCSharpSolver cSharpSolver)
-        {
-            solveTime = GetCSharpSolverResult(cSharpSolver, out result);
-        }
-        else if (solver is BasePythonSolver pythonSolver)
-        {
-            solveTime = GetPythonSolverResult(pythonSolver, out result);
-        }
-
-        return solveTime;
-    }
-
-    private static TimeSpan GetCSharpSolverResult(BaseCSharpSolver solver, out string result)
-    {
-        var solveStartTime = DateTime.Now;
-        result = solver.GetResult();
-        var solveTime = DateTime.Now - solveStartTime;
-        return solveTime;
-    }
-
-    private static TimeSpan GetPythonSolverResult(BasePythonSolver solver, out string result)
-    {
-        var output = JsonSerializer.Deserialize<Dictionary<string, string>>(solver.GetResult());
-        var solveTime = TimeSpan.FromMilliseconds(double.Parse(output["time"]));
-        result = output["result"];
-        return solveTime;
     }
 }

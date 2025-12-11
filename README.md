@@ -89,89 +89,96 @@ The above flags can be combined to execute a more refined subset of puzzle solve
 
 ## Solver Run Results
 
-Total Time for 82 puzzles: 15232.1462 ms
+Total Time for 89 puzzles: 16705.6745 ms
 
 | Year | Day | Part | Language | Title | Total Time |
 |:-----|:----|:-----|:---------|:------|-----------:|
-| 2022 | 1 | 1 | Python | Calorie Counting | 25.2918 ms |
-| 2022 | 1 | 2 | Python | Calorie Counting | 25.9855 ms |
-| 2022 | 2 | 1 | Python | Rock Paper Scissors | 24.9924 ms |
-| 2022 | 2 | 2 | Python | Rock Paper Scissors | 26.1276 ms |
-| 2022 | 3 | 1 | Python | Rucksack Reorganization | 25.7789 ms |
-| 2022 | 3 | 2 | Python | Rucksack Reorganization | 25.5757 ms |
-| 2022 | 4 | 1 | Python | Camp Cleanup | 40.7294 ms |
-| 2022 | 4 | 2 | Python | Camp Cleanup | 42.5140 ms |
-| 2022 | 5 | 1 | Python | Supply Stacks | 24.8271 ms |
-| 2022 | 5 | 2 | Python | Supply Stacks | 26.4894 ms |
-| 2023 | 1 | 1 | C# | Trebuchet?! | 1.2607 ms |
-| 2023 | 1 | 2 | C# | Trebuchet?! | 20.5696 ms |
-| 2023 | 2 | 1 | C# | Cube Conundrum | 0.4431 ms |
-| 2023 | 2 | 2 | C# | Cube Conundrum | 0.4368 ms |
-| 2023 | 3 | 1 | C# | Gear Ratios | 2.0760 ms |
-| 2023 | 3 | 2 | C# | Gear Ratios | 1.4800 ms |
-| 2023 | 4 | 1 | C# | Scratchcards | 6.8390 ms |
-| 2023 | 4 | 2 | C# | Scratchcards | 2774.4750 ms |
-| 2023 | 5 | 1 | C# | If You Give A Seed A Fertilizer | 3.2009 ms |
-| 2023 | 5 | 2 | C# | If You Give A Seed A Fertilizer | 3.5619 ms |
-| 2024 | 1 | 1 | C# | Historian Hysteria | 3.5451 ms |
-| 2024 | 1 | 2 | C# | Historian Hysteria | 47.2137 ms |
-| 2024 | 2 | 1 | C# | Red-Nosed Reports | 1.5136 ms |
-| 2024 | 2 | 2 | C# | Red-Nosed Reports | 2.1758 ms |
-| 2024 | 3 | 1 | C# | Mull It Over | 6.6584 ms |
-| 2024 | 3 | 2 | C# | Mull It Over | 1.3396 ms |
-| 2024 | 4 | 1 | C# | Ceres Search | 14.6144 ms |
-| 2024 | 4 | 2 | C# | Ceres Search | 0.9410 ms |
-| 2024 | 5 | 1 | C# | Print Queue | 3.5135 ms |
-| 2024 | 5 | 2 | C# | Print Queue | 4.7046 ms |
-| 2024 | 6 | 1 | C# | Guard Gallivant | 1.8908 ms |
-| 2024 | 6 | 2 | C# | Guard Gallivant | 464.6583 ms |
-| 2024 | 7 | 1 | C# | Bridge Repair | 35.8098 ms |
-| 2024 | 7 | 2 | C# | Bridge Repair | 768.5273 ms |
-| 2024 | 8 | 1 | C# | Resonant Collinearity | 5.8060 ms |
-| 2024 | 8 | 2 | C# | Resonant Collinearity | 1.4200 ms |
-| 2024 | 9 | 1 | C# | Disk Fragmenter | 24.8209 ms |
-| 2024 | 9 | 2 | C# | Disk Fragmenter | 943.0780 ms |
-| 2024 | 10 | 1 | C# | Hoof It | 4.4668 ms |
-| 2024 | 10 | 2 | C# | Hoof It | 1.9307 ms |
-| 2024 | 11 | 1 | C# | Plutonian Pebbles | 31.8503 ms |
-| 2024 | 11 | 2 | C# | Plutonian Pebbles | 43.6325 ms |
-| 2024 | 12 | 1 | C# | Garden Groups | 3.4411 ms |
-| 2024 | 12 | 2 | C# | Garden Groups | 70.8574 ms |
-| 2024 | 13 | 1 | C# | Claw Contraption | 3.8515 ms |
-| 2024 | 13 | 2 | C# | Claw Contraption | 1.6556 ms |
-| 2024 | 14 | 1 | C# | Restroom Redoubt | 2.0869 ms |
-| 2024 | 14 | 2 | C# | Restroom Redoubt | 29.1657 ms |
-| 2024 | 15 | 1 | C# | Warehouse Woes | 7.7206 ms |
-| 2024 | 15 | 2 | C# | Warehouse Woes | 65.7399 ms |
-| 2024 | 16 | 1 | C# | Reindeer Maze | 823.7063 ms |
-| 2024 | 16 | 2 | C# | Reindeer Maze | 844.7057 ms |
-| 2024 | 17 | 1 | C# | Chronospatial Computer | 11.1439 ms |
-| 2024 | 17 | 2 | C# | Chronospatial Computer | 0.4651 ms |
-| 2024 | 18 | 1 | C# | RAM Run | 6.2635 ms |
-| 2024 | 18 | 2 | C# | RAM Run | 6.5594 ms |
-| 2024 | 19 | 1 | C# | Linen Layout | 81.0021 ms |
-| 2024 | 19 | 2 | C# | Linen Layout | 231.0935 ms |
-| 2024 | 20 | 1 | C# | Race Condition | 14.1012 ms |
-| 2024 | 20 | 2 | C# | Race Condition | 1491.3687 ms |
-| 2024 | 21 | 1 | C# | Keypad Conundrum | 9.2264 ms |
-| 2024 | 21 | 2 | C# | Keypad Conundrum | 0.7655 ms |
-| 2024 | 22 | 1 | C# | Monkey Market | 70.8193 ms |
-| 2024 | 22 | 2 | C# | Monkey Market | 1839.8752 ms |
-| 2024 | 23 | 1 | C# | LAN Party | 519.2306 ms |
-| 2024 | 23 | 2 | C# | LAN Party | 24.4900 ms |
-| 2024 | 24 | 1 | C# | Crossed Wires | 12.0402 ms |
-| 2024 | 25 | 1 | C# | Code Chronicle | 3.6016 ms |
-| 2025 | 1 | 1 | Python | Secret Entrance | 25.8310 ms |
-| 2025 | 1 | 2 | Python | Secret Entrance | 26.7459 ms |
-| 2025 | 2 | 1 | Python | Gift Shop | 476.7404 ms |
-| 2025 | 2 | 2 | Python | Gift Shop | 2384.7604 ms |
-| 2025 | 3 | 1 | Python | Lobby | 24.1180 ms |
-| 2025 | 3 | 2 | Python | Lobby | 23.1048 ms |
-| 2025 | 4 | 1 | Python | Printing Department | 49.4958 ms |
-| 2025 | 4 | 2 | Python | Printing Department | 350.6306 ms |
-| 2025 | 5 | 1 | Python | Cafeteria | 24.8731 ms |
-| 2025 | 5 | 2 | Python | Cafeteria | 24.7538 ms |
-| 2025 | 6 | 1 | Python | Trash Compactor | 37.8028 ms |
-| 2025 | 6 | 2 | Python | Trash Compactor | 36.6278 ms |
-| 2025 | 7 | 1 | Python | Laboratories | 29.7085 ms |
-| 2025 | 7 | 2 | Python | Laboratories | 25.2105 ms |
+| 2022 | 1 | 1 | Python | Calorie Counting | 0.6212 ms |
+| 2022 | 1 | 2 | Python | Calorie Counting | 0.7771 ms |
+| 2022 | 2 | 1 | Python | Rock Paper Scissors | 0.8471 ms |
+| 2022 | 2 | 2 | Python | Rock Paper Scissors | 0.5500 ms |
+| 2022 | 3 | 1 | Python | Rucksack Reorganization | 1.1902 ms |
+| 2022 | 3 | 2 | Python | Rucksack Reorganization | 1.1670 ms |
+| 2022 | 4 | 1 | Python | Camp Cleanup | 3.3408 ms |
+| 2022 | 4 | 2 | Python | Camp Cleanup | 3.9866 ms |
+| 2022 | 5 | 1 | Python | Supply Stacks | 1.1681 ms |
+| 2022 | 5 | 2 | Python | Supply Stacks | 1.0366 ms |
+| 2023 | 1 | 1 | C# | Trebuchet?! | 4.5234 ms |
+| 2023 | 1 | 2 | C# | Trebuchet?! | 19.6249 ms |
+| 2023 | 2 | 1 | C# | Cube Conundrum | 0.4627 ms |
+| 2023 | 2 | 2 | C# | Cube Conundrum | 0.8578 ms |
+| 2023 | 3 | 1 | C# | Gear Ratios | 2.0727 ms |
+| 2023 | 3 | 2 | C# | Gear Ratios | 1.4275 ms |
+| 2023 | 4 | 1 | C# | Scratchcards | 5.5650 ms |
+| 2023 | 4 | 2 | C# | Scratchcards | 3067.7963 ms |
+| 2023 | 5 | 1 | C# | If You Give A Seed A Fertilizer | 2.9091 ms |
+| 2023 | 5 | 2 | C# | If You Give A Seed A Fertilizer | 3.4608 ms |
+| 2024 | 1 | 1 | C# | Historian Hysteria | 3.2324 ms |
+| 2024 | 1 | 2 | C# | Historian Hysteria | 46.0828 ms |
+| 2024 | 2 | 1 | C# | Red-Nosed Reports | 1.5970 ms |
+| 2024 | 2 | 2 | C# | Red-Nosed Reports | 2.1038 ms |
+| 2024 | 3 | 1 | C# | Mull It Over | 6.0491 ms |
+| 2024 | 3 | 2 | C# | Mull It Over | 1.7686 ms |
+| 2024 | 4 | 1 | C# | Ceres Search | 15.6509 ms |
+| 2024 | 4 | 2 | C# | Ceres Search | 0.9710 ms |
+| 2024 | 5 | 1 | C# | Print Queue | 3.1782 ms |
+| 2024 | 5 | 2 | C# | Print Queue | 3.9271 ms |
+| 2024 | 6 | 1 | C# | Guard Gallivant | 1.4775 ms |
+| 2024 | 6 | 2 | C# | Guard Gallivant | 452.8400 ms |
+| 2024 | 7 | 1 | C# | Bridge Repair | 36.3902 ms |
+| 2024 | 7 | 2 | C# | Bridge Repair | 701.9417 ms |
+| 2024 | 8 | 1 | C# | Resonant Collinearity | 5.4365 ms |
+| 2024 | 8 | 2 | C# | Resonant Collinearity | 1.1898 ms |
+| 2024 | 9 | 1 | C# | Disk Fragmenter | 21.3881 ms |
+| 2024 | 9 | 2 | C# | Disk Fragmenter | 857.5661 ms |
+| 2024 | 10 | 1 | C# | Hoof It | 4.5199 ms |
+| 2024 | 10 | 2 | C# | Hoof It | 2.0426 ms |
+| 2024 | 11 | 1 | C# | Plutonian Pebbles | 29.1527 ms |
+| 2024 | 11 | 2 | C# | Plutonian Pebbles | 47.1994 ms |
+| 2024 | 12 | 1 | C# | Garden Groups | 3.4791 ms |
+| 2024 | 12 | 2 | C# | Garden Groups | 72.7021 ms |
+| 2024 | 13 | 1 | C# | Claw Contraption | 3.5935 ms |
+| 2024 | 13 | 2 | C# | Claw Contraption | 1.6662 ms |
+| 2024 | 14 | 1 | C# | Restroom Redoubt | 2.2741 ms |
+| 2024 | 14 | 2 | C# | Restroom Redoubt | 28.0052 ms |
+| 2024 | 15 | 1 | C# | Warehouse Woes | 12.0115 ms |
+| 2024 | 15 | 2 | C# | Warehouse Woes | 60.4537 ms |
+| 2024 | 16 | 1 | C# | Reindeer Maze | 834.2245 ms |
+| 2024 | 16 | 2 | C# | Reindeer Maze | 906.6128 ms |
+| 2024 | 17 | 1 | C# | Chronospatial Computer | 11.6094 ms |
+| 2024 | 17 | 2 | C# | Chronospatial Computer | 0.4077 ms |
+| 2024 | 18 | 1 | C# | RAM Run | 7.3020 ms |
+| 2024 | 18 | 2 | C# | RAM Run | 5.4384 ms |
+| 2024 | 19 | 1 | C# | Linen Layout | 77.1113 ms |
+| 2024 | 19 | 2 | C# | Linen Layout | 236.8985 ms |
+| 2024 | 20 | 1 | C# | Race Condition | 18.1144 ms |
+| 2024 | 20 | 2 | C# | Race Condition | 1592.8821 ms |
+| 2024 | 21 | 1 | C# | Keypad Conundrum | 3.8129 ms |
+| 2024 | 21 | 2 | C# | Keypad Conundrum | 0.7726 ms |
+| 2024 | 22 | 1 | C# | Monkey Market | 71.8518 ms |
+| 2024 | 22 | 2 | C# | Monkey Market | 1883.8770 ms |
+| 2024 | 23 | 1 | C# | LAN Party | 493.8388 ms |
+| 2024 | 23 | 2 | C# | LAN Party | 22.8673 ms |
+| 2024 | 24 | 1 | C# | Crossed Wires | 15.0544 ms |
+| 2024 | 24 | 2 | C# | Crossed Wires | 3.1391 ms |
+| 2024 | 25 | 1 | C# | Code Chronicle | 3.7534 ms |
+| 2025 | 1 | 1 | Python | Secret Entrance | 1.9806 ms |
+| 2025 | 1 | 2 | Python | Secret Entrance | 3.0025 ms |
+| 2025 | 2 | 1 | Python | Gift Shop | 460.4170 ms |
+| 2025 | 2 | 2 | Python | Gift Shop | 2613.4351 ms |
+| 2025 | 3 | 1 | Python | Lobby | 0.1554 ms |
+| 2025 | 3 | 2 | Python | Lobby | 0.2201 ms |
+| 2025 | 4 | 1 | Python | Printing Department | 25.0952 ms |
+| 2025 | 4 | 2 | Python | Printing Department | 332.7495 ms |
+| 2025 | 5 | 1 | Python | Cafeteria | 1.4306 ms |
+| 2025 | 5 | 2 | Python | Cafeteria | 0.5582 ms |
+| 2025 | 6 | 1 | Python | Trash Compactor | 1.6590 ms |
+| 2025 | 6 | 2 | Python | Trash Compactor | 1.6925 ms |
+| 2025 | 7 | 1 | Python | Laboratories | 4.9771 ms |
+| 2025 | 7 | 2 | Python | Laboratories | 1.4259 ms |
+| 2025 | 8 | 1 | Python | Playground | 471.3123 ms |
+| 2025 | 8 | 2 | Python | Playground | 455.2993 ms |
+| 2025 | 9 | 1 | Python | Movie Theater | 43.6240 ms |
+| 2025 | 9 | 2 | Python | Movie Theater | 5.6387 ms |
+| 2025 | 10 | 1 | Python | Factory | 150.2526 ms |
+| 2025 | 10 | 2 | Python | Factory | 387.9048 ms |

@@ -47,3 +47,6 @@ msbuild.wrn
 
 # Python
 __pycache__/
+
+# Exceptions
+!.gitkeep

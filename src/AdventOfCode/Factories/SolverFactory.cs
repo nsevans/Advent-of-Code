@@ -48,7 +48,7 @@ public static class SolverFactory
 	}
 
     /// <summary>
-    /// Get a list filtered list of solvers from the given context
+    /// Get a list of solvers filtered by the given context
     /// </summary>
     /// <param name="context"></param>
     /// <returns></returns>
@@ -61,12 +61,12 @@ public static class SolverFactory
             .Where(t => t.IsAssignableTo(typeof(ISolver)))
             .Where(t => t.Namespace.StartsWith("AdventOfCode.Puzzles."));
 
-        // Filter out years
+        // Filter by years
         if (context.Year != null)
             solvers = solvers
                 .Where(t => t.Namespace.Contains($"Year_{context.Year}"));
 
-        // Filter out day numbers
+        // Filter by days
         if (context.Day != null)
         {
             // 1 => 01, 10 => 10
@@ -75,7 +75,7 @@ public static class SolverFactory
                 .Where(t => t.Namespace.EndsWith($"Day_{paddedDay}"));
         }
 
-        // Filter out parts (1 or 2)
+        // Filter by parts
         if (context.Part != null)
             solvers = solvers
                 .Where(t => t.Name == $"Part_0{context.Part}");

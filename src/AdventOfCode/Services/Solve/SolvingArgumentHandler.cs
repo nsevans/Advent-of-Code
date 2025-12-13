@@ -4,7 +4,7 @@ using AdventOfCode.Common.Extensions;
 using AdventOfCode.Common.Services;
 using AdventOfCode.Common.Models.Contexts;
 
-namespace AdventOfCode.Services.Solving;
+namespace AdventOfCode.Services.Solve;
 
 public class SolvingArgumentHandler : IInputHandler<SolverContext>
 {

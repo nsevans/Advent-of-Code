@@ -5,7 +5,7 @@ using AdventOfCode.Common.Extensions;
 using AdventOfCode.Common.Models.Contexts;
 using AdventOfCode.Factories;
 
-namespace AdventOfCode.Services.Solving;
+namespace AdventOfCode.Services.Solve;
 
 public class SolvingOrchestrator(SolverContext context)
 {
@@ -32,12 +32,8 @@ public class SolvingOrchestrator(SolverContext context)
 
         #region Run Solvers
 
-        // var startTotalTime = DateTime.Now;
-
         var solvingService = new SolvingService(_context);
         var totalTime = solvingService.Run(solverGroups);
-
-        // var totalTime = DateTime.Now - startTotalTime;
 
         var totalTimeOutput = $"Total Time for {solverGroups.SelectMany(x => x).Count()} puzzles: {totalTime.ToRoundedMilliseconds(4)} ms";
         Console.WriteLine(totalTimeOutput);

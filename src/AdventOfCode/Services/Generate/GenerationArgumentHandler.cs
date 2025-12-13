@@ -4,7 +4,7 @@ using AdventOfCode.Common.Extensions;
 using AdventOfCode.Common.Models.Contexts;
 using AdventOfCode.Common.Services;
 
-namespace AdventOfCode.Services.Generating;
+namespace AdventOfCode.Services.Generate;
 
 public class GenerationArgumentHandler : IInputHandler<GeneratorContext>
 {

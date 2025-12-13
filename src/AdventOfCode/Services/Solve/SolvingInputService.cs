@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using AdventOfCode.Puzzles.Solvers;
 
-namespace AdventOfCode.Services.Solving;
+namespace AdventOfCode.Services.Solve;
 
 public static class SolvingInputService
 {

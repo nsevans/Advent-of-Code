@@ -5,7 +5,7 @@ using System.Linq;
 using AdventOfCode.Common.Models.Contexts;
 using AdventOfCode.Common.Models.Enums;
 
-namespace AdventOfCode.Services.Generating;
+namespace AdventOfCode.Services.Generate;
 
 public class GeneratingService(GeneratorContext context)
 {

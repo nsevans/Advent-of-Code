@@ -4,7 +4,7 @@ using AdventOfCode.Common.Extensions;
 using AdventOfCode.Common.Models.Contexts;
 using AdventOfCode.Puzzles.Solvers;
 
-namespace AdventOfCode.Services.Solving;
+namespace AdventOfCode.Services.Solve;
 
 public class SolvingService(SolverContext context)
 {

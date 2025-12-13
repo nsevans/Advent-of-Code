@@ -1,7 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
-using AdventOfCode.Common.Models;
-
 namespace AdventOfCode.Common.Extensions;
 
 public static class ListExtensions

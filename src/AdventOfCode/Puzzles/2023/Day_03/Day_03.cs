@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using AdventOfCode.Services.Solve.BaseSolvers;
-
 namespace AdventOfCode.Puzzles.Year_2023.Day_03;
 
 /// <summary>

@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using AdventOfCode.Common.Models;
-
 namespace AdventOfCode.Common.Utility.Debugging;
 
 public static class PrintHelper

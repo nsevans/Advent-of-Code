@@ -1,5 +1,3 @@
-using AdventOfCode.Services.Solve.BaseSolvers;
-
 namespace AdventOfCode.Puzzles.Year_2022.Day_03;
 
 /// <summary>

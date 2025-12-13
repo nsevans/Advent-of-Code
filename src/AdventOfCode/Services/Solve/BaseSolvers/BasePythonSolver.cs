@@ -1,9 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text.Json;
-using AdventOfCode.Common.Extensions;
-
 namespace AdventOfCode.Services.Solve.BaseSolvers;
 
 public abstract class BasePythonSolver : BaseSolver

@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using AdventOfCode.Common.Extensions;
-
 namespace AdventOfCode.Services.Solve.BaseSolvers;
 
 public abstract class BaseSolver : ISolver

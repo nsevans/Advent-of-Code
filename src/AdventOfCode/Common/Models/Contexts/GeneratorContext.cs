@@ -1,6 +1,3 @@
-using AdventOfCode.Common.Extensions;
-using AdventOfCode.Common.Models.Enums;
-
 namespace AdventOfCode.Common.Models.Contexts;
 
 public class GeneratorContext(int year, int day, string title, Language language)

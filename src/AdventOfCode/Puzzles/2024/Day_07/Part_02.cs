@@ -1,8 +1,3 @@
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace AdventOfCode.Puzzles.Year_2024.Day_07;
 
 public class Part_02 : Day_07

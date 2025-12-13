@@ -1,7 +1,3 @@
-using System;
-using System.Linq;
-using System.Text;
-
 namespace AdventOfCode.Common.Models;
 
 public class Command
@@ -55,5 +51,5 @@ public class Command
             builder.Append($"\tExample: {ExampleText}");
 
         return builder.ToString();
-    } 
+    }
 }

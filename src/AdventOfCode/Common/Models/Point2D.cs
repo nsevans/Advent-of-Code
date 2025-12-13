@@ -1,5 +1,3 @@
-using System;
-
 namespace AdventOfCode.Common.Models;
 
 public class Point2D

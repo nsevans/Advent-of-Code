@@ -1,4 +1,4 @@
-namespace AdventOfCode.Common.Services;
+namespace AdventOfCode.Common.Interfaces;
 
 public interface IInputHandler<T>
 {

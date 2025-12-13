@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace AdventOfCode.Puzzles.Year_2024.Day_22;
 
 public class Part_01 : Day_22

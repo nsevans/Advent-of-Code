@@ -1,6 +1,3 @@
-using System;
-using System.Linq;
-
 namespace AdventOfCode.Common.Extensions;
 
 public static class ArgumentExtensions

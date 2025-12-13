@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace AdventOfCode.Puzzles.Solvers;
+namespace AdventOfCode.Services.Solve.BaseSolvers;
 
 public interface ISolver
 {

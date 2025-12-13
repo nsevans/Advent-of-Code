@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using AdventOfCode.Common.Extensions;
 using AdventOfCode.Common.Models.Contexts;
-using AdventOfCode.Puzzles.Solvers;
+using AdventOfCode.Services.Solve.BaseSolvers;
 
 namespace AdventOfCode.Services.Solve;
 

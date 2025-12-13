@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using AdventOfCode.Common.Extensions;
-using AdventOfCode.Puzzles.Solvers;
+using AdventOfCode.Services.Solve.BaseSolvers;
 
 namespace AdventOfCode.Puzzles.Year_2024.Day_23;
 

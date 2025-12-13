@@ -1,4 +1,6 @@
+using System;
 using AdventOfCode.Common.Models;
+using AdventOfCode.Common.Models.Enums;
 
 namespace AdventOfCode.Common.Constants;
 
@@ -76,7 +78,7 @@ public static class GenerateCommandConstants
         Name = "language",
         Shortcut = "l",
         AcceptedType = typeof(string),
-        AcceptedValues = ["csharp", "python"],
+        AcceptedValues = Enum.GetNames<Language>(),
         Description = "[Required] Specify the programming language the puzzle template is generated for."
     };
 

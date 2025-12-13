@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text.Json;
+using AdventOfCode.Common.Extensions;
 
 namespace AdventOfCode.Services.Solve.BaseSolvers;
 
 public abstract class BasePythonSolver : BaseSolver
 {
-    private string GetResultScriptPath => $"./Puzzles/{Year}/Day_{Day.ToString().PadLeft(2, '0')}/Part_{Part.ToString().PadLeft(2, '0')}.py";
+    private string GetResultScriptPath => $"./Puzzles/{Year}/Day_{Day.PadLeft(2, '0')}/Part_{Part.PadLeft(2, '0')}.py";
 
     public override TimeSpan TimePrepareDateExecution(List<string> input) => TimeSpan.Zero;
 

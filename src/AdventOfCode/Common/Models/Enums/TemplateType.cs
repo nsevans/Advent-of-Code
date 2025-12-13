@@ -2,6 +2,6 @@ namespace AdventOfCode.Common.Models.Enums;
 
 public enum TemplateType
 {
-	Day,
-	Part
+	Day = 0,
+	Part = 1
 }

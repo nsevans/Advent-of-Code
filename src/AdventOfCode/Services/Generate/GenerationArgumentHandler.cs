@@ -2,6 +2,7 @@ using System;
 using AdventOfCode.Common.Constants;
 using AdventOfCode.Common.Extensions;
 using AdventOfCode.Common.Models.Contexts;
+using AdventOfCode.Common.Models.Enums;
 using AdventOfCode.Common.Services;
 
 namespace AdventOfCode.Services.Generate;
@@ -20,11 +21,12 @@ public class GenerationArgumentHandler : IInputHandler<GeneratorContext>
 
             var title = args.GetValueForArgument(GenerateCommandConstants.Title.Options, isRequired: true);
 
-            var language = args
-                .GetValueForArgument(GenerateCommandConstants.Language.Options,
+            var languageValue = args.GetValueForArgument(GenerateCommandConstants.Language.Options,
                     isRequired: true,
                     allowedValues: GenerateCommandConstants.Language.AcceptedValues)
                 .ToLower();
+            if (!Enum.TryParse(languageValue, true, out Language language))
+                throw new ArgumentException($"Invalid language '{languageValue}'. Language must be convertable to the enum Language.");
 
             var context = new GeneratorContext(year, day, title, language);
             return context;

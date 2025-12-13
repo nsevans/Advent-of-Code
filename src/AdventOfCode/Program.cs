@@ -22,7 +22,7 @@ public class Program
         if (GenerateCommandConstants.Generate.Options.Contains(firstArgument))
         {
             var context = GenerationArgumentHandler.HandleInput(args[1..]);
-            var generator = new GeneratingService(context);
+            var generator = new GeneratingOrchestrator(context);
             generator.Generate();
         }
         else if (SolveCommandConstants.Solve.Options.Contains(firstArgument))

@@ -65,14 +65,14 @@ public static class ArgumentExtensions
 
             // Argument value not given
             if (argIndex + 1 >= inputArgs.Length)
-                throw new ArgumentException($"Argument '{argOption}' requires a corresponding value.");
+                throw new ArgumentException($"Argument '{argOptions[1]}' requires a corresponding value.");
 
             value = inputArgs[argIndex + 1];
             break;
         }
 
-        if (allowedValues != null && !allowedValues.Contains(value))
-            throw new ArgumentException($"Argument '{argOptions}' passed invalid value '{value}'.");
+        if (allowedValues != null && !allowedValues.Contains(value, StringComparer.OrdinalIgnoreCase))
+            throw new ArgumentException($"Argument '{argOptions[1]}' passed invalid value '{value}'.");
 
         return value;
     }

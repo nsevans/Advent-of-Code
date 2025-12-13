@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using AdventOfCode.Common.Extensions;
 
 namespace AdventOfCode.Services.Solve.BaseSolvers;
 
@@ -9,7 +10,7 @@ public abstract class BaseSolver : ISolver
 
     public string DownloadLink => $"{DayLink}/input";
 
-    public string InputFilePath => $"./Inputs/input_{Year}_{Day.ToString().PadLeft(2, '0')}.in";
+    public string InputFilePath => $"./Inputs/input_{Year}_{Day.PadLeft(2, '0')}.in";
 
     public abstract string Title { get; }
 
@@ -22,7 +23,7 @@ public abstract class BaseSolver : ISolver
     public abstract string ResultMessage { get; }
 
     public string DetailedHeading => $"#### Solving {Year}, Day {Day}, Part {Part}: {Title} ####\nLink: {DayLink}{(Part == 2 ? "#part2" : "")}\nLanguage: {GetSolvingLanguage()}";
-    public string MinimalHeading => $"y{Year}-d{Day.ToString().PadLeft(2, '0')}-p{Part.ToString().PadLeft(2, '0')}";
+    public string MinimalHeading => $"y{Year}-d{Day.PadLeft(2, '0')}-p{Part.PadLeft(2, '0')}";
     public string TableHeading => $"{Year} | {Day} | {Part} | {GetSolvingLanguage()} | {Title}";
 
     /// <summary>

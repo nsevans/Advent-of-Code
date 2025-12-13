@@ -1,0 +1,2 @@
+# Requirements to run python scripts (not all puzzle solvers will use every module listed below)
+scipy == 1.16.3

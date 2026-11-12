@@ -10,7 +10,7 @@ public class Part_02 : Day_03
 
     public override void PrepareData(List<string> input)
     {
-		_preparedInput = input;
+        _preparedInput = input;
     }
 
 	public override string GetResult()
@@ -31,18 +31,18 @@ public class Part_02 : Day_03
 		var canMultiply = true;
 
 		for (var i = 0; i < inputLine.Length; i++)
-		{
-			// Potential "do()" or "don't()"
-			if (inputLine[i] == 'd')
-			{
+        {
+            // Potential "do()" or "don't()"
+            if (inputLine[i] == 'd')
+            {
 				// Get substring length based on distance from current index to end of string
 				// Max length of substring is 7 because "don't()" is 7 characters long
 				var substringLength = inputLine.Length - i < 7 ? inputLine.Length - i : 7;
 				var doOrDontSubstring = inputLine.Substring(i, substringLength);
-				var match = Regex.Match(doOrDontSubstring, doOrDontPattern);
+                var match = Regex.Match(doOrDontSubstring, doOrDontPattern);
 
-				canMultiply = match.Success && match.Value == "do()";
-			}
+                canMultiply = match.Success && match.Value == "do()";
+            }
 			// Potential "mul(xxx,xxx)", but only consider this option if "do()" was the most
 			// recent command out of "do()" or "don't()"
 			else if (inputLine[i] == 'm' && canMultiply)
@@ -53,8 +53,8 @@ public class Part_02 : Day_03
 				var mulSubstring = inputLine.Substring(i, substringLength);
 				var match = Regex.Match(mulSubstring, mulPattern);
 
-				if (match.Success)
-					sum += GetProductOfValuesFromMatch(match.Value);
+                if (match.Success)
+                    sum += GetProductOfValuesFromMatch(match.Value);
 			}
 		}
 		return sum;

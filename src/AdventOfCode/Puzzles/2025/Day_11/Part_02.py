@@ -4,22 +4,24 @@
 
 import sys
 sys.path += './AdventOfCode/Common/Python'
-import Common.Python.utils.solve_wrapper as solver
+from Common.Python.utils.PuzzleContext import PuzzleContext
+from Common.Python.utils import SolveWrapper as solver
 from functools import cache
 import math
 
-def prepare_data(input_file: str) -> dict[str, list[str]]:
+# count paths in chunks from one point to another
+checkpoints = [
+    ('svr', 'dac'), ('dac', 'fft'), ('fft', 'out'),
+    ('svr', 'fft'), ('fft', 'dac'), ('dac', 'out')]
+
+def prepare_data(context: PuzzleContext) -> dict[str, list[str]]:
     input = dict()
-    for machine, *links in map(str.split, open(input_file)):
+    for machine, *links in map(str.split, open(context.input_file)):
         input[machine[:-1]] = links
     input['out'] = []
     return input
 
 def get_result(input: dict[str, list[str]]) -> str:
-    # count paths in chunks from one point to another
-    checkpoints = [
-        ('svr', 'dac'), ('dac', 'fft'), ('fft', 'out'),
-        ('svr', 'fft'), ('fft', 'dac'), ('dac', 'out')]
     path_counts = [0] * len(checkpoints)
 
     for i, (start_machine, destination_machine) in enumerate(checkpoints):
@@ -45,4 +47,4 @@ def count_paths(current_machine: str, destination_machine: str, input: dict[str,
 
 
 if __name__ == '__main__':
-    solver.run(sys.argv[1], prepare_data, get_result)
+    solver.run(prepare_data, get_result, sys.argv)

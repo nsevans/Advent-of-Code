@@ -4,11 +4,12 @@
 
 import sys
 sys.path += './AdventOfCode/Common/Python'
-import Common.Python.utils.solve_wrapper as solver
+from Common.Python.utils.PuzzleContext import PuzzleContext
+from Common.Python.utils import SolveWrapper as solver
 import re
 
-def prepare_data(input_file: str) -> list[list[int]]:
-    with open(input_file) as file:
+def prepare_data(context: PuzzleContext) -> list[list[int]]:
+    with open(context.input_file) as file:
         input_values = file.read()
         return [list(int(i) for i in re.split(r'[,-]', l)) for l in input_values.split('\n')]
 
@@ -28,4 +29,4 @@ def intersects(a1: int, a2: int, b1: int, b2: int) -> bool:
         return True
 
 if __name__ == '__main__':
-    solver.run(sys.argv[1], prepare_data, get_result)
+    solver.run(prepare_data, get_result, sys.argv)

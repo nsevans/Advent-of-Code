@@ -4,7 +4,7 @@ public static class HelpService
 {
     public static void ShowHelp(string command = null)
     {
-        if (HelpCommandConstants.Help.Options.Any(o => o.Contains(command)))
+        if (command == null || HelpCommandConstants.Help.Options.Any(o => o.Contains(command)))
         {
             Console.WriteLine("=== Help Command ===");
             Console.WriteLine($"Usage: dotnet run -- {string.Join(" | ", HelpCommandConstants.Help.Options)}");

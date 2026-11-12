@@ -54,10 +54,14 @@ public abstract class Day_05 : BaseCSharpSolver
 			var key = int.Parse(line.Split('|', StringSplitOptions.RemoveEmptyEntries)[0]);
 			var value = int.Parse(line.Split('|', StringSplitOptions.RemoveEmptyEntries)[1]);
 
-			if (result.ContainsKey(key))
-				result[key].Add(value);
-			else
-				result.Add(key, [ value ]);
+            if (result.ContainsKey(key))
+                result[key].Add(value);
+            else
+                result.Add(key, [value]);
+
+            // Also try to add the value as a key (covers edge case where value is not found as a part of key definitions)
+            if (!result.ContainsKey(value))
+                result.Add(value, []);
 		}
 
 		return result;

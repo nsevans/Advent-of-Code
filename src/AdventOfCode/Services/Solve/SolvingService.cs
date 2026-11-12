@@ -44,7 +44,7 @@ public class SolvingService(SolverContext context)
             else
                 Console.Write($"| {solver.MinimalHeading,-15} | {solver.GetSolvingLanguage(),-10} | ");
 
-            if (!SolvingInputService.TryGetInput(solver, out var input))
+            if (!SolvingInputService.TryGetInput(solver.InputFilePath, out var input))
             {
                 Console.WriteLine($"Unable to read contents of file: '{solver.InputFilePath}'. The puzzle input can be found here: {solver.DownloadLink}");
                 // Return from method instead of breaking as all solvers in the group would use the same input file
@@ -59,8 +59,8 @@ public class SolvingService(SolverContext context)
 
     private TimeSpan RunSolver(BaseSolver solver, List<string> input)
     {
-        var loadTime = solver.TimePrepareDateExecution(input);
-        var solveTime = solver.TimeGetResultExecution(out var result);
+        var loadTime = solver.PrepareDateExecutionTimed(input);
+        var solveTime = solver.GetResultExecutionTimed(out var result);
 
         var totalTime = loadTime + solveTime;
 

@@ -4,13 +4,16 @@
 
 import sys
 sys.path += './AdventOfCode/Common/Python'
-import Common.Python.utils.solve_wrapper as solver
+from Common.Python.utils.PuzzleContext import PuzzleContext
+from Common.Python.utils import SolveWrapper as solver
 
-def prepare_data(input_file: str) -> tuple[list[list[str]], list[list[int]]]:
-    with open(input_file) as file:
+def prepare_data(context: PuzzleContext) -> tuple[list[list[str]], list[list[int]]]:
+    with open(context.input_file) as file:
         input_values = file.read().split("\n\n")
 
         stacks = [[' ' if line[i] == ' ' else line[i+1] for i in range(0, len(line), 4)] for line in input_values[0].split("\n")][:-1]
+        # Set all stacks to equal lengths
+        stacks = [stack + [' '] * (len(max(stacks)) - len(stack)) for stack in stacks]
         # rotate list so each column is its own list and remove empty positions
         stacks = [list(filter(lambda x: not str.isspace(x), reversed(row))) for row in zip(*stacks)]
 
@@ -34,4 +37,4 @@ def get_result(input: tuple[list[list[str]], list[list[int]]]) -> str:
     return ''.join([stack[-1] for stack in stacks])
 
 if __name__ == '__main__':
-    solver.run(sys.argv[1], prepare_data, get_result)
+    solver.run(prepare_data, get_result, sys.argv)

@@ -6,14 +6,14 @@ public abstract class BaseSolver : ISolver
 
     public string DownloadLink => $"{DayLink}/input";
 
-    public string InputFilePath => $"./Inputs/input_{Year}_{Day.PadLeft(2, '0')}.in";
+    public string InputFilePath => $"{InputFolderPath}/{InputFileName}";
+    private string InputFileName => $"input_{Year}_{Day.PadLeft(2, '0')}.in";
+    private static string InputFolderPath => $"{Environment.CurrentDirectory}/Inputs";
+
 
     public abstract string Title { get; }
-
     public abstract int Year { get; }
-
     public abstract int Day { get; }
-
     public abstract int Part { get; }
 
     public abstract string ResultMessage { get; }
@@ -27,7 +27,7 @@ public abstract class BaseSolver : ISolver
     /// </summary>
     /// <param name="input">A list of strings representing a file, each index is a row in the file</param>
     /// <returns>The time it takes the PrepareData method to execute</returns>
-    public abstract TimeSpan TimePrepareDateExecution(List<string> input);
+    public abstract TimeSpan PrepareDateExecutionTimed(List<string> input);
 
     /// <summary>
     /// Prepare any data needed for the solver to solve the puzzle.
@@ -40,7 +40,7 @@ public abstract class BaseSolver : ISolver
     /// </summary>
     /// <param name="result">The result the GetResult method returns on completion</param>
     /// <returns>The time it takes the GetResult method to execute</returns>
-    public abstract TimeSpan TimeGetResultExecution(out string result);
+    public abstract TimeSpan GetResultExecutionTimed(out string result);
 
     /// <summary>
     /// Solves the puzzle.

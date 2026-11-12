@@ -6,9 +6,9 @@ public abstract class BasePuzzleGenerator(GeneratorContext context) : IPuzzleGen
 
     protected abstract string TemplateFolderName { get; }
 
-    private string TemplateFilePath => $"./Services/Generate/Templates/{TemplateFolderName}";
+    private string TemplateFilePath => $"{Environment.CurrentDirectory}/Services/Generate/Templates/{TemplateFolderName}";
 
-    protected string OutputDirectory => $"./Puzzles/{_context.Year}/Day_{_context.DisplayDay}";
+    protected string OutputDirectory => $"{Environment.CurrentDirectory}/Puzzles/{_context.Year}/Day_{_context.DisplayDay}";
 
     public bool GenerateTemplates()
     {

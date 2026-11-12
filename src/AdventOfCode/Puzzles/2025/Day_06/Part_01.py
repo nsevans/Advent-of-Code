@@ -4,10 +4,11 @@
 
 import sys
 sys.path += './AdventOfCode/Common/Python'
-import Common.Python.utils.solve_wrapper as solver
+from Common.Python.utils.PuzzleContext import PuzzleContext
+from Common.Python.utils import SolveWrapper as solver
 
-def prepare_data(input_file: str) -> list[list[str]]:
-    with open(input_file) as file:
+def prepare_data(context: PuzzleContext) -> list[list[str]]:
+    with open(context.input_file) as file:
         input_values = file.read()
         return [[i for i in line.split(' ') if i != ''] for line in input_values.split('\n')]
 
@@ -25,4 +26,4 @@ def get_result(input: list[list[str]]) -> str:
     return sum
 
 if __name__ == '__main__':
-    solver.run(sys.argv[1], prepare_data, get_result)
+    solver.run(prepare_data, get_result, sys.argv)

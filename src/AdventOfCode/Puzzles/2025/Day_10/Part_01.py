@@ -4,12 +4,13 @@
 
 import sys
 sys.path += './AdventOfCode/Common/Python'
-import Common.Python.utils.solve_wrapper as solver
+from Common.Python.utils.PuzzleContext import PuzzleContext
+from Common.Python.utils import SolveWrapper as solver
 from itertools import combinations
 
-def prepare_data(input_file: str) -> list[tuple[list]]:
+def prepare_data(context: PuzzleContext) -> list[tuple[list]]:
     input = []
-    for light_diagram, *button_wiring in map(str.split, open(input_file)):
+    for light_diagram, *button_wiring in map(str.split, open(context.input_file)):
         light_diagram = [l=='#' for l in light_diagram[1:-1]]
         button_wiring = [eval(b[:-1]+',)') for b in button_wiring[:-1]]
         input.append((light_diagram, button_wiring))
@@ -35,4 +36,4 @@ def get_result(input: list[tuple[list]]) -> str:
     return total_presses
 
 if __name__ == '__main__':
-    solver.run(sys.argv[1], prepare_data, get_result)
+    solver.run(prepare_data, get_result, sys.argv)

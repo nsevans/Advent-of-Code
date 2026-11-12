@@ -38,28 +38,30 @@ public abstract class Day_18 : BaseCSharpSolver
 	public override int Day => 18;
 	public override int Year => 2024;
 
-	protected static readonly int Width = 70;
-	protected static readonly int Height = 70;
-	protected static readonly (int x, int y) StartPosition = (0, 0);
-	protected static readonly (int x, int y) EndPosition = (Width, Height);
+    protected static (int x, int y) StartPosition { get; private set; } = (0, 0);
+    protected static (int x, int y) EndPosition { get; private set; }
 
-	protected static List<(int x, int y)> ParseIncomingBytes(List<string> input)
+	protected List<(int x, int y)> ParseIncomingBytes(List<string> input)
 	{
-		return input.Select(l =>
-		{
-			var s = l.Split(',', StringSplitOptions.RemoveEmptyEntries);
-			var x = int.Parse(s[0]);
-			var y = int.Parse(s[1]);
-			return (x, y);
-		}).ToList();
+        var incomingBytes = input.Select(l =>
+        {
+            var s = l.Split(',', StringSplitOptions.RemoveEmptyEntries);
+            var x = int.Parse(s[0]);
+            var y = int.Parse(s[1]);
+            return (x, y);
+        }).ToList();
+
+        EndPosition = (70, 70);
+
+        return incomingBytes;
 	}
 
 	protected static List<List<char>> GenerateMap()
 	{
 		var map = new List<List<char>>();
-		for (var i = 0; i < Height + 1; i++)
+		for (var i = 0; i < EndPosition.y + 1; i++)
 		{
-			map.Add(Enumerable.Repeat('.', Width + 1).ToList());
+			map.Add(Enumerable.Repeat('.', EndPosition.x + 1).ToList());
 		}
 		return map;
 	}

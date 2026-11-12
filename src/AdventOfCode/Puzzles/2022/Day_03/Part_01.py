@@ -4,12 +4,13 @@
 
 import sys
 sys.path += './AdventOfCode/Common/Python'
-import Common.Python.utils.solve_wrapper as solver
+from Common.Python.utils.PuzzleContext import PuzzleContext
+from Common.Python.utils import SolveWrapper as solver
 
 priority = [x for x in ' abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ']
 
-def prepare_data(input_file: str) -> list[(set[str], set[str])]:
-    with open(input_file) as file:
+def prepare_data(context: PuzzleContext) -> list[(set[str], set[str])]:
+    with open(context.input_file) as file:
         input_values = file.read()
         return [(set(x[:int(len(x)/2)]), set(x[int(len(x)/2):])) for x in input_values.split("\n")]
 
@@ -20,4 +21,4 @@ def get_result(input: list[(set[str], set[str])]) -> str:
     return total_priority
 
 if __name__ == '__main__':
-    solver.run(sys.argv[1], prepare_data, get_result)
+    solver.run(prepare_data, get_result, sys.argv)

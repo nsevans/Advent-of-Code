@@ -15,7 +15,7 @@ public class SolvingArgumentHandler : IInputHandler<SolverContext>
 			var partValue = args.GetValueForArgument(SolveCommandConstants.Part.Options);
 			var part = string.IsNullOrEmpty(partValue) ? (int?)null : int.Parse(partValue);
 
-			var verbose = args.HasArgument(SolveCommandConstants.Verbose.Options);
+            var verbose = args.HasArgument(SolveCommandConstants.Verbose.Options);
 
 			var markdownOutputPath = args.GetValueForArgument(SolveCommandConstants.MarkdownOutput.Options);
 

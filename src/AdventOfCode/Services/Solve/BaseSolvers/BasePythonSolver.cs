@@ -2,13 +2,13 @@ namespace AdventOfCode.Services.Solve.BaseSolvers;
 
 public abstract class BasePythonSolver : BaseSolver
 {
-    private string GetResultScriptPath => $"./Puzzles/{Year}/Day_{Day.PadLeft(2, '0')}/Part_{Part.PadLeft(2, '0')}.py";
+    private string PythonScriptPath => $"{Environment.CurrentDirectory}/Puzzles/{Year}/Day_{Day.PadLeft(2, '0')}/Part_{Part.PadLeft(2, '0')}.py";
 
-    public override TimeSpan TimePrepareDateExecution(List<string> input) => TimeSpan.Zero;
+    public override TimeSpan PrepareDateExecutionTimed(List<string> input) => TimeSpan.Zero;
 
     public override void PrepareData(List<string> input) { }
 
-    public override TimeSpan TimeGetResultExecution(out string result)
+    public override TimeSpan GetResultExecutionTimed(out string result)
     {
         var output = JsonSerializer.Deserialize<Dictionary<string, string>>(GetResult());
         result = output["result"];
@@ -23,7 +23,7 @@ public abstract class BasePythonSolver : BaseSolver
             {
                 FileName = "python",
                 UseShellExecute = false,
-                Arguments = $"{GetResultScriptPath} {InputFilePath}",
+                Arguments = $"\"{PythonScriptPath}\" \"{InputFilePath}\"",
                 RedirectStandardOutput = true,
                 RedirectStandardError = false
             }

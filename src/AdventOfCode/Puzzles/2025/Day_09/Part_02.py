@@ -4,11 +4,12 @@
 
 import sys
 sys.path += './AdventOfCode/Common/Python'
-import Common.Python.utils.solve_wrapper as solver
+from Common.Python.utils.PuzzleContext import PuzzleContext
+from Common.Python.utils import SolveWrapper as solver
 from itertools import combinations, pairwise
 
-def prepare_data(input_file: str) -> list[tuple]:
-    return list(map(eval, open(input_file)))
+def prepare_data(context: PuzzleContext) -> list[tuple]:
+    return list(map(eval, open(context.input_file)))
 
 def get_result(input: list[tuple[int]]) -> str:
     # get a list of all edges aka green boundry lines, sorted by largest to smallest length
@@ -34,4 +35,4 @@ def get_area(x1: int, y1: int, x2: int, y2: int):
     return (x2 - x1 + 1) * (y2 - y1 + 1)
 
 if __name__ == '__main__':
-    solver.run(sys.argv[1], prepare_data, get_result)
+    solver.run(prepare_data, get_result, sys.argv)

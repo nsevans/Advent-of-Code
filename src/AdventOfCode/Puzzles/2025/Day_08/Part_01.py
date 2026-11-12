@@ -4,18 +4,23 @@
 
 import sys
 sys.path += './AdventOfCode/Common/Python'
-import Common.Python.utils.solve_wrapper as solver
+from Common.Python.utils.PuzzleContext import PuzzleContext
+from Common.Python.utils import SolveWrapper as solver
 import math
 import itertools
 
-def prepare_data(input_file: str) -> dict[tuple, set[tuple]]:
-    with open(input_file) as file:
+max_connections: int = 1000
+
+def prepare_data(context: PuzzleContext) -> dict[tuple, set[tuple]]:
+    global max_connections
+    max_connections = 1000
+
+    with open(context.input_file) as file:
         input_values = file.read().split()
         # create a dictionary with each coord as a key and each value being a set, initialized with the same coord
         return {coord: {coord} for coord in map(eval, input_values)}
 
 def get_result(input: dict[tuple, set[tuple]]) -> str:
-    max_connections = 1000
     # create list of each possible combination of junction box sorted by the distance
     junction_box_pairs = sorted(itertools.combinations(input, 2), key=lambda c: math.dist(*c))
     for index, (junction_box1, junction_box2) in enumerate(junction_box_pairs):
@@ -38,4 +43,4 @@ def get_result(input: dict[tuple, set[tuple]]) -> str:
     return None
 
 if __name__ == '__main__':
-    solver.run(sys.argv[1], prepare_data, get_result)
+    solver.run(prepare_data, get_result, sys.argv)

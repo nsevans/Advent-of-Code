@@ -14,7 +14,8 @@
 
 import sys
 sys.path += './AdventOfCode/Common/Python'
-import Common.Python.utils.solve_wrapper as solver
+from Common.Python.utils.PuzzleContext import PuzzleContext
+from Common.Python.utils import SolveWrapper as solver
 
 # The point outcomes of each hand played
 # The first number is the points earned for the hand played, the second number
@@ -25,8 +26,8 @@ outcomes = {
     'C': {'X': 2 + 0, 'Y': 3 + 3, 'Z': 1 + 6}
 }
 
-def prepare_data(input_file: str) -> list[(chr, chr)]:
-    with open(input_file) as file:
+def prepare_data(context: PuzzleContext) -> list[(chr, chr)]:
+    with open(context.input_file) as file:
         input_values = file.read()
         return input_values.split('\n')
 
@@ -37,4 +38,4 @@ def get_result(input: list[(chr, chr)]) -> str:
     return score
 
 if __name__ == '__main__':
-    solver.run(sys.argv[1], prepare_data, get_result)
+    solver.run(prepare_data, get_result, sys.argv)

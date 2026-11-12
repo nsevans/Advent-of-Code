@@ -9,7 +9,7 @@ public class Program
 	public static string AdventOfCodeUrl => "https://adventofcode.com";
 
 	public static void Main(string[] args)
-	{
+    {
 		var firstArgument = args.FirstOrDefault();
 
         if (GenerateCommandConstants.Generate.Options.Contains(firstArgument))

@@ -4,11 +4,12 @@
 
 import sys
 sys.path += './AdventOfCode/Common/Python'
-import Common.Python.utils.solve_wrapper as solver
+from Common.Python.utils.PuzzleContext import PuzzleContext
+from Common.Python.utils import SolveWrapper as solver
 
-def prepare_data(input_file: str) -> dict[str, set[str]]:
+def prepare_data(context: PuzzleContext) -> dict[str, set[str]]:
     input = dict()
-    for machine, *links in map(str.split, open(input_file)):
+    for machine, *links in map(str.split, open(context.input_file)):
         input[machine[:-1]] = set(links)
     return input
 
@@ -33,4 +34,4 @@ def traverse(input, machine, end):
     return path_count
 
 if __name__ == '__main__':
-    solver.run(sys.argv[1], prepare_data, get_result)
+    solver.run(prepare_data, get_result, sys.argv)

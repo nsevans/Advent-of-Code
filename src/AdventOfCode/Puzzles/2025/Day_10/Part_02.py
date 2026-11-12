@@ -4,12 +4,13 @@
 
 import sys
 sys.path += './AdventOfCode/Common/Python'
-import Common.Python.utils.solve_wrapper as solver
+from Common.Python.utils.PuzzleContext import PuzzleContext
+from Common.Python.utils import SolveWrapper as solver
 from scipy.optimize import linprog
 
-def prepare_data(input_file: str) -> list[tuple[list]]:
+def prepare_data(context: PuzzleContext) -> list[tuple[list]]:
     input = []
-    for _, *button_wiring, joultage in map(str.split, open(input_file)):
+    for _, *button_wiring, joultage in map(str.split, open(context.input_file)):
         button_wiring = [eval(b[:-1]+',)') for b in button_wiring]
         joultage = eval(joultage[1:-1])
         input.append((button_wiring, joultage))
@@ -29,4 +30,4 @@ def get_result(input: list[tuple[list]]) -> str:
     return int(total_presses)
 
 if __name__ == '__main__':
-    solver.run(sys.argv[1], prepare_data, get_result)
+    solver.run(prepare_data, get_result, sys.argv)

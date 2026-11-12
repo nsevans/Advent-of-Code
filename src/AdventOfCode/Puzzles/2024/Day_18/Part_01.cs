@@ -6,14 +6,14 @@ public class Part_01 : Day_18
 
 	public override string ResultMessage => "The minimum number of steps needed to reach the exit";
 
+	private static int _bytesFallen;
 	List<(int x, int y)> _incomingBytes;
 	List<List<char>> _map;
 
-	private static readonly int _bytesFallen = 1024;
-
 	public override void PrepareData(List<string> input)
 	{
-		_incomingBytes = ParseIncomingBytes(input);
+        _incomingBytes = ParseIncomingBytes(input);
+        _bytesFallen = 1024;
 		_map = GenerateMap();
 	}
 

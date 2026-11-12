@@ -6,11 +6,13 @@ public class Part_02 : Day_18
 
 	public override string ResultMessage => "The coordinate of the first byte that completely blocks the path";
 
-	List<(int x, int y)> _incomingBytes;
+    private static int _minBlockingBytes;
+    List<(int x, int y)> _incomingBytes;
 
 	public override void PrepareData(List<string> input)
 	{
-		_incomingBytes = ParseIncomingBytes(input);
+        _incomingBytes = ParseIncomingBytes(input);
+        _minBlockingBytes = 1024;
 	}
 
 	public override string GetResult()
@@ -22,7 +24,7 @@ public class Part_02 : Day_18
 	{
 		// Set to 1024 because the first puzzle shows that there is still a path after the first 1024
 		// bytes have fallen
-		var minBlockingBytes = 1024;
+		var minBlockingBytes = _minBlockingBytes;
 		var maxBlockingBytes = incomingBytes.Count - 1;
 
 		while (minBlockingBytes < maxBlockingBytes)

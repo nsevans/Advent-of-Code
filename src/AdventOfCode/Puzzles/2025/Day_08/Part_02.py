@@ -4,12 +4,13 @@
 
 import sys
 sys.path += './AdventOfCode/Common/Python'
-import Common.Python.utils.solve_wrapper as solver
+from Common.Python.utils.PuzzleContext import PuzzleContext
+from Common.Python.utils import SolveWrapper as solver
 import math
 import itertools
 
-def prepare_data(input_file: str) -> dict[tuple, set[tuple]]:
-    with open(input_file) as file:
+def prepare_data(context: PuzzleContext) -> dict[tuple, set[tuple]]:
+    with open(context.input_file) as file:
         input_values = file.read().split()
         # create a dictionary with each coord as a key and each value being a set, initialized with the same coord
         return {coord: {coord} for coord in map(eval, input_values)}
@@ -39,4 +40,4 @@ def get_distance(a: list[int], b: list[int]):
     return abs((a[0] - b[0]**2) + ((a[1] - b[1])**2) + ((a[2] - b[2])**2))
 
 if __name__ == '__main__':
-    solver.run(sys.argv[1], prepare_data, get_result)
+    solver.run(prepare_data, get_result, sys.argv)
